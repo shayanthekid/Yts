@@ -1,1 +1,108 @@
-{}
+{
+  "api": {
+    "ytsdev": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "createItem"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "createItem": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "createitem2": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "itemcreate": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_createItem_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createItem"
+        }
+      ]
+    },
+    "AMPLIFY_function_createItem_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createItem"
+        }
+      ]
+    },
+    "AMPLIFY_function_createitem2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createitem2"
+        }
+      ]
+    },
+    "AMPLIFY_function_createitem2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createitem2"
+        }
+      ]
+    },
+    "AMPLIFY_function_itemcreate_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "itemcreate"
+        }
+      ]
+    },
+    "AMPLIFY_function_itemcreate_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "itemcreate"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    }
+  }
+}

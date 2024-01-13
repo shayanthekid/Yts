@@ -28,6 +28,8 @@ const ConstructionRoute = () => {
                     alt="Under Construction"
                     className="w-full h-auto"
                 />
+                {/* <h1 className="text-4xl font-bold mb-4">test</h1> */}
+
             </div>
         </div>
     );

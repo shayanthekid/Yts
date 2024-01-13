@@ -1,15 +1,40 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-yts-dev-122216-authRole",
-      "UnauthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts-dev-122216-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts-dev-122216-authRole",
+      "AuthRoleName": "amplify-yts-dev-113405-authRole",
+      "UnauthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts-dev-113405-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts-dev-113405-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-yts-dev-122216-deployment",
-      "UnauthRoleName": "amplify-yts-dev-122216-unauthRole",
-      "StackName": "amplify-yts-dev-122216",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:539272735821:stack/amplify-yts-dev-122216/9a782420-aa04-11ee-971e-0622ebc9927a",
-      "AmplifyAppId": "d11ull5wzly5po"
+      "DeploymentBucketName": "amplify-yts-dev-113405-deployment",
+      "UnauthRoleName": "amplify-yts-dev-113405-unauthRole",
+      "StackName": "amplify-yts-dev-113405",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:539272735821:stack/amplify-yts-dev-113405/8d1f4380-b1d9-11ee-bf7f-02202aeae2d8",
+      "AmplifyAppId": "d17aj7nvyqd2kc"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d17aj7nvyqd2kc",
+          "type": "manual"
+        }
+      },
+      "function": {
+        "createItem": {
+          "deploymentBucketName": "amplify-yts-dev-113405-deployment",
+          "s3Key": "amplify-builds/createItem-644c4c437568566f7538-build.zip"
+        },
+        "itemcreate": {
+          "deploymentBucketName": "amplify-yts-dev-113405-deployment",
+          "s3Key": "amplify-builds/itemcreate-644f4a5166315a424363-build.zip"
+        },
+        "createitem2": {
+          "deploymentBucketName": "amplify-yts-dev-113405-deployment",
+          "s3Key": "amplify-builds/createitem2-30744e78724e4777434c-build.zip"
+        }
+      },
+      "api": {
+        "ytsdev": {}
+      }
     }
   }
 }

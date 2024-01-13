@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/yts": {
+      "name": "/yts",
+      "lambdaFunction": "createItem",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
