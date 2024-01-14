@@ -17,19 +17,6 @@
           "appId": "d3bzwwf781sxk2",
           "type": "cicd"
         }
-      },
-      "function": {
-        "createitem": {
-          "deploymentBucketName": "amplify-yts2-test-102419-deployment",
-          "s3Key": "amplify-builds/createitem-6858306d47317a33485a-build.zip"
-        },
-        "getitem": {
-          "deploymentBucketName": "amplify-yts2-test-102419-deployment",
-          "s3Key": "amplify-builds/getitem-4d5671466d4f616b776f-build.zip"
-        }
-      },
-      "api": {
-        "ytsdev2": {}
       }
     }
   }

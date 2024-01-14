@@ -1,32 +1,6 @@
 {
-  "api": {
-    "ytsdev2": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "createitem"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    }
-  },
-  "function": {
-    "createitem": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "getitem": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
+  "api": {},
+  "function": {},
   "hosting": {
     "amplifyhosting": {
       "lastPushTimeStamp": "2024-01-14T04:57:11.741Z",
@@ -35,38 +9,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_createitem_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "createitem"
-        }
-      ]
-    },
-    "AMPLIFY_function_createitem_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "createitem"
-        }
-      ]
-    },
-    "AMPLIFY_function_getitem_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getitem"
-        }
-      ]
-    },
-    "AMPLIFY_function_getitem_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getitem"
-        }
-      ]
-    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {
