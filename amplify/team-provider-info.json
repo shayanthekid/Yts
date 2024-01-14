@@ -1,39 +1,35 @@
 {
-  "dev": {
+  "test": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-yts-dev-113405-authRole",
-      "UnauthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts-dev-113405-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts-dev-113405-authRole",
+      "AuthRoleName": "amplify-yts2-test-102419-authRole",
+      "UnauthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts2-test-102419-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::539272735821:role/amplify-yts2-test-102419-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-yts-dev-113405-deployment",
-      "UnauthRoleName": "amplify-yts-dev-113405-unauthRole",
-      "StackName": "amplify-yts-dev-113405",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:539272735821:stack/amplify-yts-dev-113405/8d1f4380-b1d9-11ee-bf7f-02202aeae2d8",
-      "AmplifyAppId": "d17aj7nvyqd2kc"
+      "DeploymentBucketName": "amplify-yts2-test-102419-deployment",
+      "UnauthRoleName": "amplify-yts2-test-102419-unauthRole",
+      "StackName": "amplify-yts2-test-102419",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:539272735821:stack/amplify-yts2-test-102419/f6b452d0-b298-11ee-8462-0a2e69ab22e5",
+      "AmplifyAppId": "d3bzwwf781sxk2"
     },
     "categories": {
       "hosting": {
         "amplifyhosting": {
-          "appId": "d17aj7nvyqd2kc",
-          "type": "manual"
+          "appId": "d3bzwwf781sxk2",
+          "type": "cicd"
         }
       },
       "function": {
-        "createItem": {
-          "deploymentBucketName": "amplify-yts-dev-113405-deployment",
-          "s3Key": "amplify-builds/createItem-644c4c437568566f7538-build.zip"
+        "createitem": {
+          "deploymentBucketName": "amplify-yts2-test-102419-deployment",
+          "s3Key": "amplify-builds/createitem-6858306d47317a33485a-build.zip"
         },
-        "itemcreate": {
-          "deploymentBucketName": "amplify-yts-dev-113405-deployment",
-          "s3Key": "amplify-builds/itemcreate-644f4a5166315a424363-build.zip"
-        },
-        "createitem2": {
-          "deploymentBucketName": "amplify-yts-dev-113405-deployment",
-          "s3Key": "amplify-builds/createitem2-30744e78724e4777434c-build.zip"
+        "getitem": {
+          "deploymentBucketName": "amplify-yts2-test-102419-deployment",
+          "s3Key": "amplify-builds/getitem-4d5671466d4f616b776f-build.zip"
         }
       },
       "api": {
-        "ytsdev": {}
+        "ytsdev2": {}
       }
     }
   }

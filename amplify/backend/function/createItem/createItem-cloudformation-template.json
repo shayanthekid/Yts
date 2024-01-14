@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "createItem",
+            "createitem",
             {
               "Fn::Join": [
                 "",
                 [
-                  "createItem",
+                  "createitem",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "ytsLambdaRole1b9e411c",
+            "yts2LambdaRole4b9ce2a6",
             {
               "Fn::Join": [
                 "",
                 [
-                  "ytsLambdaRole1b9e411c",
+                  "yts2LambdaRole4b9ce2a6",
                   "-",
                   {
                     "Ref": "env"

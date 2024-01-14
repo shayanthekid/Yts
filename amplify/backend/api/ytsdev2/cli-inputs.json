@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/yts": {
-      "name": "/yts",
-      "lambdaFunction": "createItem",
+    "/yts2": {
+      "name": "/yts2",
+      "lambdaFunction": "createitem",
       "permissions": {
         "setting": "open"
       }

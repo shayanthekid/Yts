@@ -1,6 +1,6 @@
 {
   "api": {
-    "ytsdev": {
+    "ytsdev2": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "createItem"
+          "resourceName": "createitem"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,17 +16,12 @@
     }
   },
   "function": {
-    "createItem": {
+    "createitem": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "createitem2": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "itemcreate": {
+    "getitem": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -34,57 +29,41 @@
   },
   "hosting": {
     "amplifyhosting": {
-      "providerPlugin": "awscloudformation",
+      "lastPushTimeStamp": "2024-01-14T04:57:11.741Z",
       "service": "amplifyhosting",
-      "type": "manual"
+      "type": "cicd"
     }
   },
   "parameters": {
-    "AMPLIFY_function_createItem_deploymentBucketName": {
+    "AMPLIFY_function_createitem_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "createItem"
+          "resourceName": "createitem"
         }
       ]
     },
-    "AMPLIFY_function_createItem_s3Key": {
+    "AMPLIFY_function_createitem_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "createItem"
+          "resourceName": "createitem"
         }
       ]
     },
-    "AMPLIFY_function_createitem2_deploymentBucketName": {
+    "AMPLIFY_function_getitem_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "createitem2"
+          "resourceName": "getitem"
         }
       ]
     },
-    "AMPLIFY_function_createitem2_s3Key": {
+    "AMPLIFY_function_getitem_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "createitem2"
-        }
-      ]
-    },
-    "AMPLIFY_function_itemcreate_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "itemcreate"
-        }
-      ]
-    },
-    "AMPLIFY_function_itemcreate_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "itemcreate"
+          "resourceName": "getitem"
         }
       ]
     },
