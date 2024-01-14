@@ -1,14 +1,56 @@
 {
-  "api": {},
-  "function": {},
+  "function": {
+    "createbooking": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "getitem": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
-      "lastPushTimeStamp": "2024-01-14T04:57:11.741Z",
+      "lastPushTimeStamp": "2024-01-14T06:42:41.307Z",
       "service": "amplifyhosting",
       "type": "cicd"
     }
   },
   "parameters": {
+    "AMPLIFY_function_createbooking_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createbooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_createbooking_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createbooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_getitem_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_getitem_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getitem"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {
