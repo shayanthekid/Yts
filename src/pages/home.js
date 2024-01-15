@@ -86,7 +86,7 @@ const Home = () => {
                   <div className="flex flex-col items-center">
                       <img src={vacation} alt="Home Icon" className="mb-2 w-8 h-8 mx-auto" />
                       <h2 className="text-lg font-bold mb-2">Holiday Homes</h2>
-                      <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
                   </div>
               </div>
           </div>
