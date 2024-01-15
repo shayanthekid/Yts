@@ -9,6 +9,7 @@ import icon1 from '../assets/images/car.svg'; // Replace with your actual image 
 import icon2 from '../assets/images/building.svg';
 import icon3 from '../assets/images/vacation.svg';
 import hwicar from '../assets/images/hiwcar.png';
+import aboutUsImage from '../assets/images/aboutusmobile.png';
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState(1);
@@ -134,6 +135,24 @@ const Home = () => {
               </div>
           </div>
 
+
+          <div className="container mx-auto p-8 text-center">
+              {/* Image */}
+              <img src={aboutUsImage} alt="About Us" className="w-full h-auto mb-8 rounded-lg" />
+
+              {/* Heading */}
+              <h2 className="text-3xl font-bold mb-4">About Us</h2>
+
+              {/* Paragraph */}
+              <p className="text-sm text-gray-700 mb-8">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+
+              {/* Learn More Button */}
+              <button className="bg-[#CCE28D] text-white py-2 px-4 rounded-full font-bold">
+                  Learn More
+              </button>
+          </div>
 
       </div>
 
