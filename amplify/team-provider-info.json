@@ -26,6 +26,10 @@
         "createbooking": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/createbooking-6959723356643632726d-build.zip"
+        },
+        "addimages": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/addimages-38366a736f6945766c54-build.zip"
         }
       }
     }

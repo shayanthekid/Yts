@@ -1,5 +1,10 @@
 {
   "function": {
+    "addimages": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "createbooking": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -19,6 +24,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_addimages_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "addimages"
+        }
+      ]
+    },
+    "AMPLIFY_function_addimages_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "addimages"
+        }
+      ]
+    },
     "AMPLIFY_function_createbooking_deploymentBucketName": {
       "usedBy": [
         {
