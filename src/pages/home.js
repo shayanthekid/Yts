@@ -1,23 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react';
 import BackgroundSVG from '../assets/images/homele.svg'; // Adjust the path based on your project structure
 import BackgroundSVG2 from '../assets/images/homele.png'; // Adjust the path based on your project structure
 import trendingimage from '../assets/images/trending.png';
 import property from '../assets/images/property.png';
 import car from '../assets/images/car.png';
 import vacation from '../assets/images/home.png';
+import icon1 from '../assets/images/car.svg'; // Replace with your actual image paths
+import icon2 from '../assets/images/building.svg';
+import icon3 from '../assets/images/vacation.svg';
+import hwicar from '../assets/images/hiwcar.png';
 
+const Home = () => {
+    const [activeTab, setActiveTab] = useState(1);
 
-function home() {
+    const handleTabClick = (tabNumber) => {
+        setActiveTab(tabNumber);
+    };
+
   return (
-      <div className="min-h-screen ">
+      <div className="min-h-screen bg-[#F7F7F7]">
           {/* Add the SVG background here */}
-          <img src={BackgroundSVG2} alt="Background" className="absolute bottom-0 w-full h-full -z-10" />
+          <img src={BackgroundSVG2} alt="Background" className="absolute bottom-0 w-full h-full " />
 
 {/* Hero section */}
-          <div className="container mx-auto p-4">
+          <div className="container mx-auto p-4 z-50">
               <div className="grid grid-rows-2 md:grid-cols-1 gap-4">
                   {/* First Row - Card */}
-                  <div className=" p-4 h-[350px]"> {/* Set a fixed height */}
+                  <div className=" p-4 h-[350px] z-10"> {/* Set a fixed height */}
                       {/* Section 1 - Trending Property Heading */}
                       <div className="bg-blue-800 text-white p-2 rounded-t-md text-center">
                           <h2 className="text-lg font-bold">Trending Property</h2>
@@ -43,7 +52,7 @@ function home() {
                   </div>
 
                   {/* Second Row - Heading */}
-                  <div className="flex flex-col items-center justify-center "> {/* Adjusted height and margin-bottom */}
+                  <div className="flex flex-col items-center justify-center z-10 "> {/* Adjusted height and margin-bottom */}
                       <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-center mt-20">
                           Discover Rentals, Properties, and Vehicles
                       </h1>
@@ -83,10 +92,52 @@ function home() {
           </div>
 
       
-      
+      {/* How does it work section */}
+          <div className="container mx-auto p-8 text-center">
+              <h2 className="text-3xl font-bold mb-8">How does it work?</h2>
+
+              <div className="flex justify-between bg-white rounded-full shadow-md p-1 ">
+                  {/* Tab 1 */}
+                  <button
+                      className={`rounded-full p-2 mx-2 ${activeTab === 1 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'
+                          }`}
+                      onClick={() => handleTabClick(1)}
+                  >
+                      <img src={icon1} alt="Icon 1" className="w-8 h-8" />
+                  </button>
+
+                  {/* Tab 2 */}
+                  <button
+                      className={`rounded-full p-2 mx-2 ${activeTab === 2 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'
+                          }`}
+                      onClick={() => handleTabClick(2)}
+                  >
+                      <img src={icon2} alt="Icon 2" className="w-8 h-8" />
+                  </button>
+
+                  {/* Tab 3 */}
+                  <button
+                      className={`rounded-full p-2 mx-2 ${activeTab === 3 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'
+                          }`}
+                      onClick={() => handleTabClick(3)}
+                  >
+                      <img src={icon3} alt="Icon 3" className="w-8 h-8" />
+                  </button>
+              </div>
+
+              {/* Display content based on active tab */}
+              <div className="mt-8">
+                  {activeTab === 1 && <img src={hwicar} alt="Content 1" className="mx-auto" />}
+                  {/* replace hwicar with the rest of the creatives */}
+                  {activeTab === 2 && <img src={hwicar} alt="Content 2" className="mx-auto" />}
+                  {activeTab === 3 && <img src={hwicar} alt="Content 3" className="mx-auto" />}
+              </div>
+          </div>
+
+
       </div>
 
   )
 }
 
-export default home
+export default Home
