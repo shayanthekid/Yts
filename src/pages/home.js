@@ -71,7 +71,7 @@ const Home = () => {
                 opacity: 1,
                 y: 20,
                 stagger: 0.1,
-                ease: "power2.in"
+                ease: "power1.in"
             });
         });
 
