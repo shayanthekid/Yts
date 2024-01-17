@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import BackgroundSVG from '../assets/images/homele.svg'; 
 import BackgroundSVG2 from '../assets/images/homele.png'; 
 import BackgroundSVGDesk from '../assets/images/homedesk.png'; 
@@ -12,14 +13,27 @@ import icon3 from '../assets/images/vacation.svg';
 import hwicar from '../assets/images/hiwcar.png';
 import aboutUsImage from '../assets/images/aboutusmobile.png';
 import aboutUsdesk from '../assets/images/aboutusdesk.png';
+import { gsap } from 'gsap';
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
-
+    const location = useLocation();
+    const headingRef = useRef(null);
     const handleTabClick = (tabNumber) => {
         setActiveTab(tabNumber);
     };
+
+    useEffect(() => {
+        gsap.from(headingRef.current, {
+            opacity: 0,
+            y: 20,
+            duration: 1.5,
+            ease: 'power3.out',
+        });
+    }, [location.pathname]);
+
+
 
     useEffect(() => {
         const handleResize = () => {
@@ -99,7 +113,7 @@ const Home = () => {
           ) : (
               // Content for Mobile
                   <div className="container mx-auto p-4 z-50">
-                      <div className="grid grid-rows-2 md:grid-cols-1 gap-4">
+                      <div  className="grid grid-rows-2 md:grid-cols-1 gap-4">
                           {/* First Row - Card */}
                           <div className=" p-4 h-[350px] z-10"> {/* Set a fixed height */}
                               {/* Section 1 - Trending Property Heading */}
@@ -128,7 +142,9 @@ const Home = () => {
 
                           {/* Second Row - Heading */}
                           <div className="flex flex-col items-center justify-center z-10 "> {/* Adjusted height and margin-bottom */}
-                              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-center mt-20">
+                              <h1 
+                            ref={headingRef}  
+                              className="text-3xl md:text-4xl lg:text-5xl font-black text-center mt-20">
                                   Discover Rentals, Properties, and Vehicles
                               </h1>
                               <div className="relative bottom-12 left-0 right-0 text-center mt-auto"> {/* mt-auto to push the button to the bottom */}
