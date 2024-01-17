@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import bookingimg from '../../assets/images/ytslogo.png';
+import carLogo from '../../assets/images/ytsrentacar.png'; // Replace with the path to your car logo
 
 const MobileNavbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const location = useLocation();
 
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
+    };
+
+    const getLogo = () => {
+        // Check if the current route is /listingcar
+        if (location.pathname === '/listingcar') {
+            return carLogo;
+        }
+        // Default logo for other routes
+        return bookingimg;
     };
 
     return (
@@ -27,10 +38,9 @@ const MobileNavbar = () => {
 
                 {/* Logo (Centered) */}
                 <Link to="/" className="flex-grow text-center">
-                    <img src={bookingimg} alt="Your Logo" className="h-8 w-auto mx-auto" />
+                    <img src={getLogo()} alt="Your Logo" className="h-8 w-auto mx-auto" />
                 </Link>
             </div>
-
 
             {/* Drawer Menu */}
             <div
