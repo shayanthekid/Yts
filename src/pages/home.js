@@ -14,25 +14,114 @@ import hwicar from '../assets/images/hiwcar.png';
 import aboutUsImage from '../assets/images/aboutusmobile.png';
 import aboutUsdesk from '../assets/images/aboutusdesk.png';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const location = useLocation();
     const headingRef = useRef(null);
+    const trendingRef = useRef(null);
+    const logosRefs = {
+        property: useRef(null),
+        car: useRef(null),
+        vacation: useRef(null),
+    };;
+    const hdiwRef = useRef(null);
+    const aboutRef = useRef(null);
+
     const handleTabClick = (tabNumber) => {
         setActiveTab(tabNumber);
     };
 
     useEffect(() => {
-        gsap.from(headingRef.current, {
-            opacity: 0,
+        // Your GSAP animations here
+        const tl = gsap.timeline();
+        tl.to(headingRef.current, {
+            opacity: 1,
             y: 20,
-            duration: 1.5,
+            duration: 1,
             ease: 'power3.out',
         });
+
+        const tl2 = gsap.timeline();
+        tl2.fromTo(
+            trendingRef.current,
+            { opacity: 0 }, // Start values
+            { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power3.out" } // End values
+        );
+
+        // Animation for properties, car rentals, and holiday homes
+        Object.keys(logosRefs).forEach((key) => {
+            const tl3 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: logosRefs[key].current,
+                    start: 'top center',
+                    end: '80% center',
+                    scrub: false,
+                    markers: false,
+                }
+            });
+
+            tl3.fromTo(logosRefs[key].current, {
+                opacity: 0,
+            }, {
+                duration: 0.5,
+                opacity: 1,
+                y: 20,
+                stagger: 0.1,
+                ease: "back.in"
+            });
+        });
+
+        const t4 = gsap.timeline({
+            scrollTrigger: {
+                trigger: hdiwRef.current,
+                start: 'top center',
+                end: '80% center',
+                scrub: false,
+                markers: false,
+            }
+        });
+
+        // Add animations to the fourth timeline
+        t4.fromTo(hdiwRef.current, {
+            opacity: 0,
+        }, {
+            duration: 0.5,
+            opacity: 1,
+            y: 20,
+            stagger: 0.1,
+            ease: "back.in"
+        });
+
+        const t5 = gsap.timeline({
+            scrollTrigger: {
+                trigger: aboutRef.current,
+                start: 'top center',
+                end: '80% center',
+                scrub: false,
+                markers: false,
+            }
+        });
+
+        // Add animations to the fourth timeline
+        t5.fromTo(aboutRef.current, {
+            opacity: 0,
+        }, {
+            duration: 0.5,
+            opacity: 1,
+            y: 20,
+            stagger: 0.1,
+            ease: "back.in"
+        });
+
+
     }, [location.pathname]);
 
+    
+   
 
 
     useEffect(() => {
@@ -115,7 +204,7 @@ const Home = () => {
                   <div className="container mx-auto p-4 z-50">
                       <div  className="grid grid-rows-2 md:grid-cols-1 gap-4">
                           {/* First Row - Card */}
-                          <div className=" p-4 h-[350px] z-10"> {/* Set a fixed height */}
+                          <div className=" p-4 h-[350px] z-10" ref={trendingRef} > {/* Set a fixed height */}
                               {/* Section 1 - Trending Property Heading */}
                               <div className="bg-blue-800 text-white p-2 rounded-full text-center">
                                   <h2 className="text-lg font-bold">Trending Property</h2>
@@ -165,21 +254,21 @@ const Home = () => {
           <div className="container mx-auto p-4 z-50">
               <div className="flex flex-col md:flex-row justify-center">
                   {/* Item 1 */}
-                  <div className="flex flex-col items-center mb-4 md:mr-4 z-10">
+                  <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
                       <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                       <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
                       <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   </div>
 
                   {/* Item 2 */}
-                  <div className="flex flex-col items-center mb-4 md:mr-4 z-10">
+                  <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
                       <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                       <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
                       <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   </div>
 
                   {/* Item 3 */}
-                  <div className="flex flex-col items-center z-10">
+                  <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
                       <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                       <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                       <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
@@ -189,7 +278,7 @@ const Home = () => {
 
       
       {/* How does it work section */}
-          <div className="container mx-auto p-8 text-center z-50 relative mt-20">
+          <div className="container mx-auto p-8 text-center z-50 relative mt-20" ref={hdiwRef}>
               <h2 className="text-3xl font-bold mb-8 z-10">How does it work?</h2>
 
               <div className="flex justify-center items-center">
@@ -271,7 +360,7 @@ const Home = () => {
 
           ) : (
               //Mobile
-                  <div className="container mx-auto p-8 text-center">
+                  <div className="container mx-auto p-8 text-center" ref={aboutRef}>
                       {/* Image */}
                       <img src={aboutUsImage} alt="About Us" className="w-full h-auto mb-8 rounded-lg" />
 
