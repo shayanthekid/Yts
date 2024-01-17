@@ -41,7 +41,7 @@ const FilterPanel = ({ type }) => {
 
 {isDesktop ? (
                 //Desktop
-                <div className="flex absolute  h-screen  -mt-32">
+                <div className="flex absolute  h-screen  -mt-72">
                     <div className="bg-gray-100 p-4 rounded-xl shadow-md w-1/2 ml-32 ">
                         {/* Search Bar */}
                         <div className="relative flex items-center">
