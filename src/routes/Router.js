@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import ConstructionRoute from './constructionroute';
 import _createItem from '../pages/createitem';
@@ -11,9 +11,31 @@ import DesktopNav from '../pages/components/desknav';
 
 
 const AppRouter = () => {
+    const [activeTab, setActiveTab] = useState(1);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     return (
         <Router>
-            <DesktopNav />
+            {isDesktop ? (
+              //Desktop
+                <DesktopNav />
+
+            ) : (
+                //Mobile
+                    <MobileNavbar />
+            )}
+
+            
             <Routes>
                 <Route path='/' element={<ConstructionRoute />} />
                 <Route path='/admin/createItem' element={<_createItem />} />
