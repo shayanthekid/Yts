@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import Calendar from "@demark-pro/react-booking-calendar";
+import settingsicon from '../../assets/images/featureicons/settings.png';
+import dropdownicon from '../../assets/images/featureicons/drop.png';
+import searchicon from '../../assets/images/featureicons/search.png';
 
 const FilterPanel = () => {
+    const reserved = [
+        {
+            startDate: new Date(2024, 0, 28),
+            endDate: new Date(2024, 1, 10),
+        },
+    ];
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
     const [selectedDates, setSelectedDates] = useState([]);
 
@@ -14,7 +23,7 @@ const FilterPanel = () => {
     };
 
     return (
-        <div className="bg-gray-100 p-4 rounded-md shadow-md">
+        <div className="bg-gray-100 p-4 rounded-md ">
             {/* Filter Panel Content */}
             {/* Include Search bar, Date picker, Price range picker, and More button */}
 
@@ -23,9 +32,9 @@ const FilterPanel = () => {
                 <div className="relative flex items-center w-full">
                     <span className="absolute left-4 text-gray-500">
                         {/* You can replace the following line with your desired icon */}
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            {/* Icon code goes here */}
-                        </svg>
+                      
+                        <img src={searchicon} alt="Bath Icon" className="w-5 h-5" />
+
                     </span>
                     <input
                         type="text"
@@ -38,25 +47,25 @@ const FilterPanel = () => {
             {/* Date Picker, Price Range Picker, More Button */}
             <div className="flex items-center">
                 {/* Date Picker */}
-                <div className="flex items-center mr-4" onClick={handleAvailabilityClick}>
-                    <p className="mr-2">Availability</p>
-                    <span className="text-gray-500">
-                        {/* You can replace the following line with your desired icon */}
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            {/* Icon code goes here */}
-                        </svg>
-                    </span>
+                <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between" onClick={handleAvailabilityClick}>
+                    <p className="text-center font-normal">Availability</p>
+                    <img src={dropdownicon} alt="Bath Icon" className="w-4 h-2 ml-2" />
+                    
                 </div>
 
                 {/* Price Range Picker */}
-                <div className="flex items-center mr-4">
-                    {/* ... (your existing price range picker code) */}
-                </div>
+                {/* <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
+                    <p className="text-center font-normal">Price Range</p>
+                    <img src={dropdownicon} alt="Bath Icon" className="w-4 h-2 ml-2" />
+
+                </div> */}
 
                 {/* More Button */}
-                <button className="flex items-center">
-                    {/* ... (your existing more button code) */}
-                </button>
+                <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
+                    <p className="text-center font-normal">More</p>
+                    <img src={settingsicon} alt="Bath Icon" className="w-4 h-4 ml-2" />
+
+                </div>
             </div>
 
             {/* Show Date Picker if Availability is clicked */}
@@ -67,6 +76,7 @@ const FilterPanel = () => {
                         onChange={handleChange}
                         onOverbook={(e, err) => alert(err)}
                         disabled={(date, state) => !state.isSameMonth}
+                        reserved={reserved}
                         range={true}
                         dateFnsOptions={{ weekStartsOn: 1 }}
                     />
