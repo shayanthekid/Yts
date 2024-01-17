@@ -41,15 +41,15 @@ const Home = () => {
         tl.to(headingRef.current, {
             opacity: 1,
             y: 20,
-            duration: 1,
-            ease: 'power3.out',
+            duration: 1.5,
+            ease: 'power2.out',
         });
 
         const tl2 = gsap.timeline();
         tl2.fromTo(
             trendingRef.current,
             { opacity: 0 }, // Start values
-            { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power3.out" } // End values
+            { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power2.out" } // End values
         );
 
         // Animation for properties, car rentals, and holiday homes
@@ -71,7 +71,7 @@ const Home = () => {
                 opacity: 1,
                 y: 20,
                 stagger: 0.1,
-                ease: "back.in"
+                ease: "power2.in"
             });
         });
 

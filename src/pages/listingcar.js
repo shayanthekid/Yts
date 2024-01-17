@@ -7,6 +7,8 @@ import ListingCards from './components/listingcards';
 const Listingcar = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const type = 1; // Specify the type here (1, 2, or 3)
+
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
@@ -26,7 +28,7 @@ const Listingcar = () => {
         //Desktop    
         <div className="min-h-screen bg-white">
           <MapSection />
-          <FilterPanel />
+          <FilterPanel type={type} />
         </div>
       
 
@@ -34,8 +36,8 @@ const Listingcar = () => {
         //Mobile
           <div className="min-h-screen bg-[#F7F7F7]">
       <MapSection />
-      <FilterPanel />
-      <ListingCards />
+            <FilterPanel type={type} />
+            <ListingCards type={type} />
           </div>
       )}
 

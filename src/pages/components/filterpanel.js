@@ -5,7 +5,7 @@ import dropdownicon from '../../assets/images/featureicons/drop.png';
 import searchicon from '../../assets/images/featureicons/search.png';
 import ListingCards from './listingcards';
 
-const FilterPanel = () => {
+const FilterPanel = ({ type }) => {
     const reserved = [
         {
             startDate: new Date(2024, 0, 28),
@@ -96,7 +96,7 @@ const FilterPanel = () => {
                         )}
                         <div>
                             {/* Listing Cards */}
-                            <ListingCards />
+                            <ListingCards type={type} />
                         </div>
                     </div>
                    
