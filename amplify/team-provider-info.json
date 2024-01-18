@@ -29,7 +29,7 @@
         },
         "addimages": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/addimages-38366a736f6945766c54-build.zip"
+          "s3Key": "amplify-builds/addimages-667067796e4855656e41-build.zip"
         }
       }
     }

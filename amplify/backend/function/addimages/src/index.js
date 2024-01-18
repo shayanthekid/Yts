@@ -9,30 +9,46 @@ const s3 = new AWS.S3();
 
 
 exports.handler = async (event) => {
-    const formData = JSON.parse(event.body); // Assuming the form data is sent as JSON
-    const imageBase64 = formData.image; // Assuming the image is sent as a base64-encoded string
+    console.log('Received event:', JSON.stringify(event, null, 2));
 
-    const decodedImage = Buffer.from(imageBase64, 'base64');
-    // Generate a random file name using uuid
-    const randomFileName = `${uuid.v4()}.jpg`;
-    const params = {
-        Bucket: 'ytsbucketfiles',
-        Key: `images/${randomFileName}`, // Use the random file name
-        Body: decodedImage,
-        ContentType: 'image/jpeg', // Change the content type based on your image type
-        ACL: 'public-read', // Optional: Set ACL as per your requirement
-    };
-  try {
+
+    try {
+        const imageBase64 = event.image;
+        console.log('Received image data:', imageBase64);
+
+        const decodedImage = Buffer.from(imageBase64, 'base64');
+        const randomFileName = `${uuid.v4()}.jpg`;
+        const params = {
+            Bucket: 'ytsbucketfiles',
+            Key: `images/${randomFileName}`,
+            Body: decodedImage,
+            ContentType: 'image/jpeg',
+            ACL: 'public-read',
+        };
+
+        console.log('Before S3 upload');
+
         await s3.upload(params).promise();
+
+        console.log('After S3 upload - Image uploaded successfully');
+
         return {
             statusCode: 200,
             body: JSON.stringify({ message: 'Image uploaded successfully' }),
         };
     } catch (error) {
-        console.error(error);
+        console.error('Error:', error);
+
+        if (error instanceof Error) {
+            console.error('Error stack:', error.stack);
+        }
+
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Internal Server Error' }),
+            body: JSON.stringify({
+                message: 'Internal Server Error',
+                errorStack: error.stack, // Include the entire event object
+            }),
         };
     }
 };
