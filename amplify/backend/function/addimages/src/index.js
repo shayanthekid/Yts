@@ -1,5 +1,3 @@
-
-
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
@@ -7,34 +5,40 @@ const AWS = require('aws-sdk');
 const uuid = require('uuid');
 const s3 = new AWS.S3();
 
-
 exports.handler = async (event) => {
     console.log('Received event:', JSON.stringify(event, null, 2));
 
-
     try {
-        const imageBase64 = event.image;
-        console.log('Received image data:', imageBase64);
+        // Assume the request contains an array of images
+        const images = event.images || [];
+        const uploadPromises = [];
 
-        const decodedImage = Buffer.from(imageBase64, 'base64');
-        const randomFileName = `${uuid.v4()}.jpg`;
-        const params = {
-            Bucket: 'ytsbucketfiles',
-            Key: `images/${randomFileName}`,
-            Body: decodedImage,
-            ContentType: 'image/jpeg',
-            ACL: 'public-read',
-        };
+        for (const imageBase64 of images) {
+            const decodedImage = Buffer.from(imageBase64, 'base64');
+            const randomFileName = `${uuid.v4()}.jpg`;
+            const params = {
+                Bucket: 'ytsbucketfiles',
+                Key: `images/${randomFileName}`,
+                Body: decodedImage,
+                ContentType: 'image/jpeg',
+                ACL: 'public-read',
+            };
 
-        console.log('Before S3 upload');
+            console.log('Before S3 upload');
 
-        await s3.upload(params).promise();
+            // Start the S3 upload and store the promise
+            const uploadPromise = s3.upload(params).promise();
+            uploadPromises.push(uploadPromise);
+        }
 
-        console.log('After S3 upload - Image uploaded successfully');
+        // Wait for all uploads to complete
+        await Promise.all(uploadPromises);
+
+        console.log('After S3 upload - Images uploaded successfully');
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Image uploaded successfully' }),
+            body: JSON.stringify({ message: 'Images uploaded successfully' }),
         };
     } catch (error) {
         console.error('Error:', error);
@@ -47,7 +51,7 @@ exports.handler = async (event) => {
             statusCode: 500,
             body: JSON.stringify({
                 message: 'Internal Server Error',
-                errorStack: error.stack, // Include the entire event object
+                errorStack: error.stack,
             }),
         };
     }
