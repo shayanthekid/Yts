@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import ConstructionRoute from './constructionroute';
 import _createItem from '../pages/createitem';
+import _createBooking from '../pages/createbooking';
 import ConstructionRoute from '../pages/construction';
 import _home from '../pages/home';
 import _listingcar from '../pages/listingcar';
@@ -42,6 +43,7 @@ const AppRouter = () => {
             <Routes>
                 <Route path='/' element={<ConstructionRoute />} />
                 <Route path='/admin/createItem' element={<_createItem />} />
+                <Route path='/admin/createBooking' element={<_createBooking />} />
                 <Route path='/home' element={<_home />} />
                 <Route path='/listingcar' element={<_listingcar />} />
                 <Route path='/listingproperty' element={<_listingprop />} />
