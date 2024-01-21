@@ -12,6 +12,7 @@ exports.handler = async (event) => {
         // Assume the request contains an array of images
         const images = event.images || [];
         const uploadPromises = [];
+        const uploadedImageIds = []; // Array to store UUIDs
 
         for (const imageBase64 of images) {
             const decodedImage = Buffer.from(imageBase64, 'base64');
@@ -29,6 +30,9 @@ exports.handler = async (event) => {
             // Start the S3 upload and store the promise
             const uploadPromise = s3.upload(params).promise();
             uploadPromises.push(uploadPromise);
+
+            // Store the UUID of the uploaded image
+            uploadedImageIds.push(randomFileName);
         }
 
         // Wait for all uploads to complete
@@ -38,7 +42,7 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Images uploaded successfully' }),
+            body: JSON.stringify({ message: 'Images uploaded successfully', imageIds: uploadedImageIds }),
         };
     } catch (error) {
         console.error('Error:', error);

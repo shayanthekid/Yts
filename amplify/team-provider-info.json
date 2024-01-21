@@ -25,11 +25,15 @@
         },
         "createbooking": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/createbooking-6959723356643632726d-build.zip"
+          "s3Key": "amplify-builds/createbooking-7859787976435662596b-build.zip"
         },
         "addimages": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/addimages-44762f394967504b546a-build.zip"
+          "s3Key": "amplify-builds/addimages-51345950376d59545464-build.zip"
+        },
+        "createitem": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/createitem-56415266355043633176-build.zip"
         }
       }
     }

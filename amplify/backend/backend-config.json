@@ -10,6 +10,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "createitem": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getitem": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -53,6 +58,22 @@
         {
           "category": "function",
           "resourceName": "createbooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_createitem_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_createitem_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createitem"
         }
       ]
     },

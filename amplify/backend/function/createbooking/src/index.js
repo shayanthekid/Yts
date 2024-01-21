@@ -18,13 +18,13 @@ exports.handler = async (event) => {
         const connection = await mysql.createConnection(dbConfig);
 
         // Data to be inserted (replace with actual data from the event)
-        // const inputData = {
-        //     item_id: event.body.item_id,
-        //     date: event.body.date,
-        //     is_booked: event.body.is_booked,
-        //     contactnumber: event.body.contactnumber,
-        //     name: event.body.name,
-        // };
+        const inputData = {
+            item_id: event.item_id,
+            date: event.date,
+            is_booked: event.is_booked,
+            contactnumber: event.contactnumber,
+            name: event.name,
+        };
         inputData = JSON.parse(event.body);
 
         // Check if required properties are present

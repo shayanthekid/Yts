@@ -44,7 +44,7 @@ const ListingCards = ({ type }) => {
             id: 1,
             title: 'Luxury Car Rental 1',
             type: 1, // Car
-            imageURL: 'https://www.bmw.in/content/dam/bmw/common/topics/fascination-bmw/bmw-luxury-class/bmw-gklplus-onepager-x8-cp-xxl.jpg',
+            imageURL: 'https://resources.stuff.co.nz/content/dam/images/1/c/k/l/i/2/image.related.StuffLandscapeSixteenByNine.710x400.1ckl06.png/1467164599856.jpg?format=pjpg&optimize=medium',
             address: '123 Main St, Cityville',
             price: '$100/day',
         },
