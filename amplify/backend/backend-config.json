@@ -15,6 +15,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "getallitems": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getitem": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -74,6 +79,22 @@
         {
           "category": "function",
           "resourceName": "createitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_getallitems_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getallitems"
+        }
+      ]
+    },
+    "AMPLIFY_function_getallitems_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getallitems"
         }
       ]
     },

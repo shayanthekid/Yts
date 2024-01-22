@@ -21,7 +21,7 @@
       "function": {
         "getitem": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/getitem-7036486b753974505578-build.zip"
+          "s3Key": "amplify-builds/getitem-333242484c7a516b527a-build.zip"
         },
         "createbooking": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
@@ -34,6 +34,10 @@
         "createitem": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/createitem-576764755677654b5174-build.zip"
+        },
+        "getallitems": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/getallitems-6d463233364b486c2f69-build.zip"
         }
       }
     }
