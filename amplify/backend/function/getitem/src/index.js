@@ -107,17 +107,29 @@ GROUP BY i.id;
                 console.error('Error retrieving item:', error);
                 reject({
                     statusCode: 500,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*', // Allow requests from any origin
+                        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+                    },
                     body: JSON.stringify({ message: 'Internal Server Error', error: error.message }),
                 });
             } else {
                 if (results.length > 0) {
                     resolve({
                         statusCode: 200,
+                        headers: {
+                            'Access-Control-Allow-Origin': '*', // Allow requests from any origin
+                            'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+                        },
                         body: JSON.stringify(results),
                     });
                 } else {
                     resolve({
                         statusCode: 404,
+                        headers: {
+                            'Access-Control-Allow-Origin': '*', // Allow requests from any origin
+                            'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+                        },
                         body: JSON.stringify({ message: 'Item not found' }),
                     });
                 }

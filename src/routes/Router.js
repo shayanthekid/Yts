@@ -8,6 +8,7 @@ import _home from '../pages/home';
 import _listingcar from '../pages/listingcar';
 import _listingprop from '../pages/listingprop';
 import _listingvacation from '../pages/listingvacation';
+import _itemdetails from '../pages/components/itemdetails';
 import MobileNavbar from '../pages/components/mobilenav';
 import DesktopNav from '../pages/components/desknav';
 import Footer from '../pages/components/footer';
@@ -48,6 +49,9 @@ const AppRouter = () => {
                 <Route path='/listingcar' element={<_listingcar />} />
                 <Route path='/listingproperty' element={<_listingprop />} />
                 <Route path='/listingvacation' element={<_listingvacation />} />
+                {/* New route for ItemDetails */}
+                <Route path="/item/:itemId" element={<_itemdetails />} />
+
                 {/* Add more routes as needed */}
             </Routes>
 
