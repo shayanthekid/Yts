@@ -11,6 +11,8 @@ import petfriendlyicon from '../../assets/images/featureicons/bxs-cat.png';
 import gasicon from '../../assets/images/featureicons/bxs-gas-pump.png';
 import parkingicon from '../../assets/images/featureicons/bxs-parking.png';
 import transmissionicon from '../../assets/images/featureicons/bx-transfer.png';
+import swimmingicon from '../../assets/images/featureicons/swimming.png';
+import bedicon from '../../assets/images/featureicons/bed.png';
 
 const ItemDetails = () => {
     const location = useLocation();
@@ -121,6 +123,7 @@ const ItemDetails = () => {
                                             <p className="text-sm font-bold text-gray-800">Economic</p>
                                         </div>
                                     )}
+                                    
 
                                     {item[0].sporty === 1 && (
                                         <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
@@ -139,6 +142,7 @@ const ItemDetails = () => {
                                             <p className="text-sm font-bold text-gray-800">{item[0].transmission}</p>
                                         </div>
                                     )}
+                                    
                                 </>
                             )}
 
@@ -176,6 +180,7 @@ const ItemDetails = () => {
                                 Features
                             </h3>
 
+
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                                 {item[0].type === 1 && (
                                     <>
@@ -188,7 +193,24 @@ const ItemDetails = () => {
                                                 </div>
                                             </div>
                                         )}
-
+                                        {item[0].fuel === 1 && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={gasicon} alt="Make Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Fuel:</span>
+                                                    <span className="ml-2">{item[0].fuel}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].color === 1 && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={coloricon} alt="Make Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Color:</span>
+                                                    <span className="ml-2">{item[0].color}</span>
+                                                </div>
+                                            </div>
+                                        )}
                                         {item[0].sporty === 1 && (
                                             <div className="p-1 w-full ">
                                                 <div className="flex items-center">
@@ -228,7 +250,25 @@ const ItemDetails = () => {
                                                 <div className="flex items-center">
                                                     <img src={parkingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
                                                     <span className="text-sm font-bold text-gray-800">Parking:</span>
-                                                    <span className="ml-2">{item[0].parking}</span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].swimming_pool && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={swimmingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Swimming Pool</span>
+                                                    <span className="ml-2">{item[0].swimming_pool}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].room_no && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={bedicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">No. Of Bedrooms: </span>
+                                                    <span className="ml-2">{item[0].room_no}</span>
                                                 </div>
                                             </div>
                                         )}
@@ -256,7 +296,6 @@ const ItemDetails = () => {
                             <h3 className="text-lg font-bold text-left">
                                 Features
                             </h3>
-
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                                 {item[0].type === 1 && (
                                     <>
@@ -269,7 +308,24 @@ const ItemDetails = () => {
                                                 </div>
                                             </div>
                                         )}
-
+                                        {item[0].fuel === 1 && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={gasicon} alt="Make Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Fuel:</span>
+                                                    <span className="ml-2">{item[0].fuel}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].color === 1 && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={coloricon} alt="Make Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Color:</span>
+                                                    <span className="ml-2">{item[0].color}</span>
+                                                </div>
+                                            </div>
+                                        )}
                                         {item[0].sporty === 1 && (
                                             <div className="p-1 w-full ">
                                                 <div className="flex items-center">
@@ -309,7 +365,25 @@ const ItemDetails = () => {
                                                 <div className="flex items-center">
                                                     <img src={parkingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
                                                     <span className="text-sm font-bold text-gray-800">Parking:</span>
-                                                    <span className="ml-2">{item[0].parking}</span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].swimming_pool && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={swimmingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Swimming Pool</span>
+                                                    <span className="ml-2">{item[0].swimming_pool}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].room_no && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={bedicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">No. Of Bedrooms: </span>
+                                                    <span className="ml-2">{item[0].room_no}</span>
                                                 </div>
                                             </div>
                                         )}
@@ -322,6 +396,7 @@ const ItemDetails = () => {
                                     </>
                                 )}
                             </div>
+
 
 
                         </div>

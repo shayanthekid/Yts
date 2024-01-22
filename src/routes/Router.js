@@ -9,6 +9,7 @@ import _listingcar from '../pages/listingcar';
 import _listingprop from '../pages/listingprop';
 import _listingvacation from '../pages/listingvacation';
 import _itemdetails from '../pages/components/itemdetails';
+import _login from '../pages/login';
 import MobileNavbar from '../pages/components/mobilenav';
 import DesktopNav from '../pages/components/desknav';
 import Footer from '../pages/components/footer';
@@ -43,6 +44,7 @@ const AppRouter = () => {
             
             <Routes>
                 <Route path='/' element={<ConstructionRoute />} />
+                <Route path='/login' element={<_login />} />
                 <Route path='/admin/createItem' element={<_createItem />} />
                 <Route path='/admin/createBooking' element={<_createBooking />} />
                 <Route path='/home' element={<_home />} />
