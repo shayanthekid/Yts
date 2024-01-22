@@ -32,6 +32,8 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
 
 {isDesktop ? (
         //Desktop    
+        <Link to={`/item/${id}`} state={{ itemId: id }}>
+                        
                 <div className="flex gap-4 p-4 bg-white rounded-xl shadow-md">
                     {/* Image */}
                     <img src={imageSrc} alt={imageUrlsArray[0]} className="w-1/3 h-auto rounded-xl" />
@@ -46,9 +48,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
 
                         {/* Address */}
                         <p className="text-sm font-light text-left p-4">{address}</p>
-                        <Link to={`/item/${id}`} state={{ itemId: id }}>
-                            View Details
-                        </Link>
+                        
 
                         <div className="flex items-center justify-end mt-auto">
                             {/* Conditionally render the first icon based on the type */}
@@ -100,11 +100,13 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         </div>
                     </div>
                 </div>
-
+                    </Link >
       
 
       ) : (
         //Mobile
+                    <Link to={`/item/${id}`} state={{ itemId: id }}>
+
                     <div className="relative overflow-hidden bg-white rounded-xl shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
                         {/* Image */}
                         <img src={imageSrc} alt={imageUrlsArray[0]} className="w-full h-auto" />
@@ -173,6 +175,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         </div>
 
                     </div>
+                    </Link >
       )}
 
         </div>
