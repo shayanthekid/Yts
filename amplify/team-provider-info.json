@@ -42,6 +42,10 @@
         "deleteimage": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/deleteimage-472f6d417343434f6f75-build.zip"
+        },
+        "updateitem": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/updateitem-6638385141657339676c-build.zip"
         }
       }
     }

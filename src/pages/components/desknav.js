@@ -41,7 +41,7 @@ const DesktopNav = () => {
     return (
         <>
             <div className="fixed left-0 top-0 p-2 z-50">
-                <img src={getLogo()} alt="YTS Logo" className="w-24 h-20" />
+                <img src={getLogo()} alt="YTS Logo" className="w-28 h-auto" />
             </div>
             <div className="fixed left-0 top-0 h-full flex flex-col items-center justify-center p-2 z-50">
                 <div className="bg-white rounded-full shadow-md p-1 flex flex-col items-center">

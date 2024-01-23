@@ -29,12 +29,29 @@ const ManageItems = () => {
         setEditModeItemId(itemId);
     };
 
-    const handleSaveClick = (itemId) => {
-        // Handle logic for saving changes to the item with ID itemId
-        console.log(`Save changes for item with ID: ${itemId}`);
-        // Set the item ID to disable the "Edit" mode for that row
-        setEditModeItemId(null);
+    const handleSaveClick = async (itemId) => {
+        // Get the item data for the updated item
+        const updatedItem = items.find((item) => item.id === itemId);
+
+        try {
+            // Send a PUT request to update the item
+            const response = await axios.put(
+                'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/updateitem',
+                {
+                    itemId: itemId,
+                    itemData: updatedItem,
+                }
+            );
+
+            console.log('Response from updateitem endpoint:', response.data);
+
+            // Set the item ID to disable the "Edit" mode for that row
+            setEditModeItemId(null);
+        } catch (error) {
+            console.error('Error updating item:', error);
+        }
     };
+
 
     const handleDeleteClick = async (itemId) => {
         // Handle logic for deleting item with ID itemId

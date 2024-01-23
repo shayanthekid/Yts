@@ -29,6 +29,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "updateitem": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {
@@ -132,6 +137,22 @@
         {
           "category": "function",
           "resourceName": "getitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateitem_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateitem_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateitem"
         }
       ]
     },

@@ -1,4 +1,3 @@
-// FeaturesColumn.js
 import React from 'react';
 
 const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
@@ -14,8 +13,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="checkbox"
                                 name="sporty"
                                 checked={item.sporty}
-                                onChange={handleFieldChange}
+                                onChange={() => handleFieldChange('sporty', item.id, !item.sporty)}
                                 className="form-checkbox"
+                                disabled={editModeItemId !== item.id}
                             />
                             <span>Sporty</span>
                         </label>
@@ -25,8 +25,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="checkbox"
                                 name="economic"
                                 checked={item.economic}
-                                onChange={handleFieldChange}
+                                onChange={() => handleFieldChange('economic', item.id, !item.economic)}
                                 className="form-checkbox"
+                                disabled={editModeItemId !== item.id}
                             />
                             <span>Economic</span>
                         </label>
@@ -36,8 +37,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="checkbox"
                                 name="autoTransmission"
                                 checked={item.autoTransmission}
-                                onChange={handleFieldChange}
+                                onChange={() => handleFieldChange('auto_transmission', item.id, !item.autoTransmission)}
                                 className="form-checkbox"
+                                disabled={editModeItemId !== item.id}
                             />
                             <span>Auto Transmission</span>
                         </label>
@@ -47,8 +49,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="checkbox"
                                 name="manualTransmission"
                                 checked={item.manualTransmission}
-                                onChange={handleFieldChange}
+                                onChange={() => handleFieldChange('manualTransmission', item.id, !item.manualTransmission)}
                                 className="form-checkbox"
+                                disabled={editModeItemId !== item.id}
                             />
                             <span>Manual Transmission</span>
                         </label>
@@ -59,8 +62,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="number"
                                 name="seatNo"
                                 value={item.seat_no}
-                                onChange={handleFieldChange}
+                                onChange={(e) => handleFieldChange('seat_no', item.id, e.target.value)}
                                 className="border rounded-md p-2 w-full"
+                                disabled={editModeItemId !== item.id}
                             />
                         </label>
 
@@ -70,8 +74,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="text"
                                 name="brand"
                                 value={item.brand}
-                                onChange={handleFieldChange}
+                                onChange={(e) => handleFieldChange('brand', item.id, e.target.value)}
                                 className="border rounded-md p-2 w-full"
+                                disabled={editModeItemId !== item.id}
                             />
                         </label>
 
@@ -81,8 +86,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="text"
                                 name="transmission"
                                 value={item.transmission}
-                                onChange={handleFieldChange}
+                                onChange={(e) => handleFieldChange('transmission', item.id, e.target.value)}
                                 className="border rounded-md p-2 w-full"
+                                disabled={editModeItemId !== item.id}
                             />
                         </label>
 
@@ -92,8 +98,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="text"
                                 name="color"
                                 value={item.color}
-                                onChange={handleFieldChange}
+                                onChange={(e) => handleFieldChange('color', item.id, e.target.value)}
                                 className="border rounded-md p-2 w-full"
+                                disabled={editModeItemId !== item.id}
                             />
                         </label>
 
@@ -103,8 +110,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="text"
                                 name="fuel"
                                 value={item.fuel}
-                                onChange={handleFieldChange}
+                                onChange={(e) => handleFieldChange('fuel', item.id, e.target.value)}
                                 className="border rounded-md p-2 w-full"
+                                disabled={editModeItemId !== item.id}
                             />
                         </label>
 
@@ -114,8 +122,9 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                                 type="text"
                                 name="make"
                                 value={item.make}
-                                onChange={handleFieldChange}
+                                onChange={(e) => handleFieldChange('make', item.id, e.target.value)}
                                 className="border rounded-md p-2 w-full"
+                                disabled={editModeItemId !== item.id}
                             />
                         </label>
                     </div>
@@ -129,45 +138,50 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                         type="checkbox"
                         name="parking"
                         checked={item.parking}
-                        onChange={(e) => handleFieldChange('parking', item.id, e.target.checked)}
+                        onChange={() => handleFieldChange('parking', item.id, !item.parking)}
+                        disabled={editModeItemId !== item.id}
                     />
                     <label>Pet Friendly: </label>
                     <input
                         type="checkbox"
                         name="petFriendly"
                         checked={item.pet_friendly}
-                        onChange={(e) => handleFieldChange('petFriendly', item.id, e.target.checked)}
+                        onChange={() => handleFieldChange('pet_friendly', item.id, !item.pet_friendly)}
+                        disabled={editModeItemId !== item.id}
                     />
                     <label>Modern Style: </label>
                     <input
                         type="checkbox"
                         name="modernStyle"
                         checked={item.modern_style}
-                        onChange={(e) => handleFieldChange('modernStyle', item.id, e.target.checked)}
+                        onChange={() => handleFieldChange('modern_style', item.id, !item.modern_style)}
+                        disabled={editModeItemId !== item.id}
                     />
                     <label>Patio Space: </label>
                     <input
                         type="checkbox"
                         name="patioSpace"
                         checked={item.patio_space}
-                        onChange={(e) => handleFieldChange('patioSpace', item.id, e.target.checked)}
+                        onChange={() => handleFieldChange('patio_Space', item.id, !item.patio_space)}
+                        disabled={editModeItemId !== item.id}
                     />
                     <label>Swimming Pool: </label>
                     <input
                         type="checkbox"
                         name="swimmingPool"
                         checked={item.swimming_pool}
-                        onChange={(e) => handleFieldChange('swimmingPool', item.id, e.target.checked)}
+                        onChange={() => handleFieldChange('swimming_pool', item.id, !item.swimming_pool)}
+                        disabled={editModeItemId !== item.id}
                     />
                     <label>Room Number: </label>
                     <input
                         type="number"
                         name="roomNo"
                         value={item.room_no}
-                        onChange={(e) => handleFieldChange('roomNo', item.id, e.target.value)}
+                        onChange={(e) => handleFieldChange('room_no', item.id, e.target.value)}
                         className="border rounded-md p-2 w-full"
+                        disabled={editModeItemId !== item.id}
                     />
-                    {/* Add other property features */}
                 </div>
             );
         } else {
