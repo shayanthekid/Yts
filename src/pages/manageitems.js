@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import FeaturesColumn from './components/FeaturesColumn';
+
 import axios from 'axios';
 
 const ManageItems = () => {
@@ -48,6 +50,9 @@ const ManageItems = () => {
 
     // Function to make text fields editable
     const makeEditable = (fieldName, itemId, value) => {
+        // Cap the description to 50 words
+        const cappedDescription = value.split(' ').slice(0, 50).join(' ');
+
         // Implement your logic to make the field editable
         return editModeItemId === itemId ? (
             <input
@@ -57,7 +62,7 @@ const ManageItems = () => {
                 className="w-full border p-1"
             />
         ) : (
-            value
+            cappedDescription
         );
     };
 
@@ -89,6 +94,7 @@ const ManageItems = () => {
                         <th className="border p-2">Type</th>
                         <th className="border p-2">Description</th>
                         <th className="border p-2">Images</th>
+                        <th className="border p-2">Features</th>
                         {/* Add other columns as needed */}
                         <th className="border p-2">Update</th>
                         <th className="border p-2">Delete</th>
@@ -134,6 +140,9 @@ const ManageItems = () => {
                                         ))}
                                     </div>
                                 )}
+                            </td>
+                            <td className="border p-2">
+                                <FeaturesColumn item={item} editModeItemId={editModeItemId} handleFieldChange={handleFieldChange} />
                             </td>
                             <td className="border p-2">
                                 {editModeItemId === item.id ? (
