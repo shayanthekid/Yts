@@ -66,7 +66,7 @@ const ManageItems = () => {
                 }
             );
 
-            alert('Item updated successfully!');
+            alert('Item updated successfully! Please reload page');
 
             console.log('Response from updateitem endpoint:', response.data);
 
@@ -120,9 +120,66 @@ const ManageItems = () => {
         );
     };
 
-    const handleUploadClick = (itemId)=>{
-        console.log(itemSelectedFiles[itemId]);
-    
+    const handleUploadClick = async (itemId) => {
+        const files = itemSelectedFiles[itemId];
+
+        if (!files || files.length === 0) {
+            console.log('No files selected for upload');
+            return;
+        }
+
+        const uploadPromises = [];
+        const totalFiles = files.length;
+
+        for (const [index, file] of files.entries()) {
+            const uploadPromise = new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = async () => {
+                    const imageBase64 = reader.result.split(',')[1];
+
+                    try {
+                        const response = await axios.post(
+                            'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/uploadmoreimages',
+                            { images: [imageBase64], itemId: itemId },
+                            {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                onUploadProgress: (progressEvent) => {
+                                    const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+                                    // You can update the progress if needed
+                                },
+                            }
+                        );
+                            alert("Upload successful, please reload page")
+                        console.log(`Upload successful for file ${index + 1}/${totalFiles}`);
+                        console.log('Response from server:', response.data);
+
+                        if (response.status === 200) {
+                            console.log('File uploaded successfully:', response.data);
+                            resolve(response.data); // Resolve with the server response
+                        } else {
+                            console.error('Error uploading file. Server response:', response.data);
+                            resolve(null); // Resolve with null in case of error
+                        }
+                    } catch (error) {
+                        console.error('Error uploading file:', error.message);
+                        resolve(null); // Resolve with null in case of error
+                    }
+                };
+
+                reader.readAsDataURL(file);
+            });
+
+            uploadPromises.push(uploadPromise);
+        }
+
+        // Wait for all image uploads to complete
+        const uploadResponses = await Promise.all(uploadPromises);
+
+        // Process the responses if needed
+        console.log('All uploads successful');
+        console.log('Upload responses:', uploadResponses);
     };
 
     // Function to delete an image
@@ -136,7 +193,7 @@ const ManageItems = () => {
                 }
             );
 
-            alert('Image Deleted successfully!');
+            alert('Image Deleted successfully! Please reload page');
 
             console.log('Response from deleteimage endpoint:', response.data);
         } catch (error) {
