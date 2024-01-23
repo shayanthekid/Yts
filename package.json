@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aws-sdk": "^2.1536.0",
     "axios": "^1.6.5",
+    "google-map-react": "^2.2.1",
     "gsap": "^3.12.4",
     "mysql": "^2.18.1",
     "mysql2": "^3.7.0",

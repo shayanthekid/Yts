@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import bookingimg from '../../assets/images/bookingimg.png';
+import mapicon from '../../assets/images/featureicons/mapicon.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GoogleMapReact from 'google-map-react';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const MapSection = () => {
@@ -10,6 +13,7 @@ const MapSection = () => {
     const desktopRef = useRef(null);
     const mobileRef = useRef(null);
     const location = useLocation();
+    const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
     useEffect(() => {
         const handleResize = () => {
@@ -23,6 +27,18 @@ const MapSection = () => {
         };
     }, []);
 
+    const locationCoordinates = {
+        lat: 6.89471282586257, // Replace with the latitude
+        lng: 79.85412688572308, // Replace with the longitude
+    };
+
+    const defaultProps = {
+        center: locationCoordinates,
+        zoom: 31,
+    };
+    const CustomMarker = ({ imageUrl }) => (
+        <div style={{ width: '30px', height: '30px', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover' }} />
+    );
     // useEffect(() => {
     //     const t1 = gsap.timeline({
     //         scrollTrigger: {
@@ -59,6 +75,16 @@ const MapSection = () => {
                         <div className="flex items-center mt-4">
                             <p className="mr-2 font-normal text-lg">Sri Lanka</p>
                         </div>
+                    </div>
+
+                    <div style={{ height: isDesktop ? '400px' : '200px', width: '100%' }}>
+                        <GoogleMapReact
+                            bootstrapURLKeys={{ key: 'AIzaSyCRyy37ixokPYy8M9zk31n6GONnQlBp3Bg' }}
+                            defaultCenter={defaultProps.center}
+                            defaultZoom={defaultProps.zoom}
+                        >
+                            <CustomMarker lat={locationCoordinates.lat} lng={locationCoordinates.lng} imageUrl={mapicon} />
+                        </GoogleMapReact>
                     </div>
                 </div>
             ) : (
