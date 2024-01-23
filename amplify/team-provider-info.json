@@ -38,6 +38,10 @@
         "getallitems": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/getallitems-6d463233364b486c2f69-build.zip"
+        },
+        "deleteimage": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/deleteimage-472f6d417343434f6f75-build.zip"
         }
       }
     }

@@ -77,10 +77,26 @@ const ManageItems = () => {
     };
 
     // Function to delete an image
-    const deleteImage = (imageId, itemId) => {
-        // Implement your logic to delete the image
-        console.log(`Delete image with ID: ${imageId} for item with ID: ${itemId}`);
+    const deleteImage = async (imageId, itemId) => {
+        try {
+            const response = await axios.post(
+                'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/deleteimage',
+                {
+                    itemId,
+                    imageId,
+                }
+            );
+
+            console.log('Response from deleteimage endpoint:', response.data);
+        } catch (error) {
+            console.error('Error deleting image:', error);
+
+            if (error.response) {
+                console.error('Error response data:', error.response.data);
+            }
+        }
     };
+
 
     console.log(items);
     return (
