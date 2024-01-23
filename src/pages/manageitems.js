@@ -6,6 +6,29 @@ import axios from 'axios';
 const ManageItems = () => {
     const [items, setItems] = useState([]);
     const [editModeItemId, setEditModeItemId] = useState(null);
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [uploadProgress, setUploadProgress] = useState(0);
+    const [error, setError] = useState(null);
+    const [totalSize, setTotalSize] = useState(0);
+    const [itemSelectedFiles, setItemSelectedFiles] = useState({});
+
+    const handleFileChange = (itemId, e) => {
+        const files = Array.from(e.target.files);
+
+        // Check the size of each file and the total size
+        const newTotalSize = files.reduce((acc, file) => acc + file.size, 0);
+
+        // Check if the total size exceeds 6MB
+        if (newTotalSize > 6 * 1024 * 1024) {
+            setError('Total file size exceeds 6MB. Please remove some files.');
+            setItemSelectedFiles((prevFiles) => ({ ...prevFiles, [itemId]: [] }));
+            setTotalSize(0);
+        } else {
+            setError(null);
+            setItemSelectedFiles((prevFiles) => ({ ...prevFiles, [itemId]: files }));
+            setTotalSize(newTotalSize);
+        }
+    };
 
     useEffect(() => {
         // Fetch data from the API endpoint
@@ -43,11 +66,15 @@ const ManageItems = () => {
                 }
             );
 
+            alert('Item updated successfully!');
+
             console.log('Response from updateitem endpoint:', response.data);
 
             // Set the item ID to disable the "Edit" mode for that row
             setEditModeItemId(null);
         } catch (error) {
+            alert('Item Was not updated');
+
             console.error('Error updating item:', error);
         }
     };
@@ -93,6 +120,11 @@ const ManageItems = () => {
         );
     };
 
+    const handleUploadClick = (itemId)=>{
+        console.log(itemSelectedFiles[itemId]);
+    
+    };
+
     // Function to delete an image
     const deleteImage = async (imageId, itemId) => {
         try {
@@ -104,8 +136,11 @@ const ManageItems = () => {
                 }
             );
 
+            alert('Image Deleted successfully!');
+
             console.log('Response from deleteimage endpoint:', response.data);
         } catch (error) {
+            alert('Error Deleting image');
             console.error('Error deleting image:', error);
 
             if (error.response) {
@@ -186,12 +221,64 @@ const ManageItems = () => {
                                         Save
                                     </button>
                                 ) : (
-                                    <button
-                                        onClick={() => handleUpdateClick(item.id)}
-                                        className="bg-blue-500 text-white p-2 rounded"
-                                    >
-                                        Update
-                                    </button>
+                                    <div>
+                                            <div className="mb-4" key={item.id}>
+                                                <label htmlFor="additionalImages" className="block text-sm font-medium text-gray-600">
+                                                    Upload Additional Images : Please keep file sizes <b>below</b> 6mb
+                                                </label>
+                                                <input
+                                                    type="file"
+                                                    id="additionalImages"
+                                                    name="additionalImages"
+                                                    accept="image/*"
+                                                    onChange={(e) => handleFileChange(item.id, e)}
+                                                    multiple
+                                                    className="mt-1 p-2 w-full border rounded-md"
+                                                />
+
+                                            </div>
+
+                                            {itemSelectedFiles.length > 0 && (
+                                                <div>
+                                                    <p className="text-sm text-gray-500">Selected Files:</p>
+                                                    <ul>
+                                                        {itemSelectedFiles.map((file, index) => (
+                                                            <li key={index}>{file.name}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
+
+                                            {uploadProgress > 0 && (
+                                                <div className="mb-4">
+                                                    <p className="text-sm text-gray-500">Upload Progress: {uploadProgress}%</p>
+                                                    <div className="bg-blue-200 h-2 w-full rounded-md">
+                                                        <div
+                                                            className="bg-blue-500 h-2 rounded-md"
+                                                            style={{ width: `${uploadProgress}%` }}
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            <div className="flex space-x-4 ">
+                                               
+                                                <button
+                                                    onClick={() => handleUploadClick(item.id)}
+                                                    className="bg-green-500  text-white p-2 rounded hover:bg-green-600"
+                                                >
+                                                    Upload more images
+                                                </button>
+                                                <button
+                                                    onClick={() => handleUpdateClick(item.id)}
+                                                    className="bg-blue-500 text-white p-2 rounded"
+                                                >
+                                                    Update
+                                                </button>
+                                            </div>
+
+                                    
+                                        </div>
                                 )}
                             </td>
                             <td className="border p-2">
