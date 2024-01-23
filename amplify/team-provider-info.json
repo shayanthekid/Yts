@@ -50,6 +50,10 @@
         "addmoreimages": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/addmoreimages-74594d4a4f3769796f65-build.zip"
+        },
+        "deleteitem": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/deleteitem-534458414b594d507753-build.zip"
         }
       }
     }

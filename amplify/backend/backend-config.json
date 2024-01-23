@@ -25,6 +25,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "deleteitem": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getallitems": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -126,6 +131,22 @@
         {
           "category": "function",
           "resourceName": "deleteimage"
+        }
+      ]
+    },
+    "AMPLIFY_function_deleteitem_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deleteitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_deleteitem_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deleteitem"
         }
       ]
     },
