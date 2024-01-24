@@ -4,13 +4,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ListingCard from './listingcard';
 
-const ListingCards = ({ type }) => {
+const ListingCards = ({ type, data }) => {
     const [activeTab, setActiveTab] = useState(1);
     const location = useLocation();
     const cardRefmobile = useRef(null);
     const cardRefdesk = useRef(null);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
-    const [data, setData] = useState([]);
+    const [data2, setData2] = useState([]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -32,7 +32,7 @@ const ListingCards = ({ type }) => {
 
                 // Parse the JSON string in the body property
                 const parsedResult = JSON.parse(result.body);
-                setData(parsedResult);
+                setData2(parsedResult);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -50,21 +50,45 @@ const ListingCards = ({ type }) => {
         );
     }, [location.pathname]);
 
-    console.log(data);
     // Check if data is an array before filtering
-    const filteredData = Array.isArray(data) ? data.filter(item => item.type === type) : [];
-    console.log(filteredData);
+    const filteredData2 = Array.isArray(data2) ? data2.filter(item => item.type === type) : [];
+    console.log(data);
+    // Apply additional filters based on the search input and selected dates
+    const dynamicFilteredData = filteredData2.filter(item => {
+        // Check if the search input and date range are available
+        const searchData = data || [];
+        const searchInput = searchData[0];
+        const dateRange = searchData[1];
+
+        // If there is no search input, return true (no filtering applied)
+        if (!searchInput) {
+            return true;
+        }
+
+        // Check if the search input is not empty and matches the title (case insensitive)
+        const searchMatch = (
+            item.title.toLowerCase().includes(searchInput.toLowerCase())
+        );
+
+        // Check if the item's date falls within the specified date range
+       
+
+        // Return true only if there is a match for both search input and date range
+        return searchMatch;
+    });
+
+
     return (
         <div>
             {isDesktop ? (
                 <div className="grid grid-cols-1 gap-2 p-4" ref={cardRefdesk}>
-                    {filteredData.map((item) => (
+                    {dynamicFilteredData.map((item) => (
                         <ListingCard key={item.id} {...item} />
                     ))}
                 </div>
             ) : (
                 <div className="flex flex-wrap gap-4 p-4" ref={cardRefmobile}>
-                    {filteredData.map((item) => (
+                        {dynamicFilteredData.map((item) => (
                         <ListingCard key={item.id} {...item} />
                     ))}
                 </div>
@@ -72,5 +96,6 @@ const ListingCards = ({ type }) => {
         </div>
     );
 };
+
 
 export default ListingCards;

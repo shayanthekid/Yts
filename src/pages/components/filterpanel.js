@@ -5,7 +5,7 @@ import dropdownicon from '../../assets/images/featureicons/drop.png';
 import searchicon from '../../assets/images/featureicons/search.png';
 import ListingCards from './listingcards';
 
-const FilterPanel = ({ type }) => {
+const FilterPanel = ({ type, onFilterChange, filteredData }) => {
     const reserved = [
         {
             startDate: new Date(2024, 0, 28),
@@ -16,6 +16,8 @@ const FilterPanel = ({ type }) => {
     const [selectedDates, setSelectedDates] = useState([]);
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+    const [searchInput, setSearchInput] = useState('');
+
     useEffect(() => {
         const handleResize = () => {
             setIsDesktop(window.innerWidth >= 768);
@@ -34,6 +36,14 @@ const FilterPanel = ({ type }) => {
 
     const handleChange = (dates) => {
         setSelectedDates(dates);
+        onFilterChange(searchInput, dates);
+
+    };
+
+    const handleSearchChange = (e) => {
+        setSearchInput(e.target.value);
+        // Notify the parent component (Listingcar) about the filter change
+        onFilterChange(e.target.value, selectedDates);
     };
 
     return (
@@ -50,7 +60,9 @@ const FilterPanel = ({ type }) => {
                             </span>
                             <input
                                 type="text"
-                                placeholder="Search Vehicles, Locations"
+                                placeholder="Search Vehicles"
+                                value={searchInput}
+                                onChange={handleSearchChange}
                                 className="rounded-full w-full pl-12 pr-4 py-2 focus:outline-none focus:shadow-outline-blue border border-gray-300 shadow-lg"
                             />
                         </div>
@@ -96,7 +108,7 @@ const FilterPanel = ({ type }) => {
                         )}
                         <div>
                             {/* Listing Cards */}
-                            <ListingCards type={type} />
+                            <ListingCards type={type} data={filteredData} />
                         </div>
                     </div>
                    
