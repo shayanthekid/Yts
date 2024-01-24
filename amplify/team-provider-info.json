@@ -54,6 +54,10 @@
         "deleteitem": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/deleteitem-534458414b594d507753-build.zip"
+        },
+        "getallbookings": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/getallbookings-4c72397141322f433844-build.zip"
         }
       }
     }

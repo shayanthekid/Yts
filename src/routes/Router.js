@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import ConstructionRoute from './constructionroute';
 import _createItem from '../pages/createitem';
 import _createBooking from '../pages/createbooking';
+import _manageBooking from '../pages/managebookings';
 import ConstructionRoute from '../pages/construction';
 import _home from '../pages/home';
 import _listingcar from '../pages/listingcar';
@@ -49,6 +50,7 @@ const AppRouter = () => {
                 <Route path='/admin/createItem' element={<_createItem />} />
                 <Route path='/admin/manageItems' element={<_manageItems />} />
                 <Route path='/admin/createBooking' element={<_createBooking />} />
+                <Route path='/admin/manageBookings' element={<_manageBooking />} />
                 <Route path='/home' element={<_home />} />
                 <Route path='/listingcar' element={<_listingcar />} />
                 <Route path='/listingproperty' element={<_listingprop />} />

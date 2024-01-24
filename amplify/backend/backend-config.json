@@ -30,6 +30,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "getallbookings": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getallitems": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -147,6 +152,22 @@
         {
           "category": "function",
           "resourceName": "deleteitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_getallbookings_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getallbookings"
+        }
+      ]
+    },
+    "AMPLIFY_function_getallbookings_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getallbookings"
         }
       ]
     },

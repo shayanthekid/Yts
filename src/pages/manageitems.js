@@ -86,7 +86,7 @@ const ManageItems = () => {
             // await axios.delete(`https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/deleteitem/${itemId}`);
             // // Remove the item from the state to trigger a re-render
             // setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-            console.log('delete button');
+            alert("WARNING! Make sure Booking's do not exist for this item");
         } catch (error) {
             console.error('Error deleting item:', error);
         }
