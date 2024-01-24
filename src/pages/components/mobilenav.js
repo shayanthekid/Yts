@@ -11,6 +11,10 @@ const MobileNavbar = () => {
         setIsDrawerOpen(!isDrawerOpen);
     };
 
+    const closeDrawer = () => {
+        setIsDrawerOpen(false);
+    };
+
     const getLogo = () => {
         // Check if the current route is /listingcar
         if (location.pathname === '/listingcar') {
@@ -37,7 +41,7 @@ const MobileNavbar = () => {
                 </div>
 
                 {/* Logo (Centered) */}
-                <Link to="/" className="flex-grow text-center">
+                <Link to="/" className="flex-grow text-center" onClick={closeDrawer}>
                     <img src={getLogo()} alt="Your Logo" className="h-8 w-auto mx-auto" />
                 </Link>
             </div>
@@ -46,17 +50,23 @@ const MobileNavbar = () => {
             <div
                 className={`fixed inset-y-0 left-0 w-64 bg-gray-200 p-4 transform ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform ease-in-out duration-300`}
             >
-                <Link to="/home" className="block text-black py-2 text-left mt-6">
+                <Link to="/home" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Home
                 </Link>
-                <Link to="/listingcar" className="block text-black py-2 text-left mt-6">
+                <Link to="/listingcar" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Cars
                 </Link>
-                <Link to="/listingproperty" className="block text-black py-2 text-left mt-6">
+                <Link to="/listingproperty" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Property
                 </Link>
-                <Link to="/listingvacation" className="block text-black py-2 text-left mt-6">
+                <Link to="/listingvacation" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Vacation Rentals
+                </Link>
+                <Link to="/aboutus" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
+                    About Us
+                </Link>
+                <Link to="/contactus" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
+                    Contact Us
                 </Link>
             </div>
         </div>

@@ -12,6 +12,7 @@ import _listingvacation from '../pages/listingvacation';
 import _itemdetails from '../pages/components/itemdetails';
 import _manageItems from '../pages/manageitems';
 import _login from '../pages/login';
+import _contactus from '../pages/contactus';
 import MobileNavbar from '../pages/components/mobilenav';
 import DesktopNav from '../pages/components/desknav';
 import Footer from '../pages/components/footer';
@@ -55,6 +56,7 @@ const AppRouter = () => {
                 <Route path='/listingcar' element={<_listingcar />} />
                 <Route path='/listingproperty' element={<_listingprop />} />
                 <Route path='/listingvacation' element={<_listingvacation />} />
+                <Route path='/contactus' element={<_contactus />} />
                 {/* New route for ItemDetails */}
                 <Route path="/item/:itemId" element={<_itemdetails />} />
 

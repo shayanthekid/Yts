@@ -15,6 +15,8 @@ import swimmingicon from '../../assets/images/featureicons/swimming.png';
 import bedicon from '../../assets/images/featureicons/bed.png';
 import Calendar from "@demark-pro/react-booking-calendar";
 import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
+import GoogleMapReact from 'google-map-react';
+import mapicon from '../../assets/images/featureicons/mapicon.png';
 
 
 const ItemDetails = () => {
@@ -23,7 +25,19 @@ const ItemDetails = () => {
     const [item, setItem] = useState(null);
     const [activeTab, setActiveTab] = useState('overview');
     const [reserved, setReserved] = useState([]);
-   
+    const AnyReactComponent = ({ text }) => <div className='mt-12'>{text}</div>;
+    const locationCoordinates = {
+        lat: 6.89471282586257, // Replace with the latitude
+        lng: 79.85412688572308, // Replace with the longitude
+    };
+
+    const defaultProps = {
+        center: locationCoordinates,
+        zoom: 25,
+    };
+    const CustomMarker = ({ imageUrl }) => (
+        <div style={{ width: '30px', height: '30px', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover' }} />
+    );
     const [selectedDates, setSelectedDates] = useState([]);
     useEffect(() => {
         const fetchItemDetails = async () => {
@@ -136,12 +150,7 @@ const ItemDetails = () => {
                 >
                     Features
                 </button>
-                <button
-                    className={`flex-1 p-3 text-center ${activeTab === 'location' ? 'border-b-2 border-[#2E3192]' : ''}`}
-                    onClick={() => setActiveTab('location')}
-                >
-                    Location
-                </button>
+              
                 <button
                     className={`flex-1 p-3 text-center ${activeTab === 'Availability' ? 'border-b-2 border-[#2E3192]' : ''}`}
                     onClick={() => setActiveTab('Availability')}
@@ -450,12 +459,7 @@ const ItemDetails = () => {
                         </div>
                     </div>
                 )}
-                {activeTab === 'location' && (
-                    <div>
-                        {/* Location content */}
-                        <p>Location content goes here.</p>
-                    </div>
-                )}
+              
                 {activeTab === 'Availability' && (
                     <div>
                         <div className="mt-4">

@@ -39,6 +39,9 @@ function Footer() {
                             <Link to="/listingvacation" className="text-black py-2 px-4 font-light">
                                 Vacation Rentals
                             </Link>
+                        <Link to="/contactus" className="text-black py-2 px-4 font-light">
+                           Contact Us
+                        </Link>
                         </div>
                     </div >
                
@@ -61,6 +64,9 @@ function Footer() {
                 </Link>
                 <Link to="/listingvacation" className="text-black py-2 px-4 font-light">
                     Vacation Rentals
+                </Link>
+                <Link to="/contactus" className="text-black py-2 px-4 font-light">
+                    Contact Us
                 </Link>
             </div>
         </div >
