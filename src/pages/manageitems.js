@@ -83,14 +83,29 @@ const ManageItems = () => {
     const handleDeleteClick = async (itemId) => {
         // Handle logic for deleting item with ID itemId
         try {
-            // await axios.delete(`https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/deleteitem/${itemId}`);
-            // // Remove the item from the state to trigger a re-render
-            // setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-            alert("WARNING! Make sure Booking's do not exist for this item");
+            // Make a POST request to the deleteitem endpoint
+            const response = await axios.post(
+                'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/deleteitem',
+                { itemId }
+            );
+
+            // Check if the deletion was successful
+            if (response.status === 200) {
+                alert('Item deleted successfully! Please reload page');
+
+                // Remove the item from the state to trigger a re-render
+                setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+            } else {
+                alert('Error deleting item. Please try again.');
+            }
+
+            console.log('Response from deleteitem endpoint:', response.data);
         } catch (error) {
+            alert('Error deleting item. Please try again.');
             console.error('Error deleting item:', error);
         }
     };
+
 
     // Function to make text fields editable
     const makeEditable = (fieldName, itemId, value) => {
