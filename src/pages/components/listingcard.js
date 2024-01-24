@@ -44,7 +44,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         <p className="text-xl text-black text-right font-bold mb-4">{price}</p>
 
                         {/* Title */}
-                        <h3 className="text-sm font-normal text-left p-4">{title}</h3>
+                        <h3 className="text-lg font-bold text-left p-4">{title}</h3>
 
                         {/* Address */}
                         <p className="text-sm font-light text-left p-4">{address}</p>
@@ -93,7 +93,9 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                             <div className="flex items-center bg-[#2E3192] p-2 rounded-full">
                                 <span className="">
                                     {/* Replace the following line with your desired phone icon */}
+                                        <Link to="/contactus">
                                     <img src={phoneicon} alt="Phone Icon" className="w-5 h-5" />
+                                    </Link>
                                 </span>
                             </div>
                             {/* Add more icon rows as needed */}
@@ -168,7 +170,9 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                             <div className="flex items-center ml-auto bg-[#2E3192] p-2 rounded-full">
                                 <span className="">
                                     {/* Replace the following line with your desired phone icon */}
+                                        <Link to="/contactus">
                                     <img src={phoneicon} alt="Phone Icon" className="w-5 h-5" />
+                                        </Link>
                                 </span>
                             </div>
                             {/* Add more icon rows as needed */}

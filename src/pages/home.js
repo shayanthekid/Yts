@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
+
+
 import BackgroundSVG from '../assets/images/homele.svg'; 
 import BackgroundSVG2 from '../assets/images/homele.png'; 
 import BackgroundSVGDesk from '../assets/images/homedesk.png'; 
@@ -22,7 +24,10 @@ const Home = () => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const location = useLocation();
     const headingRef = useRef(null);
+    const headingRefDesk = useRef(null);
     const trendingRef = useRef(null);
+    const trendingRefDesk = useRef(null);
+    const trendingRefDesk2 = useRef(null);
     const logosRefs = {
         property: useRef(null),
         car: useRef(null),
@@ -118,6 +123,29 @@ const Home = () => {
         });
 
 
+        const t6 = gsap.timeline();
+        t6.to(headingRefDesk.current, {
+            opacity: 1,
+            y: 20,
+            duration: 1.5,
+            ease: 'power2.out',
+        });
+
+        const tl7 = gsap.timeline();
+        tl7.fromTo(
+            trendingRefDesk.current,
+            { opacity: 0 }, // Start values
+            { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power2.out" } // End values
+        );
+
+        const tl8 = gsap.timeline();
+        tl7.fromTo(
+            trendingRefDesk2.current,
+            { opacity: 0 }, // Start values
+            { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power2.out" } // End values
+        );
+
+
     }, [location.pathname]);
 
     
@@ -155,21 +183,27 @@ const Home = () => {
               <div className="container mx-auto p-4 z-50">
                   <div className="grid grid-rows-1 md:grid-cols-2 gap-4">
                       {/* Card - Left Column */}
-                      <div className="p-4 h-[350px] z-10"> {/* Set a fixed height */}
+                      <div className="p-4 h-[350px] z-10 ml-12" ref={headingRefDesk}> {/* Set a fixed height */}
                           {/* Section 1 - Trending Property Heading */}
-                          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-20">
+                          <h1
+                              
+                          className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-20">
                               Discover Rentals, Properties, and Vehicles
                           </h1>
                           <div className="relative bottom-0 left-0 text-left mt-8">
                               {/* mt-auto to push the button to the bottom */}
+                              <Link to="/contactus">
+            
                               <button className="bg-[#2E3192] text-white p-2 rounded-md w-56 font-bold -mt-2 ml-2">Inquire Now</button>
+                                  
+                              </Link>
                           </div>
                       </div>
 
                       {/* Heading and Button - Right Column */}
-                      <div className="flex flex-row items-center justify-center z-10">
+                      <div className="flex flex-row items-center justify-center z-10" >
                           {/* Blue Section */}
-                          <div className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden">
+                          <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden">
                               <h3 className="relative text-2xl font-bold mb-4 text-left overflow-ellipsis overflow-hidden">
                                   23 renters have <br /> loved this property
                               </h3>                            
@@ -179,7 +213,7 @@ const Home = () => {
                           </div>
 
                           {/* Card Section */}
-                          <div className="relative overflow-hidden w-3/2 h-3/2 bg-white rounded-xl shadow-md ml-56">
+                          <div className="relative overflow-hidden w-3/2 h-3/2 bg-white rounded-xl shadow-md ml-56" ref={trendingRefDesk2}>
                               {/* Image */}
                               <img src={trendingimage} alt="Property" className="w-full h-auto" />
 
@@ -191,7 +225,9 @@ const Home = () => {
 
                               {/* Button */}
                               <div className=" bottom-4 left-0 right-0 text-center p-2">
+                                  <Link to="/contactus">
                                   <button className="bg-[#A6CE39] text-white p-2 font-bold rounded-xl w-5/6 mt-5">Inquire</button>
+                                  </Link>
                               </div>
                           </div>
                           {/* Adjusted height and margin-bottom */}
@@ -224,7 +260,10 @@ const Home = () => {
                                   {/* Button */}
 
                                   <div className="absolute bottom-10 left-0 right-0 text-center">
+                                      <Link to="/contactus">
                                       <button className="bg-[#A6CE39] text-white p-2 font-bold rounded-md w-5/6 mt-5">Inquire</button>
+                                  </Link>
+                                  
                                   </div>
                               </div>
                           </div>
@@ -237,7 +276,9 @@ const Home = () => {
                                   Discover Rentals, Properties, and Vehicles
                               </h1>
                               <div className="relative bottom-12 left-0 right-0 text-center mt-auto"> {/* mt-auto to push the button to the bottom */}
+                                  <Link to="/contactus">
                                   <button className="bg-[#2E3192] text-white p-2 rounded-full  w-56 font-bold -mt-10">Inquire Now</button>
+                                  </Link>
                               </div>
                           </div>
 
@@ -320,11 +361,11 @@ const Home = () => {
               </div>
 
 
-
+              <Link to="/contactus">
               <button className="bg-[#2E3192] text-white py-2 px-8 rounded-md font-bold right-0 ">
                   Get in touch
               </button>
-
+          </Link>
           </div>
 
 
@@ -352,9 +393,11 @@ const Home = () => {
                       </p>
 
                       {/* Learn More Button */}
+                      <Link to="/contactus">
                       <button className="bg-[#CCE28D] text-white py-2 px-4 rounded-full font-bold right-0">
                           Learn More
                       </button>
+                      </Link>
                   </div>
               </div>
 
@@ -373,9 +416,11 @@ const Home = () => {
                       </p>
 
                       {/* Learn More Button */}
+                      <Link to="/contactus">
                       <button className="bg-[#CCE28D] text-white py-4 px-4 w-32 rounded-md font-bold">
                           Learn More
                       </button>
+                      </Link>
                   </div>
 
           )}
