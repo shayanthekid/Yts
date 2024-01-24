@@ -60,7 +60,7 @@ const ItemDetails = () => {
                         <img
                             src={`https://ytsbucketfiles.s3.ap-southeast-1.amazonaws.com/images/${imageUrl}`}
                             alt={`Image ${index}`}
-                            style={{ height: '300px' }} // Adjust the height as needed
+                            className='w-32 h-auto' // Adjust the height as needed
                         />
                     </div>
                 ))}

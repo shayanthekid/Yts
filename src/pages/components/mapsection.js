@@ -34,7 +34,7 @@ const MapSection = () => {
 
     const defaultProps = {
         center: locationCoordinates,
-        zoom: 31,
+        zoom: 25,
     };
     const CustomMarker = ({ imageUrl }) => (
         <div style={{ width: '30px', height: '30px', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover' }} />
@@ -65,6 +65,7 @@ const MapSection = () => {
         <div>
             {isDesktop ? (
                 // Desktop
+                <div>
                 <div className="relative w-20vw mx-16 my-10 overflow-hidden rounded-md" ref={desktopRef}>
                     {/* Image */}
                     <img src={bookingimg} alt="Search Image" className="w-full h-full object-cover rounded-md" />
@@ -77,7 +78,9 @@ const MapSection = () => {
                         </div>
                     </div>
 
-                    <div style={{ height: isDesktop ? '400px' : '200px', width: '100%' }}>
+                  
+                </div>
+                    <div className='w-80 h-screen absolute  mr-10 -mt-72  right-0' >
                         <GoogleMapReact
                             bootstrapURLKeys={{ key: 'AIzaSyCRyy37ixokPYy8M9zk31n6GONnQlBp3Bg' }}
                             defaultCenter={defaultProps.center}
