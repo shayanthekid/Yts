@@ -7,7 +7,7 @@ import transmissionicon from '../../assets/images/featureicons/transmission.png'
 import swimmingicon from '../../assets/images/featureicons/swimming.png';
 import { Link } from 'react-router-dom';
 
-const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swimming_pool, transmission, seat_no }) => {
+const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swimming_pool, transmission, seat_no, is_sold }) => {
 
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
@@ -34,17 +34,31 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
         //Desktop    
         <Link to={`/item/${id}`} state={{ itemId: id }}>
                         
-                <div className="flex gap-4 p-4 bg-white rounded-xl shadow-md">
+                    <div className={`flex gap-4 p-4 bg-white rounded-xl shadow-md ${is_sold ? 'item-sold' : ''}`}>
                     {/* Image */}
-                    <img src={imageSrc} alt={imageUrlsArray[0]} className="w-1/3 h-auto rounded-xl" />
+
+                        <img src={imageSrc} alt={imageUrlsArray[0]} className={`w-80 h-auto rounded-xl ${is_sold ? 'grayscale' : 'grayscale-0'}`} />
 
                     {/* Details */}
                     <div className="flex-1 flex flex-col">
                         {/* Price */}
-                        <p className="text-xl text-black text-right font-bold mb-4">{price}</p>
+                            {is_sold === null ? (
+                                <p className="text-xl text-black text-right font-bold mb-4">{price}</p>
+
+                            ): (
+                                <></>
+                            )}
 
                         {/* Title */}
-                        <h3 className="text-lg font-bold text-left p-4">{title}</h3>
+                            {is_sold === null ? (
+                                <h3 className="text-lg font-bold text-left p-4">{title}</h3>
+
+                            ): (
+                                    <h3 className="text-lg font-bold text-left p-4">This item has been sold. Copy subject to change</h3>
+
+
+                            )}
+                        
 
                         {/* Address */}
                         <p className="text-sm font-light text-left p-4">{address}</p>
@@ -109,18 +123,33 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
         //Mobile
                     <Link to={`/item/${id}`} state={{ itemId: id }}>
 
-                    <div className="relative overflow-hidden bg-white rounded-xl shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
+                        <div className={`relative overflow-hidden bg-white rounded-xl shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 ${is_sold ? 'item-sold' : ''}`}>
                         {/* Image */}
-                        <img src={imageSrc} alt={imageUrlsArray[0]} className="w-full h-auto" />
+                    
+
+                            <img src={imageSrc} alt={imageUrlsArray[0]} className={`w-full h-auto ${is_sold ? 'grayscale' : 'grayscale-0'}`} />
 
                         {/* Title */}
-                        <h3 className="text-sm font-light mt-2 text-left p-4">{title}</h3>
+                            {is_sold === null ? (
+                                <h3 className="text-sm font-light mt-2 text-left p-4">{title}</h3>
+
+                            ) : (
+                                <h3 className="text-lg font-bold text-left p-4">This item has been sold. Copy subject to change</h3>
+
+
+                            )}
+                
 
                         {/* Address */}
                         <p className="text-sm text-left p-4">{address}</p>
 
                         {/* Price */}
-                        <p className="text-xl text-black text-left p-4 font-bold">{price}</p>
+                            {is_sold === null ? (
+                                <p className="text-xl text-black text-left p-4 font-bold">{price}</p>
+
+                            ): (
+                                <></>
+                                )}
 
                         {/* Include icons */}
 

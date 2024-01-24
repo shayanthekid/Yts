@@ -74,6 +74,10 @@
         "getitembooking": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/getitembooking-69306f4e4d4670364f78-build.zip"
+        },
+        "updateitemsold": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/updateitemsold-6b583870467138335442-build.zip"
         }
       }
     }

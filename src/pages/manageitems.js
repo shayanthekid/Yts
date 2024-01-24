@@ -13,29 +13,38 @@ const ManageItems = () => {
     const [itemSelectedFiles, setItemSelectedFiles] = useState({});
     const [isSold, setIsSold] = useState(false);
 
-    const handleToggleClick = (itemId) => {
-        // Find the item with the given itemId
-        const selectedItem = items.find((item) => item.id === itemId);
+    const handleToggleClick = async (itemId) => {
+        try {
+            // Find the item with the given itemId
+            const selectedItem = items.find((item) => item.id === itemId);
 
-        // Check if the is_sold property is null or not
-        if (selectedItem.is_sold === null) {
-            // If it's null, mark it as sold
-            console.log(`Marking item with ID ${itemId} as sold`);
-            // Update the state to reflect the change
-            setItems((prevItems) =>
-                prevItems.map((item) =>
-                    item.id === itemId ? { ...item, is_sold: 1 } : item
-                )
+            // Determine the new value for is_sold
+            const newIsSoldValue = selectedItem.is_sold === null ? 1 : null;
+
+            // Make a PUT request to update the is_sold property
+            const response = await axios.put(
+                'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/updateitemsold',
+                {
+                    itemId: itemId,
+                    isSold: newIsSoldValue,
+                }
             );
-        } else {
-            // If it's not null, mark it as unsold (set is_sold to null)
-            console.log(`Marking item with ID ${itemId} as unsold`);
-            // Update the state to reflect the change
-            setItems((prevItems) =>
-                prevItems.map((item) =>
-                    item.id === itemId ? { ...item, is_sold: null } : item
-                )
-            );
+
+            // Check if the request was successful
+            if (response.status === 200) {
+                console.log(`Item with ID ${itemId} updated successfully`);
+                // Update the state to reflect the change
+                setItems((prevItems) =>
+                    prevItems.map((item) =>
+                        item.id === itemId ? { ...item, is_sold: newIsSoldValue } : item
+                    )
+                );
+            } else {
+                console.error(`Error updating item with ID ${itemId}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle errors as needed
         }
     };
 
