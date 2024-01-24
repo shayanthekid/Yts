@@ -53,6 +53,9 @@ function Footer() {
                         <Link to="/contactus" className="text-black py-2 px-4 font-light">
                            Contact Us
                         </Link>
+                        <Link to="/about" className="text-black py-2 px-4 font-light">
+                           About us
+                        </Link>
                         </div>
                     </div >
                
@@ -78,6 +81,9 @@ function Footer() {
                 </Link>
                 <Link to="/contactus" className="text-black py-2 px-4 font-light">
                     Contact Us
+                </Link>
+                <Link to="/about" className="text-black py-2 px-4 font-light">
+                About us
                 </Link>
             </div>
         </div >

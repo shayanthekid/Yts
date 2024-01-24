@@ -62,7 +62,7 @@ const MobileNavbar = () => {
                 <Link to="/listingvacation" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Vacation Rentals
                 </Link>
-                <Link to="/aboutus" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
+                <Link to="/about" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     About Us
                 </Link>
                 <Link to="/contactus" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
