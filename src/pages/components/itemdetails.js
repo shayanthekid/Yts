@@ -14,6 +14,7 @@ import transmissionicon from '../../assets/images/featureicons/bx-transfer.png';
 import swimmingicon from '../../assets/images/featureicons/swimming.png';
 import bedicon from '../../assets/images/featureicons/bed.png';
 import Calendar from "@demark-pro/react-booking-calendar";
+import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
 
 
 const ItemDetails = () => {
@@ -77,7 +78,9 @@ const ItemDetails = () => {
  
 
     if (!item) {
-        return <p>Loading...</p>;
+        return <div className='flex justify-center items-center'>
+            <img src={lottieloadinganimation} alt="Loading Animation" />
+        </div>
     }
     const handleTabClick = (tab) => {
         setActiveTab(tab);

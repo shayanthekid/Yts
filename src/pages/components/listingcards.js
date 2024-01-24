@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ListingCard from './listingcard';
+import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
 
 const ListingCards = ({ type, data }) => {
     const [activeTab, setActiveTab] = useState(1);
@@ -11,6 +12,7 @@ const ListingCards = ({ type, data }) => {
     const cardRefdesk = useRef(null);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const [data2, setData2] = useState([]);
+    const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
         const handleResize = () => {
@@ -33,8 +35,10 @@ const ListingCards = ({ type, data }) => {
                 // Parse the JSON string in the body property
                 const parsedResult = JSON.parse(result.body);
                 setData2(parsedResult);
+                setLoading(false); // Set loading to false when data is fetched
             } catch (error) {
                 console.error('Error fetching data:', error);
+                setLoading(false); // Set loading to false in case of an error
             }
         };
 
@@ -86,18 +90,26 @@ const ListingCards = ({ type, data }) => {
 
     return (
         <div>
-            {isDesktop ? (
-                <div className="grid grid-cols-1 gap-2 p-4" ref={cardRefdesk}>
-                    {dynamicFilteredData.map((item) => (
-                        <ListingCard key={item.id} {...item} />
-                    ))}
+            {loading ? ( // Show loading message or spinner
+            <div className='flex justify-center items-center'>
+                <img src={lottieloadinganimation} alt="Loading Animation" />
                 </div>
             ) : (
-                <div className="flex flex-wrap gap-4 p-4" ref={cardRefmobile}>
-                        {dynamicFilteredData.map((item) => (
-                        <ListingCard key={item.id} {...item} />
-                    ))}
-                </div>
+                <>
+                    {isDesktop ? (
+                        <div className="grid grid-cols-1 gap-2 p-4" ref={cardRefdesk}>
+                            {dynamicFilteredData.map((item) => (
+                                <ListingCard key={item.id} {...item} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="flex flex-wrap gap-4 p-4" ref={cardRefmobile}>
+                            {dynamicFilteredData.map((item) => (
+                                <ListingCard key={item.id} {...item} />
+                            ))}
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
