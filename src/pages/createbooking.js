@@ -71,7 +71,7 @@ const Createbooking = () => {
     };
 
     return (
-        <div className="container mx-auto mt-8">
+        <div className="container mx-auto mt-24">
             <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">

@@ -11,6 +11,35 @@ const ManageItems = () => {
     const [error, setError] = useState(null);
     const [totalSize, setTotalSize] = useState(0);
     const [itemSelectedFiles, setItemSelectedFiles] = useState({});
+    const [isSold, setIsSold] = useState(false);
+
+    const handleToggleClick = (itemId) => {
+        // Find the item with the given itemId
+        const selectedItem = items.find((item) => item.id === itemId);
+
+        // Check if the is_sold property is null or not
+        if (selectedItem.is_sold === null) {
+            // If it's null, mark it as sold
+            console.log(`Marking item with ID ${itemId} as sold`);
+            // Update the state to reflect the change
+            setItems((prevItems) =>
+                prevItems.map((item) =>
+                    item.id === itemId ? { ...item, is_sold: 1 } : item
+                )
+            );
+        } else {
+            // If it's not null, mark it as unsold (set is_sold to null)
+            console.log(`Marking item with ID ${itemId} as unsold`);
+            // Update the state to reflect the change
+            setItems((prevItems) =>
+                prevItems.map((item) =>
+                    item.id === itemId ? { ...item, is_sold: null } : item
+                )
+            );
+        }
+    };
+
+
 
     const handleFileChange = (itemId, e) => {
         const files = Array.from(e.target.files);
@@ -47,7 +76,7 @@ const ManageItems = () => {
 
     const handleUpdateClick = (itemId) => {
         // Handle logic for updating item with ID itemId
-        console.log(`Update item with ID: ${itemId}`);
+       
         // Set the item ID to enable the "Edit" mode for that row
         setEditModeItemId(itemId);
     };
@@ -68,14 +97,14 @@ const ManageItems = () => {
 
             alert('Item updated successfully! Please reload page');
 
-            console.log('Response from updateitem endpoint:', response.data);
+         
 
             // Set the item ID to disable the "Edit" mode for that row
             setEditModeItemId(null);
         } catch (error) {
             alert('Item Was not updated');
 
-            console.error('Error updating item:', error);
+          
         }
     };
 
@@ -99,10 +128,10 @@ const ManageItems = () => {
                 alert('Error deleting item. Please try again.');
             }
 
-            console.log('Response from deleteitem endpoint:', response.data);
+          
         } catch (error) {
             alert('Error deleting item. Please try again.');
-            console.error('Error deleting item:', error);
+           
         }
     };
 
@@ -210,13 +239,12 @@ const ManageItems = () => {
 
             alert('Image Deleted successfully! Please reload page');
 
-            console.log('Response from deleteimage endpoint:', response.data);
         } catch (error) {
             alert('Error Deleting image');
             console.error('Error deleting image:', error);
 
             if (error.response) {
-                console.error('Error response data:', error.response.data);
+            
             }
         }
     };
@@ -346,6 +374,12 @@ const ManageItems = () => {
                                                     className="bg-blue-500 text-white p-2 rounded"
                                                 >
                                                     Update
+                                                </button>
+                                                <button
+                                                    onClick={() => handleToggleClick(item.id)}
+                                                    className={`bg-${item.is_sold ? 'red' : 'green'}-500 text-white p-2 rounded`}
+                                                >
+                                                    {item.is_sold ? 'Mark as Unsold' : 'Mark as Sold'}
                                                 </button>
                                             </div>
 
