@@ -13,7 +13,7 @@ const MapSection = () => {
     const desktopRef = useRef(null);
     const mobileRef = useRef(null);
     const location = useLocation();
-    const AnyReactComponent = ({ text }) => <div>{text}</div>;
+    const AnyReactComponent = ({ text }) => <div className='mt-12'>{text}</div>;
 
     useEffect(() => {
         const handleResize = () => {
@@ -86,8 +86,10 @@ const MapSection = () => {
                             defaultCenter={defaultProps.center}
                             defaultZoom={defaultProps.zoom}
                         >
-                            <CustomMarker lat={locationCoordinates.lat} lng={locationCoordinates.lng} imageUrl={mapicon} />
-                        </GoogleMapReact>
+                            <CustomMarker text="My Marker" lat={locationCoordinates.lat} lng={locationCoordinates.lng} imageUrl={mapicon} />
+                            <AnyReactComponent lat={locationCoordinates.lat} lng={locationCoordinates.lng} text="YTS Enterprise" />
+
+                       </GoogleMapReact>
                     </div>
                 </div>
             ) : (

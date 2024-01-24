@@ -55,6 +55,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "getitembooking": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "updatebooking": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -247,6 +252,22 @@
         {
           "category": "function",
           "resourceName": "getitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_getitembooking_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getitembooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_getitembooking_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getitembooking"
         }
       ]
     },

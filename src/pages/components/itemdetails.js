@@ -13,13 +13,17 @@ import parkingicon from '../../assets/images/featureicons/bxs-parking.png';
 import transmissionicon from '../../assets/images/featureicons/bx-transfer.png';
 import swimmingicon from '../../assets/images/featureicons/swimming.png';
 import bedicon from '../../assets/images/featureicons/bed.png';
+import Calendar from "@demark-pro/react-booking-calendar";
+
 
 const ItemDetails = () => {
     const location = useLocation();
     const { itemId } = location.state || {};
     const [item, setItem] = useState(null);
     const [activeTab, setActiveTab] = useState('overview');
-
+    const [reserved, setReserved] = useState([]);
+   
+    const [selectedDates, setSelectedDates] = useState([]);
     useEffect(() => {
         const fetchItemDetails = async () => {
             try {
@@ -39,17 +43,52 @@ const ItemDetails = () => {
         fetchItemDetails();
     }, [itemId]);
 
-    // ...
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getitembooking?itemId=${itemId}`);
+
+                // Log the response data
+                console.log(response.data);
+
+                const bookings = response.data.bookings;
+
+                if (bookings.length > 0) {
+                    // Create the reserved array directly from API response
+                    const newReserved = bookings.map(booking => ({
+                        startDate: new Date(booking.startdate),
+                        endDate: new Date(booking.enddate),
+                    }));
+
+                    // Update the state
+                    setReserved(newReserved);
+                } else {
+                    // No bookings, set reserved to an empty array
+                    setReserved([]);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+        };
+
+        // Call the fetchData function
+        fetchData();
+    }, [itemId]);
+ 
 
     if (!item) {
         return <p>Loading...</p>;
     }
-    console.log(item);
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
     // <h2>{item[0].title}</h2>
     const imageUrlsArray = item[0].image_urls ? item[0].image_urls.split(',') : [];
+
+
+    const handleChange = (dates) => {
+        setSelectedDates(dates);
+    };
 
     return (
         <div className="max-w-screen-md mx-auto p-4">
@@ -99,6 +138,12 @@ const ItemDetails = () => {
                     onClick={() => setActiveTab('location')}
                 >
                     Location
+                </button>
+                <button
+                    className={`flex-1 p-3 text-center ${activeTab === 'Availability' ? 'border-b-2 border-[#2E3192]' : ''}`}
+                    onClick={() => setActiveTab('Availability')}
+                >
+                    Availability
                 </button>
             </div>
 
@@ -406,6 +451,21 @@ const ItemDetails = () => {
                     <div>
                         {/* Location content */}
                         <p>Location content goes here.</p>
+                    </div>
+                )}
+                {activeTab === 'Availability' && (
+                    <div>
+                        <div className="mt-4">
+                            <Calendar
+                                selected={selectedDates}
+                                onChange={handleChange}
+                                onOverbook={(e, err) => alert(err)}
+                                disabled={(date, state) => !state.isSameMonth}
+                                reserved={reserved}
+                                range={true}
+                                dateFnsOptions={{ weekStartsOn: 1 }}
+                            />
+                        </div>
                     </div>
                 )}
             </div>
