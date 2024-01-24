@@ -52,29 +52,35 @@ const ListingCards = ({ type, data }) => {
 
     // Check if data is an array before filtering
     const filteredData2 = Array.isArray(data2) ? data2.filter(item => item.type === type) : [];
-    console.log(data);
+    console.log(filteredData2);
     // Apply additional filters based on the search input and selected dates
     const dynamicFilteredData = filteredData2.filter(item => {
         // Check if the search input and date range are available
         const searchData = data || [];
         const searchInput = searchData[0];
         const dateRange = searchData[1];
+        const priceRange = searchData[2];
 
         // If there is no search input, return true (no filtering applied)
-        if (!searchInput) {
+        if (!searchInput && !dateRange && !priceRange) {
             return true;
         }
 
-        // Check if the search input is not empty and matches the title (case insensitive)
+        // Check if the search input matches the title (case insensitive)
         const searchMatch = (
-            item.title.toLowerCase().includes(searchInput.toLowerCase())
+            !searchInput || item.title.toLowerCase().includes(searchInput.toLowerCase())
         );
 
         // Check if the item's date falls within the specified date range
-       
+        // ... (you can add date filtering logic here if needed)
 
-        // Return true only if there is a match for both search input and date range
-        return searchMatch;
+        // Check if the item's price falls within the specified price range
+        const priceMatch = (
+            !priceRange || (item.price >= priceRange.min && item.price <= priceRange.max)
+        );
+
+        // Return true if any of the conditions match
+        return searchMatch || priceMatch;
     });
 
 

@@ -17,6 +17,7 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const [searchInput, setSearchInput] = useState('');
+    const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 }); // Adjust the initial range as needed
 
     useEffect(() => {
         const handleResize = () => {
@@ -43,9 +44,15 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
     const handleSearchChange = (e) => {
         setSearchInput(e.target.value);
         // Notify the parent component (Listingcar) about the filter change
-        onFilterChange(e.target.value, selectedDates);
+        onFilterChange(e.target.value, selectedDates, priceRange);
     };
 
+    const handlePriceChange = (e) => {
+        const value = parseInt(e.target.value, 10);
+        setPriceRange({ ...priceRange, [e.target.name]: value });
+        onFilterChange(searchInput, selectedDates, { ...priceRange, [e.target.name]: value });
+
+    };
     return (
 <div>
 
@@ -80,16 +87,29 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
                             {/* More Button */}
                             <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
                                 <p className="text-center font-normal">Price Range</p>
-                                <img src={dropdownicon} alt="Settings Icon" className="w-4 h-2 ml-2" />
+                                <input
+                                    type="number"
+                                    name="min"
+                                    placeholder="Min"
+                                    value={priceRange.min}
+                                    onChange={handlePriceChange}
+                                    className="w-16 h-8 ml-2 text-center rounded border border-gray-300 focus:outline-none focus:shadow-outline-blue"
+                                />
+                                <span className="mx-2">to</span>
+                                <input
+                                    type="number"
+                                    name="max"
+                                    placeholder="Max"
+                                    value={priceRange.max}
+                                    onChange={handlePriceChange}
+                                    className="w-16 h-8 ml-2 text-center rounded border border-gray-300 focus:outline-none focus:shadow-outline-blue"
+                                />
                             </div>
-                            <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
+                            {/* <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
                                 <p className="text-center font-normal">Type</p>
                                 <img src={dropdownicon} alt="Settings Icon" className="w-4 h-2 ml-2" />
-                            </div>
-                            <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
-                                <p className="text-center font-normal">More</p>
-                                <img src={settingsicon} alt="Settings Icon" className="w-4 h-4 ml-2" />
-                            </div>
+                            </div> */}
+                         
                         </div>
 
                         {/* Show Date Picker if Availability is clicked */}
@@ -131,6 +151,8 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
                                 </span>
                                 <input
                                     type="text"
+                                    value={searchInput}
+                                    onChange={handleSearchChange}
                                     placeholder="Search Vehicles, Locations"
                                     className="rounded-full w-full pl-12 pr-4 py-2 focus:outline-none focus:shadow-outline-blue border border-gray-300 shadow-lg"
                                 />
@@ -155,9 +177,24 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
 
                             {/* More Button */}
                             <div className="flex items-center mr-4 bg-white rounded-full shadow-md px-4 py-2 justify-between">
-                                <p className="text-center font-normal">More</p>
-                                <img src={settingsicon} alt="Bath Icon" className="w-4 h-4 ml-2" />
-
+                                <p className="text-center font-normal">Price Range</p>
+                                <input
+                                    type="number"
+                                    name="min"
+                                    placeholder="Min"
+                                    value={priceRange.min}
+                                    onChange={handlePriceChange}
+                                    className="w-16 h-8 ml-2 text-center rounded border border-gray-300 focus:outline-none focus:shadow-outline-blue"
+                                />
+                                <span className="mx-2">to</span>
+                                <input
+                                    type="number"
+                                    name="max"
+                                    placeholder="Max"
+                                    value={priceRange.max}
+                                    onChange={handlePriceChange}
+                                    className="w-16 h-8 ml-2 text-center rounded border border-gray-300 focus:outline-none focus:shadow-outline-blue"
+                                />
                             </div>
                         </div>
 

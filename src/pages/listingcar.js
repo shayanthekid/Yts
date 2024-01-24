@@ -23,13 +23,13 @@ const Listingcar = () => {
   }, []);
 
   // Callback function to update filtered data
-  const handleFilterChange = (searchInput, selectedDates) => {
+  const handleFilterChange = (searchInput, selectedDates, priceRange) => {
     // console.log('Search Input:', searchInput);
     // console.log('Selected Dates:', selectedDates);
 
     // Filter the data based on the search input and selected dates
     // You may adjust this filtering logic based on your requirements
-    const newData = [searchInput, selectedDates]; // Implement your filtering logic here
+    const newData = [searchInput, selectedDates, priceRange]; // Implement your filtering logic here
     setFilteredData(newData);
   };
 
