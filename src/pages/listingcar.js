@@ -40,7 +40,7 @@ const Listingcar = () => {
       {isDesktop ? (
         //Desktop    
         <div className="min-h-screen bg-white">
-          <MapSection />
+          <MapSection type={type} />
           <FilterPanel type={type} onFilterChange={handleFilterChange} filteredData={filteredData} />
           
         </div>
@@ -49,7 +49,7 @@ const Listingcar = () => {
       ) : (
         //Mobile
           <div className="min-h-screen bg-[#F7F7F7]">
-      <MapSection />
+            <MapSection type={type} />
             <FilterPanel type={type} onFilterChange={handleFilterChange} filteredData={filteredData} />
             <ListingCards type={type} data={filteredData} />
           </div>

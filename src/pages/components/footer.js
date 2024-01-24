@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import bookingimg from '../../assets/images/ytslogo.png';
+import carLogo from '../../assets/images/ytsrentacar.png';
 
 function Footer() {
+    const location = useLocation();
+
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     useEffect(() => {
         const handleResize = () => {
@@ -15,6 +18,14 @@ function Footer() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const getLogo = () => {
+        if (location.pathname === '/listingcar') {
+            return carLogo;
+        }
+        return bookingimg;
+    };
+
     return (
 
 <>
@@ -23,7 +34,7 @@ function Footer() {
               
                     <div className="bg-gray-200 p-4 text-center relative bottom-0 mt-96">
 
-                        <img src={bookingimg} alt="Logo" className="h-8 w-auto mx-auto mb-4" />
+                    <img src={getLogo()} alt="Logo" className="h-8 w-auto mx-auto mb-4" />
                         <h2 className="text-xl font-medium mb-4 text-left">Navigation</h2>
                         {/* Links */}
                         <div className="flex flex-col items-start">

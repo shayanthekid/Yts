@@ -184,7 +184,7 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
                                 type="text"
                                 value={searchInput}
                                 onChange={handleSearchChange}
-                                placeholder="Search Vehicles, Locations"
+                                placeholder="Search by name"
                                 className="rounded-full w-full pl-12 pr-4 py-2 focus:outline-none focus:shadow-outline-blue border border-gray-300 shadow-lg"
                             />
                         </div>

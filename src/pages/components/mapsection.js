@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import bookingimg from '../../assets/images/bookingimg.png';
+import bookingimg1 from '../../assets/images/bookingimg1.png';
+import bookingimg2 from '../../assets/images/bookingimg.png';
+import bookingimg3 from '../../assets/images/bookingimg3.jpg';
 import mapicon from '../../assets/images/featureicons/mapicon.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,11 +10,21 @@ import GoogleMapReact from 'google-map-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MapSection = () => {
+const MapSection = ({ type }) => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const desktopRef = useRef(null);
     const mobileRef = useRef(null);
     const location = useLocation();
+
+    const imageSources = {
+        1: bookingimg1,
+        2: bookingimg2,
+        3: bookingimg3,
+    };
+
+    // Select the appropriate image source based on the type
+    const selectedImage = imageSources[type] || bookingimg2;
+
     const AnyReactComponent = ({ text }) => <div className='mt-12'>{text}</div>;
 
     useEffect(() => {
@@ -27,6 +39,13 @@ const MapSection = () => {
         };
     }, []);
 
+    const openGoogleMaps = () => {
+        const { lat, lng } = locationCoordinates;
+        const url = `https://www.google.com/maps?q=${lat},${lng}`;
+
+        // Open Google Maps in a new window or tab
+        window.open(url, '_blank');
+    };
     const locationCoordinates = {
         lat: 6.89471282586257, // Replace with the latitude
         lng: 79.85412688572308, // Replace with the longitude
@@ -68,7 +87,7 @@ const MapSection = () => {
                 <div>
                 <div className="relative w-20vw mx-16 my-10 overflow-hidden rounded-md" ref={desktopRef}>
                     {/* Image */}
-                    <img src={bookingimg} alt="Search Image" className="w-full h-full object-cover rounded-md" />
+                        <img src={selectedImage} alt="Search Image" className="w-full h-full object-cover rounded-md" />
 
                     {/* Overlay Text */}
                     <div className="absolute top-0 left-0 p-8 text-white">
@@ -99,7 +118,9 @@ const MapSection = () => {
                     <p className="text-6xl font-bold">Search in</p>
                     <div className="flex items-center justify-around mt-4">
                         <p className="mr-2 font-normal text-lg">Sri Lanka</p>
-                        <button className="bg-[#2E3192] text-white px-8 py-2 rounded-full">View on map</button>
+                            <button className="bg-[#2E3192] text-white px-8 py-2 rounded-full" onClick={openGoogleMaps}>
+                                View on map
+                            </button>
                     </div>
                 </div>
             )}
