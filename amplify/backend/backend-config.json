@@ -20,6 +20,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "deletebooking": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "deleteimage": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -125,6 +130,22 @@
         {
           "category": "function",
           "resourceName": "createitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_deletebooking_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deletebooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_deletebooking_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deletebooking"
         }
       ]
     },

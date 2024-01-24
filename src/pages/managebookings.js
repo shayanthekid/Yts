@@ -37,6 +37,27 @@ const ManageBookings = () => {
 
     };
 
+    const handleDeleteClick = async (bookingId) => {
+        try {
+            // Make a POST request to the deletebooking endpoint
+            const response = await axios.post(
+                'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/deletebooking',
+                { bookingId }
+            );
+
+            alert('Booking deleted successfully! Please reload page');
+
+            console.log('Response from deletebooking endpoint:', response.data);
+
+            // Implement logic to update your component's state or UI as needed
+
+        } catch (error) {
+            alert('Booking was not deleted');
+
+            console.error('Error deleting booking:', error);
+        }
+    };
+
 
     const handleSaveClick = async (bookingId) => {
         // Get the booking data for the updated booking
@@ -151,7 +172,8 @@ const ManageBookings = () => {
                         <th className="border p-2">Contact Number</th>
                         <th className="border p-2">Name</th>
                         <th className="border p-2">Date</th>
-                        <th className="border p-2">Update</th>
+                        <th className="border p-2">Actions</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -172,12 +194,20 @@ const ManageBookings = () => {
                                         Save
                                     </button>
                                 ) : (
+                                    <div className='flex'>
                                     <button
                                         onClick={() => handleUpdateClick(booking.id)}
                                         className="bg-blue-500 text-white p-2 rounded"
                                     >
                                         Update
                                     </button>
+                                            <button
+                                                onClick={() => handleDeleteClick(booking.id)}
+                                                className="bg-red-500 text-white p-2 rounded"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                 )}
                             </td>
                         </tr>
