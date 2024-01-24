@@ -33,7 +33,7 @@
         },
         "createitem": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/createitem-576764755677654b5174-build.zip"
+          "s3Key": "amplify-builds/createitem-3831344575475479626e-build.zip"
         },
         "getallitems": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",

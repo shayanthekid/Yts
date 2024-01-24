@@ -360,7 +360,7 @@ const CreateItem = () => {
             
 
 
-                {itemType === '2' && (
+                {(itemType === '2' || itemType === '3') && (
                     <div className="mb-4">
                         <h3 className="text-xl font-semibold mb-4">Property Features</h3>
 
