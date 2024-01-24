@@ -43,12 +43,17 @@ const ManageBookings = () => {
         const updatedBooking = bookings.find((booking) => booking.id === bookingId);
 
         try {
-            // Send a PUT request to update the booking
+            // Destructure updatedBooking and include selectedDates in the request
+            const { startdate, enddate, ...restBookingData } = updatedBooking;
             const response = await axios.put(
-                'YOUR_UPDATE_BOOKING_ENDPOINT', // Replace with your actual endpoint
+                'https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/updatebooking',
                 {
-                    bookingId: bookingId,
-                    bookingData: updatedBooking,
+                    bookingId,
+                    bookingData: {
+                        ...restBookingData,
+                        startdate: selectedDates[0].toISOString(),
+                        enddate: selectedDates[1].toISOString(),
+                    },
                 }
             );
 
@@ -64,6 +69,7 @@ const ManageBookings = () => {
             console.error('Error updating booking:', error);
         }
     };
+
     const handleChange = (dates) => {
         setSelectedDates(dates);
 
@@ -88,7 +94,6 @@ const ManageBookings = () => {
                                 selected={selectedDates}
                                 onChange={handleChange}
                                 onOverbook={(e, err) => alert(err)}
-                                disabled={(date, state) => !state.isSameMonth}
                                 range={true}
                                 dateFnsOptions={{ weekStartsOn: 1 }}
                             />
@@ -133,6 +138,7 @@ const ManageBookings = () => {
         );
     };
 
+    console.log(selectedDates);
     return (
         <div className="container mx-auto p-8">
             <h2 className="text-3xl font-bold mb-8">Manage Bookings</h2>

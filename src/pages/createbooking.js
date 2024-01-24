@@ -93,7 +93,6 @@ const Createbooking = () => {
                             selected={selectedDates}
                             onChange={handleChange}
                             onOverbook={(e, err) => alert(err)}
-                            disabled={(date, state) => !state.isSameMonth}
                             range={true}
                             dateFnsOptions={{ weekStartsOn: 1 }}
                         />

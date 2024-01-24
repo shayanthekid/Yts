@@ -45,6 +45,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "updatebooking": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "updateitem": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -200,6 +205,22 @@
         {
           "category": "function",
           "resourceName": "getitem"
+        }
+      ]
+    },
+    "AMPLIFY_function_updatebooking_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updatebooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_updatebooking_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updatebooking"
         }
       ]
     },
