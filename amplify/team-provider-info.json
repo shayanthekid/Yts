@@ -66,6 +66,10 @@
         "deletebooking": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/deletebooking-6c767859614455693445-build.zip"
+        },
+        "getallbookingtype": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/getallbookingtype-66765977682b464c6741-build.zip"
         }
       }
     }

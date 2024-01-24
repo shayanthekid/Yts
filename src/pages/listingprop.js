@@ -8,6 +8,7 @@ const Listingprop = () => {
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const type = 2; // Specify the type here (1, 2, or 3)
+    const [filteredData, setFilteredData] = useState([]); // Lifted state for filtered data
 
     useEffect(() => {
         const handleResize = () => {
@@ -21,6 +22,18 @@ const Listingprop = () => {
         };
     }, []);
 
+    // Callback function to update filtered data
+    const handleFilterChange = (searchInput, selectedDates, priceRange) => {
+        // console.log('Search Input:', searchInput);
+        // console.log('Selected Dates:', selectedDates);
+
+        // Filter the data based on the search input and selected dates
+        // You may adjust this filtering logic based on your requirements
+        const newData = [searchInput, selectedDates, priceRange]; // Implement your filtering logic here
+        setFilteredData(newData);
+    };
+
+
     return (
         <div >
 
@@ -28,7 +41,8 @@ const Listingprop = () => {
                 //Desktop    
                 <div className="min-h-screen bg-white">
                     <MapSection />
-                    <FilterPanel type={type} />
+                    <FilterPanel type={type} onFilterChange={handleFilterChange} filteredData={filteredData} />
+
                 </div>
 
 
@@ -36,8 +50,8 @@ const Listingprop = () => {
                 //Mobile
                 <div className="min-h-screen bg-[#F7F7F7]">
                     <MapSection />
-                    <FilterPanel type={type} />
-                    <ListingCards type={type} />
+                    <FilterPanel type={type} onFilterChange={handleFilterChange} filteredData={filteredData} />
+                    <ListingCards type={type} data={filteredData} />
                 </div>
             )}
 
