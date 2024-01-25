@@ -32,7 +32,7 @@ function Footer() {
   {isDesktop ? (
                 // Desktop
               
-                    <div className="bg-gray-200 p-4 text-center relative bottom-0 mt-96">
+                <div className={`bg-gray-200 p-4 text-center relative bottom-0 ${location.pathname !== '/home' ? 'mt-96' : 'mt-20'}`}>
 
                     <img src={getLogo()} alt="Logo" className="h-8 w-auto mx-auto mb-4" />
                         <h2 className="text-xl font-medium mb-4 text-left">Navigation</h2>

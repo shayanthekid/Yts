@@ -374,7 +374,7 @@ const Home = () => {
 
           {isDesktop ? (
               //Desktop
-              <div className="container mx-auto  text-center flex">
+              <div className="container mx-auto  text-center flex mt-32">
                   {/* Image */}
                   <img src={aboutUsdesk} alt="About Us" className="w-1/2 h-auto mb-8 " />
 
@@ -393,7 +393,7 @@ const Home = () => {
                       </p>
 
                       {/* Learn More Button */}
-                      <Link to="/contactus">
+                      <Link to="/about">
                       <button className="bg-[#CCE28D] text-white py-2 px-4 rounded-full font-bold right-0">
                           Learn More
                       </button>

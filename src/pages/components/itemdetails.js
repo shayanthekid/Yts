@@ -25,19 +25,7 @@ const ItemDetails = () => {
     const [item, setItem] = useState(null);
     const [activeTab, setActiveTab] = useState('overview');
     const [reserved, setReserved] = useState([]);
-    const AnyReactComponent = ({ text }) => <div className='mt-12'>{text}</div>;
-    const locationCoordinates = {
-        lat: 6.89471282586257, // Replace with the latitude
-        lng: 79.85412688572308, // Replace with the longitude
-    };
 
-    const defaultProps = {
-        center: locationCoordinates,
-        zoom: 25,
-    };
-    const CustomMarker = ({ imageUrl }) => (
-        <div style={{ width: '30px', height: '30px', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover' }} />
-    );
     const [selectedDates, setSelectedDates] = useState([]);
     useEffect(() => {
         const fetchItemDetails = async () => {

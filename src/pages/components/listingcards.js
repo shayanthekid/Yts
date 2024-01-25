@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ListingCard from './listingcard';
 import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
+import Popup from './popupitem'; // Import the Popup component
 
 const ListingCards = ({ type, data }) => {
     const [activeTab, setActiveTab] = useState(1);
@@ -13,7 +14,16 @@ const ListingCards = ({ type, data }) => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const [data2, setData2] = useState([]);
     const [loading, setLoading] = useState(true); // Add loading state
+    const [popupData, setPopupData] = useState(null);
+    const handleCardClick = (item) => {
+        // Set the data for the popup when a card is clicked
+        setPopupData(item);
+    };
 
+    const handlePopupClose = () => {
+        // Close the popup by resetting the data
+        setPopupData(null);
+    };
     useEffect(() => {
         const handleResize = () => {
             setIsDesktop(window.innerWidth >= 768);
@@ -99,17 +109,24 @@ const ListingCards = ({ type, data }) => {
                     {isDesktop ? (
                         <div className="grid grid-cols-1 gap-2 p-4" ref={cardRefdesk}>
                             {dynamicFilteredData.map((item) => (
-                                <ListingCard key={item.id} {...item} />
+                                <div key={item.id} onClick={() => handleCardClick(item)}>
+                                    <ListingCard {...item} />
+                                </div>
                             ))}
                         </div>
                     ) : (
                         <div className="flex flex-wrap gap-4 p-4" ref={cardRefmobile}>
                             {dynamicFilteredData.map((item) => (
+                                <Link to={`/item/${item.id}`} state={{ itemId: item.id }}>
                                 <ListingCard key={item.id} {...item} />
+                                </Link>
                             ))}
                         </div>
                     )}
                 </>
+            )}
+            {popupData && (
+                <Popup onClose={handlePopupClose} data={popupData} />
             )}
         </div>
     );

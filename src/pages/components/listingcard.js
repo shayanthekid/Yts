@@ -32,7 +32,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
 
 {isDesktop ? (
         //Desktop    
-        <Link to={`/item/${id}`} state={{ itemId: id }}>
+      
                         
                     <div className={`flex gap-4 p-4 bg-white rounded-xl shadow-md ${is_sold ? 'item-sold' : ''}`}>
                     {/* Image */}
@@ -116,12 +116,12 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         </div>
                     </div>
                 </div>
-                    </Link >
+         
       
 
       ) : (
         //Mobile
-                    <Link to={`/item/${id}`} state={{ itemId: id }}>
+             
 
                         <div className={`relative overflow-hidden bg-white rounded-xl shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 ${is_sold ? 'item-sold' : ''}`}>
                         {/* Image */}
@@ -208,7 +208,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         </div>
 
                     </div>
-                    </Link >
+                 
       )}
 
         </div>
