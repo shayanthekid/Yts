@@ -131,7 +131,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
 
                         {/* Title */}
                             {is_sold === null ? (
-                                <h3 className="text-sm font-light mt-2 text-left p-4">{title}</h3>
+                                <h3 className="text-lg font-bold mt-2 text-left p-4">{title}</h3>
 
                             ) : (
                                 <h3 className="text-lg font-bold text-left p-4">This item has been sold. Copy subject to change</h3>
