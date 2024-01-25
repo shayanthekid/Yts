@@ -449,7 +449,6 @@ const Popup = ({ onClose, data }) => {
                                         selected={selectedDates}
                                         onChange={handleChange}
                                         onOverbook={(e, err) => alert(err)}
-                                        disabled={(date, state) => !state.isSameMonth}
                                         reserved={reserved}
                                         range={true}
                                         dateFnsOptions={{ weekStartsOn: 1 }}
