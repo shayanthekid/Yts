@@ -416,7 +416,7 @@ const Home = () => {
                       </p>
 
                       {/* Learn More Button */}
-                      <Link to="/contactus">
+                      <Link to="/about">
                       <button className="bg-[#CCE28D] text-white py-4 px-4 w-32 rounded-md font-bold">
                           Learn More
                       </button>
