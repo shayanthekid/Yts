@@ -5,7 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ListingCard from './listingcard';
 import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
 import Popup from './popupitem'; // Import the Popup component
-
+import Lottie from 'react-lottie';
+import animationData from '../../assets/images/featureicons/loadinganim.json';
 const ListingCards = ({ type, data }) => {
     const [activeTab, setActiveTab] = useState(1);
     const location = useLocation();
@@ -15,6 +16,14 @@ const ListingCards = ({ type, data }) => {
     const [data2, setData2] = useState([]);
     const [loading, setLoading] = useState(true); // Add loading state
     const [popupData, setPopupData] = useState(null);
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice',
+        },
+    };
     const handleCardClick = (item) => {
         console.log('Before setPopupData');
         setPopupData(item);
@@ -115,7 +124,9 @@ const ListingCards = ({ type, data }) => {
         <div>
             {loading ? ( // Show loading message or spinner
             <div className='flex justify-center items-center'>
-                <img src={lottieloadinganimation} alt="Loading Animation" />
+            
+                <Lottie options={defaultOptions}  />
+
                 </div>
             ) : (
                 <>

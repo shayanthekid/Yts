@@ -15,6 +15,8 @@ import swimmingicon from '../../assets/images/featureicons/swimming.png';
 import bedicon from '../../assets/images/featureicons/bed.png';
 import Calendar from "@demark-pro/react-booking-calendar";
 import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
+import Lottie from 'react-lottie';
+import animationData from '../../assets/images/featureicons/loadinganim.json';
 import GoogleMapReact from 'google-map-react';
 import mapicon from '../../assets/images/featureicons/mapicon.png';
 
@@ -25,7 +27,14 @@ const ItemDetails = () => {
     const [item, setItem] = useState(null);
     const [activeTab, setActiveTab] = useState('overview');
     const [reserved, setReserved] = useState([]);
-
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice',
+        },
+    };
     const [selectedDates, setSelectedDates] = useState([]);
     useEffect(() => {
         const fetchItemDetails = async () => {
@@ -81,7 +90,7 @@ const ItemDetails = () => {
 
     if (!item) {
         return <div className='flex justify-center items-center'>
-            <img src={lottieloadinganimation} alt="Loading Animation" />
+            <Lottie options={defaultOptions} />
         </div>
     }
     const handleTabClick = (tab) => {
