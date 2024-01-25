@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import bookingimg from '../../assets/images/ytslogo.png';
 import carLogo from '../../assets/images/ytsrentacar.png';
-import icon1 from '../../assets/images/featureicons/car.png';
-import icon2 from '../../assets/images/featureicons/property.png';
-import icon3 from '../../assets/images/featureicons/bunglow.png';
-import icon4 from '../../assets/images/featureicons/home.png';
+import icon2 from '../../assets/images/featureicons/car.png';
+import icon3 from '../../assets/images/featureicons/property.png';
+import icon4 from '../../assets/images/featureicons/bunglow.png';
+import icon1 from '../../assets/images/featureicons/home.png';
 import icon5 from '../../assets/images/featureicons/abouticon.png';
 import icon6 from '../../assets/images/featureicons/phoneicon.png';
 
@@ -21,13 +21,13 @@ const DesktopNav = () => {
         const isActive = activeTab === tabNumber;
         switch (tabNumber) {
             case 1:
-                return isActive ? icon4 : icon4;
-            case 2:
                 return isActive ? icon1 : icon1;
-            case 3:
+            case 2:
                 return isActive ? icon2 : icon2;
-            case 4:
+            case 3:
                 return isActive ? icon3 : icon3;
+            case 4:
+                return isActive ? icon4 : icon4;
             case 5:
                 return isActive ? icon5 : icon5;
             case 6:
@@ -97,12 +97,12 @@ const DesktopNav = () => {
                                     <img src={getIcon(4)} alt="Icon 4" className="w-8 h-8 z-10" />
                                 </Link>
                                  {/* Tab 5 */}
-                                <Link to="/about" className={`rounded-full p-2 my-2 z-10 ${activeTab === 4 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(5)}>
-                                        <img src={getIcon(5)} alt="Icon 4" className="w-8 h-8 z-10" />
+                                <Link to="/about" className={`rounded-full p-2 my-2 z-10 ${activeTab === 5 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(5)}>
+                                        <img src={getIcon(5)} alt="Icon 5" className="w-8 h-8 z-10" />
                                 </Link>
                                 {/* Tab 6 */}
-                                <Link to="/contactus" className={`rounded-full p-2 my-2 z-10 ${activeTab === 4 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(6)}>
-                                        <img src={getIcon(6)} alt="Icon 4" className="w-8 h-8 z-10" />
+                                <Link to="/contactus" className={`rounded-full p-2 my-2 z-10 ${activeTab === 6 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(6)}>
+                                        <img src={getIcon(6)} alt="Icon 6" className="w-8 h-8 z-10" />
                                 </Link>
                             </div>
                         </div>

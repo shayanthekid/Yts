@@ -18,7 +18,8 @@ import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
 
 
 const Popup = ({ onClose, data }) => {
-   
+    const [loadingPopup, setLoadingPopup] = useState(true);
+
     const [activeTab, setActiveTab] = useState('overview');
     const [reserved, setReserved] = useState([]);
 
@@ -59,6 +60,17 @@ const Popup = ({ onClose, data }) => {
     const handleChange = (dates) => {
         setSelectedDates(dates);
     };
+
+    useEffect(() => {
+        // Scroll to the top of the page when the Popup mounts
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+            });
+        }, 50);
+    }, []); 
     const imageUrlsArray = data.image_urls ? data.image_urls.split(',') : [];
 
     return (
