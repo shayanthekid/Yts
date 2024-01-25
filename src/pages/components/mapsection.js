@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import bookingimg1 from '../../assets/images/bookingimg1.png';
 import bookingimg2 from '../../assets/images/bookingimg.png';
@@ -21,11 +21,19 @@ const MapSection = ({ type }) => {
         2: bookingimg2,
         3: bookingimg3,
     };
+    const AnyReactComponent = ({ text }) => <div className='mt-12 z-50'>{text}</div>;
 
     // Select the appropriate image source based on the type
     const selectedImage = imageSources[type] || bookingimg2;
 
-    const AnyReactComponent = ({ text }) => <div className='mt-12'>{text}</div>;
+    // Move the declaration of locationCoordinates above its usage
+    const locationCoordinates = useMemo(() => ({
+        lat: 6.89471282586257, // Replace with the latitude
+        lng: 79.85412688572308, // Replace with the longitude
+    }), []);
+
+    // Store marker coordinates in state
+    const [markerCoordinates, setMarkerCoordinates] = useState(locationCoordinates);
 
     useEffect(() => {
         const handleResize = () => {
@@ -39,46 +47,30 @@ const MapSection = ({ type }) => {
         };
     }, []);
 
+    // Update marker coordinates when location changes
+    useEffect(() => {
+        setMarkerCoordinates(locationCoordinates);
+    }, [locationCoordinates]);
+
     const openGoogleMaps = () => {
-        const { lat, lng } = locationCoordinates;
+        const { lat, lng } = markerCoordinates;
         const url = `https://www.google.com/maps?q=${lat},${lng}`;
 
         // Open Google Maps in a new window or tab
         window.open(url, '_blank');
     };
-    const locationCoordinates = {
-        lat: 6.89471282586257, // Replace with the latitude
-        lng: 79.85412688572308, // Replace with the longitude
-    };
+
 
     const defaultProps = {
         center: locationCoordinates,
-        zoom: 25,
+        zoom: 20,
     };
     const CustomMarker = ({ imageUrl }) => (
-        <div style={{ width: '30px', height: '30px', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover' }} />
+        <div style={{
+             width: '30px', height: '30px', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover', position: 'absolute'
+             }} />
     );
-    // useEffect(() => {
-    //     const t1 = gsap.timeline({
-    //         scrollTrigger: {
-    //             trigger: desktopRef.current,
-    //             start: 'top center',
-    //             end: '80% center',
-    //             scrub: false,
-    //             markers: false,
-    //         }
-    //     });
 
-    //     t1.fromTo(desktopRef.current, {
-    //         opacity: 0,
-    //     }, {
-    //         duration: 0.5,
-    //         opacity: 1,
-    //         y: 20,
-    //         stagger: 0.1,
-    //         ease: "back.in"
-    //     });
-    // }, [location.pathname]);
 
     return (
         <div>
@@ -99,16 +91,17 @@ const MapSection = ({ type }) => {
 
                   
                 </div>
-                    <div className='w-80 h-screen absolute  mr-10 -mt-72  right-0' >
+                    <div className='w-80 h-screen absolute  mr-10 -mt-72  right-0 z-50' >
                         <GoogleMapReact
                             bootstrapURLKeys={{ key: 'AIzaSyCRyy37ixokPYy8M9zk31n6GONnQlBp3Bg' }}
                             defaultCenter={defaultProps.center}
+                            draggable={false} // Disable scrolling
                             defaultZoom={defaultProps.zoom}
+                            className="relative"
                         >
-                            <CustomMarker text="My Marker" lat={locationCoordinates.lat} lng={locationCoordinates.lng} imageUrl={mapicon} />
+                            <CustomMarker draggable={true} text="My Marker" lat={locationCoordinates.lat} lng={locationCoordinates.lng} imageUrl={mapicon} />
                             <AnyReactComponent lat={locationCoordinates.lat} lng={locationCoordinates.lng} text="YTS Enterprise" />
-
-                       </GoogleMapReact>
+                        </GoogleMapReact>
                     </div>
                 </div>
             ) : (
