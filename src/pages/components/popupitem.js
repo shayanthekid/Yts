@@ -137,7 +137,7 @@ const Popup = ({ onClose, data }) => {
                                 <p className='text-left'>{data.description}</p>
 
                                 {/* Colored Boxes Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
                                     {data.type === 1 && (
                                         <>
                                             {data.economic === 1 && (
@@ -203,7 +203,7 @@ const Popup = ({ onClose, data }) => {
                                     </h3>
 
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mt-8">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-2 mt-8">
                                         {data.type === 1 && (
                                             <>
                                                 {data.economic === 1 && (
@@ -318,7 +318,7 @@ const Popup = ({ onClose, data }) => {
                                     <h3 className="text-lg font-bold text-left">
                                         Features
                                     </h3>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mt-8">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-1 mt-8">
                                         {data.type === 1 && (
                                             <>
                                                 {data.economic === 1 && (

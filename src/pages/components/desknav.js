@@ -6,6 +6,8 @@ import icon1 from '../../assets/images/featureicons/car.png';
 import icon2 from '../../assets/images/featureicons/property.png';
 import icon3 from '../../assets/images/featureicons/bunglow.png';
 import icon4 from '../../assets/images/featureicons/home.png';
+import icon5 from '../../assets/images/featureicons/abouticon.png';
+import icon6 from '../../assets/images/featureicons/phoneicon.png';
 
 const DesktopNav = () => {
     const location = useLocation();
@@ -26,6 +28,10 @@ const DesktopNav = () => {
                 return isActive ? icon2 : icon2;
             case 4:
                 return isActive ? icon3 : icon3;
+            case 5:
+                return isActive ? icon5 : icon5;
+            case 6:
+                return isActive ? icon6 : icon6;
             default:
                 return bookingimg;
         }
@@ -89,6 +95,14 @@ const DesktopNav = () => {
                                 {/* Tab 4 */}
                                 <Link to="/listingvacation" className={`rounded-full p-2 my-2 z-10 ${activeTab === 4 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(4)}>
                                     <img src={getIcon(4)} alt="Icon 4" className="w-8 h-8 z-10" />
+                                </Link>
+                                 {/* Tab 5 */}
+                                <Link to="/about" className={`rounded-full p-2 my-2 z-10 ${activeTab === 4 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(5)}>
+                                        <img src={getIcon(5)} alt="Icon 4" className="w-8 h-8 z-10" />
+                                </Link>
+                                {/* Tab 6 */}
+                                <Link to="/contactus" className={`rounded-full p-2 my-2 z-10 ${activeTab === 4 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(6)}>
+                                        <img src={getIcon(6)} alt="Icon 4" className="w-8 h-8 z-10" />
                                 </Link>
                             </div>
                         </div>
