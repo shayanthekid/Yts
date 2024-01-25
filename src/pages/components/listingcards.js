@@ -30,18 +30,18 @@ const ListingCards = ({ type, data }) => {
         console.log('After setPopupData');
     };
 
-    useEffect(() => {
-        console.log('Before scrolling');
-        // Scroll to the top of the page to center the popup
-        setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth',
-            });
-        }, 50);
-        console.log('After scrolling');
-    }, [popupData]);
+    // useEffect(() => {
+    //     console.log('Before scrolling');
+    //     // Scroll to the top of the page to center the popup
+    //     setTimeout(() => {
+    //         window.scrollTo({
+    //             top: 0,
+    //             left: 0,
+    //             behavior: 'smooth',
+    //         });
+    //     }, 50);
+    //     console.log('After scrolling');
+    // }, [popupData]);
     const handlePopupClose = () => {
         // Close the popup by resetting the data
         setPopupData(null);

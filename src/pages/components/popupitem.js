@@ -22,6 +22,10 @@ const Popup = ({ onClose, data }) => {
 
     const [activeTab, setActiveTab] = useState('overview');
     const [reserved, setReserved] = useState([]);
+    const popupStyle = {
+        top: `${window.innerHeight / 3600 + window.scrollY}px`, // Set the top position based on the middle of the viewport
+        // ... other styles
+    };
 
     const [selectedDates, setSelectedDates] = useState([]);
     useEffect(() => {
@@ -61,24 +65,25 @@ const Popup = ({ onClose, data }) => {
         setSelectedDates(dates);
     };
 
-    useEffect(() => {
-        // Scroll to the top of the page when the Popup mounts
-        setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth',
-            });
-        }, 50);
-    }, []); 
+    // useEffect(() => {
+    //     // Scroll to the top of the page when the Popup mounts
+    //     setTimeout(() => {
+    //         window.scrollTo({
+    //             top: 0,
+    //             left: 0,
+    //             behavior: 'smooth',
+    //         });
+    //     }, 50);
+    // }, []); 
     const imageUrlsArray = data.image_urls ? data.image_urls.split(',') : [];
 
     return (
             <>
         <div className="fixed top-0 left-0 w-full h-full bg-black opacity-70 z-50" onClick={onClose}></div>
-            <button onClick={onClose} className="absolute top-0 -mt-52 right-80 text-white text-6xl z-50">&times;</button>
+            <button onClick={onClose} className="absolute top-0 -mt-52 right-80 text-white text-6xl z-50" style={popupStyle}>&times;</button>
 
-        <div className="popup z-50 absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2/3">
+            <div className="popup z-50 absolute top-0 -mt-40 left-1/2 transform -translate-x-1/2" style={popupStyle}>
+             
 
                 <div className="popup-content max-w-screen-lg mx-auto p-4 bg-white rounded-md shadow-md overflow-y-auto h-[500px] grid grid-cols-2 gap-4">
                 {/* Left Column */}
