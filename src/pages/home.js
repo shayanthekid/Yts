@@ -5,7 +5,8 @@ import { Link,useLocation } from 'react-router-dom';
 import BackgroundSVG from '../assets/images/homele.svg'; 
 import BackgroundSVG2 from '../assets/images/homele.png'; 
 import BackgroundSVGDesk from '../assets/images/homedesk.png'; 
-import trendingimage from '../assets/images/trending.png';
+import backgroundaltmobile from '../assets/images/homepagealt.png'; 
+import trendingimage from '../assets/images/trending2.png';
 import property from '../assets/images/property.png';
 import car from '../assets/images/car.png';
 import vacation from '../assets/images/home.png';
@@ -25,6 +26,7 @@ const Home = () => {
     const location = useLocation();
     const headingRef = useRef(null);
     const headingRefDesk = useRef(null);
+    const headingRefDesk2 = useRef(null);
     const trendingRef = useRef(null);
     const trendingRefDesk = useRef(null);
     const trendingRefDesk2 = useRef(null);
@@ -43,12 +45,17 @@ const Home = () => {
     useEffect(() => {
         // Your GSAP animations here
         const tl = gsap.timeline();
-        tl.to(headingRef.current, {
+        tl.fromTo(headingRef.current, {
+            opacity: 0,
+        }, {
+            duration: 0.5,
             opacity: 1,
             y: 20,
-            duration: 1.5,
-            ease: 'power2.out',
+           
+            stagger: 0.1,
+            ease: "power1.in"
         });
+
 
         const tl2 = gsap.timeline();
         tl2.fromTo(
@@ -139,11 +146,23 @@ const Home = () => {
         );
 
         const tl8 = gsap.timeline();
-        tl7.fromTo(
+        tl8.fromTo(
             trendingRefDesk2.current,
             { opacity: 0 }, // Start values
             { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power2.out" } // End values
         );
+        const t9 = gsap.timeline();
+        t9.fromTo(headingRefDesk2.current, {
+            opacity: 0,
+        }, {
+            duration: 0.6,
+            opacity: 1,
+            y: 20,
+            stagger: 0.1,
+            delay: 0.5,
+            ease: "power1.in"
+        });
+        
 
 
     }, [location.pathname]);
@@ -174,7 +193,7 @@ const Home = () => {
 
           ): (
             //Mobile
-                  <img src={BackgroundSVG2} alt="Background" className="absolute bottom-0 w-full h-full " />
+                  <img src={backgroundaltmobile} alt="Background" className="relative bottom-0 w-full h-full " />
 
           )}
 
@@ -190,7 +209,7 @@ const Home = () => {
                           className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-20">
                               Discover Rentals, Properties, and Vehicles
                           </h1>
-                          <div className="relative bottom-0 left-0 text-left mt-8">
+                          <div className="relative bottom-0 left-0 text-left mt-8" >
                               {/* mt-auto to push the button to the bottom */}
                               <Link to="/contactus">
             
@@ -237,36 +256,10 @@ const Home = () => {
               </div>
           ) : (
               // Content for Mobile
-                  <div className="container mx-auto p-4 z-50">
+                  <div className="container absolute mx-auto p-4 z-20 -mt-96">
                       <div  className="grid grid-rows-2 md:grid-cols-1 gap-4">
                           {/* First Row - Card */}
-                          <div className=" p-4 h-[350px] z-10" ref={trendingRef} > {/* Set a fixed height */}
-                              {/* Section 1 - Trending Property Heading */}
-                              <div className="bg-blue-800 text-white p-2 rounded-full text-center">
-                                  <h2 className="text-lg font-bold">Trending Property</h2>
-                              </div>
-
-                              {/* Section 2 - Image, Title, Price, Button */}
-                              <div className="relative overflow-hidden h-full bg-white rounded-xl shadow-md"> {/* Make it take up the full height */}
-                                  {/* Image */}
-                                  <img src={trendingimage} alt="Property" className="w-full h-auto" />
-
-                                  {/* Title */}
-                                  <p className="text-sm font-light mt-2 text-left p-4">1st Gabrial View</p>
-
-                                  {/* Price */}
-                                  <p className="text-xl text-black text-left p-4 font-bold">$500,000</p>
-
-                                  {/* Button */}
-
-                                  <div className="absolute bottom-10 left-0 right-0 text-center">
-                                      <Link to="/contactus">
-                                      <button className="bg-[#A6CE39] text-white p-2 font-bold rounded-md w-5/6 mt-5">Inquire</button>
-                                  </Link>
-                                  
-                                  </div>
-                              </div>
-                          </div>
+                         
 
                           {/* Second Row - Heading */}
                           <div className="flex flex-col items-center justify-center z-10 "> {/* Adjusted height and margin-bottom */}
@@ -275,13 +268,13 @@ const Home = () => {
                               className="text-3xl md:text-4xl lg:text-5xl font-black text-center mt-20">
                                   Discover Rentals, Properties, and Vehicles
                               </h1>
-                              <div className="relative bottom-12 left-0 right-0 text-center mt-auto"> {/* mt-auto to push the button to the bottom */}
-                                  <Link to="/contactus">
-                                  <button className="bg-[#2E3192] text-white p-2 rounded-full  w-56 font-bold -mt-10">Inquire Now</button>
-                                  </Link>
-                              </div>
+                              
                           </div>
-
+                          <div className="relative bottom-12 left-0 right-0 text-center mt-auto" ref={headingRefDesk2}> {/* mt-auto to push the button to the bottom */}
+                              <Link to="/contactus" >
+                                  <button className="bg-[#2E3192] text-white p-2 rounded-full  w-56 font-bold -mt-10">Inquire Now</button>
+                              </Link>
+                          </div>
 
                       </div>
                   </div>
