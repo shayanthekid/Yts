@@ -77,7 +77,7 @@ const Home = () => {
                     start: 'top bottom', // Adjusted start point
                     end: 'bottom center', // Adjusted end point
                     scrub: false,
-                    markers: true,
+                    markers: false,
                 }
             });
 
