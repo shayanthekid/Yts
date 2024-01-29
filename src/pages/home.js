@@ -16,8 +16,13 @@ import icon3 from '../assets/images/vacation.svg';
 import hwicar from '../assets/images/hiwcar.png';
 import aboutUsImage from '../assets/images/aboutusmobile.png';
 import aboutUsdesk from '../assets/images/aboutusdesk.png';
+import mobcarousel1 from '../assets/images/mobilehome1.png';
+import mobcarousel2 from '../assets/images/mobilehome2.png';
+import mobcarousel3 from '../assets/images/mobilehome3.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Carousel } from 'react-responsive-carousel';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
@@ -183,6 +188,15 @@ const Home = () => {
         };
     }, []);
 
+
+
+    //imagearray
+    // Replace the dynamic logic with the static images
+    const staticImageUrlsArray = [mobcarousel1, mobcarousel2, mobcarousel3];
+
+    // Use staticImageUrlsArray instead of item[0].image_urls
+    const imageUrlsArray = staticImageUrlsArray;
+
   return (
       <div className="min-h-screen bg-[#F7F7F7]">
 
@@ -193,7 +207,18 @@ const Home = () => {
 
           ): (
             //Mobile
-                  <img src={backgroundaltmobile} alt="Background" className="relative bottom-0 w-full h-full " />
+                  <Carousel showThumbs={false} swipeable={true} interval={3000} autoPlay={true} showStatus={false} infiniteLoop={true} >
+                  {imageUrlsArray.map((imageUrl, index) => (
+                      <div key={index}>
+                          <img
+                              src={imageUrl}
+                              alt={`Image ${index}`}
+                              className='w-32 h-auto relative bottom-0' // Adjust the height as needed
+                          />
+                      </div>
+                  ))}
+              </Carousel>
+       
 
           )}
 
@@ -265,7 +290,7 @@ const Home = () => {
                           <div className="flex flex-col items-center justify-center z-10 "> {/* Adjusted height and margin-bottom */}
                               <h1 
                             ref={headingRef}  
-                              className="text-3xl md:text-4xl lg:text-5xl font-black text-center mt-20">
+                              className="text-3xl md:text-4xl lg:text-5xl font-black text-white text-center mt-20">
                                   Discover Rentals, Properties, and Vehicles
                               </h1>
                               

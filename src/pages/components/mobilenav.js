@@ -25,7 +25,7 @@ const MobileNavbar = () => {
     };
 
     return (
-        <div className="relative bg-[#CCE28D] p-4 z-50">
+        <div className={`${location.pathname !== '/home' ? 'relative bg-[#CCE28D]' : 'absolute'} p-4 z-50`}>
             <div className="flex items-center justify-between z-10">
                 {/* Hamburger Icon */}
                 <div className="cursor-pointer z-10" onClick={toggleDrawer}>
@@ -42,7 +42,7 @@ const MobileNavbar = () => {
 
                 {/* Logo (Centered) */}
                 <Link to="/" className="flex-grow text-center" onClick={closeDrawer}>
-                    <img src={getLogo()} alt="Your Logo" className="h-8 w-auto mx-auto" />
+                    <img src={getLogo()} alt="Your Logo" className="h-auto w-24 mx-auto ml-24" />
                 </Link>
             </div>
 
