@@ -95,8 +95,8 @@ const Home = () => {
         const t4 = gsap.timeline({
             scrollTrigger: {
                 trigger: hdiwRef.current,
-                start: 'top bottom', // Adjusted start point
-                end: 'bottom center', // Adjusted end point
+                start: 'top center',
+                end: '80% center',
                 scrub: false,
                 markers: false,
             }
