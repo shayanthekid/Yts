@@ -29,7 +29,7 @@ const MobileNavbar = () => {
             <div className="flex items-center justify-between z-10">
                 {/* Hamburger Icon */}
                 <div className="cursor-pointer z-10" onClick={toggleDrawer}>
-                    <div className="bg-black rounded-full p-2">
+                    <div className="bg-[#2E3192] rounded-full p-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
