@@ -5,6 +5,7 @@ const ContactUs = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        contact: '',
         itemName: '',
         itemType: '',
         selectedItem: '',
@@ -109,6 +110,20 @@ const ContactUs = () => {
                         />
                     </div>
 
+                    <div className="mb-4">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-600 text-left">
+                            Contact Number
+                        </label>
+                        <input
+                            type="number"
+                            id="contact"
+                            name="contact"
+                            value={formData.contact}
+                            onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                            className="mt-1 p-2 w-full border rounded-md"
+                            required
+                        />
+                    </div>
                   
 
                     <div className="mb-4">
