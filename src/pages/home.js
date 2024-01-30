@@ -240,7 +240,7 @@ const Home = () => {
                           <h1
                               
                           className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-20">
-                              Discover Rentals, Properties, and Vehicles
+                              Discover Rentals, Properties and Vehicles
                           </h1>
                           <div className="relative bottom-0 left-0 text-left mt-8" >
                               {/* mt-auto to push the button to the bottom */}
@@ -298,7 +298,7 @@ const Home = () => {
                               <h1 
                             ref={headingRef}  
                               className="text-3xl md:text-4xl lg:text-5xl font-black text-white text-center mt-20">
-                                  Discover Rentals, Properties, and Vehicles
+                                  Discover Rentals, Properties and Vehicles
                               </h1>
                               
                           </div>
@@ -369,7 +369,7 @@ const Home = () => {
                 </div>
             </div>
           </div >
-                      <div className="grid grid-rows-1 md:grid-cols-1 gap-4">
+                      <div className="grid grid-rows-1 md:grid-cols-1 gap-4 mt-6">
             <div className=" p-4 h-auto z-10" ref={trendingRef} > {/* Set a fixed height */}
                               {/* Section 1 - Trending Property Heading */}
                               <div className="bg-blue-800 text-white p-2 rounded-full text-center">
