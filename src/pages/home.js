@@ -62,13 +62,21 @@ const Home = () => {
         });
 
 
-        const tl2 = gsap.timeline();
+        const tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: trendingRef.current,
+                start: 'top bottom', // Adjusted start point
+                end: 'bottom center', // Adjusted end point
+                scrub: false,
+                markers: false, // Set to true to show markers, you can change it to false later
+            },
+        });
+
         tl2.fromTo(
             trendingRef.current,
             { opacity: 0 }, // Start values
             { opacity: 1, y: 20, duration: 1.5, stagger: 0.1, ease: "power2.out" } // End values
         );
-
         // Animation for properties, car rentals, and holiday homes
         Object.keys(logosRefs).forEach((key) => {
             const tl3 = gsap.timeline({
@@ -95,8 +103,8 @@ const Home = () => {
         const t4 = gsap.timeline({
             scrollTrigger: {
                 trigger: hdiwRef.current,
-                start: 'top center',
-                end: '80% center',
+                start: 'top bottom', // Adjusted start point
+                end: 'bottom center', // Adjusted end point
                 scrub: false,
                 markers: false,
             }
@@ -207,7 +215,7 @@ const Home = () => {
 
           ): (
             //Mobile
-                  <Carousel showThumbs={false} swipeable={true} interval={3000} autoPlay={true} showStatus={false} infiniteLoop={true} >
+                  <Carousel showThumbs={false} showArrows={false} swipeable={true} interval={3000} autoPlay={true} showStatus={false} infiniteLoop={true} >
                   {imageUrlsArray.map((imageUrl, index) => (
                       <div key={index}>
                           <img
@@ -281,9 +289,8 @@ const Home = () => {
               </div>
           ) : (
               // Content for Mobile
-                  <div className="container absolute mx-auto p-4 z-20 -mt-96">
+                  <div className="container absolute mx-auto p-4 z-0 -mt-96">
                       <div  className="grid grid-rows-2 md:grid-cols-1 gap-4">
-                          {/* First Row - Card */}
                          
 
                           {/* Second Row - Heading */}
@@ -307,34 +314,93 @@ const Home = () => {
 
 
 {/* Hero section */}
+          {/* First Row - Card */}
         
-      
-          {/* icons section */}
-          <div className="container mx-auto p-4 z-50">
-              <div className="flex flex-col md:flex-row justify-center">
-                  {/* Item 1 */}
-                  <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
-                      <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
-                      <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
-                      <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
+          {isDesktop ? (
+              < div className="container mx-auto p-4 z-50">
+          <div className="flex flex-col md:flex-row justify-center">
+        
+              <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
+                  <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                  <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
+                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
 
-                  {/* Item 2 */}
-                  <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
-                      <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
-                      <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
-                      <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
+          
+              <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
+                  <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                  <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
+                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
 
-                  {/* Item 3 */}
-                  <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
-                      <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
-                      <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
-                      <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
-                  </div>
+            
+              <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
+                  <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                  <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
+                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
               </div>
           </div>
+      </div>
 
+          ): (
+            //mobile
+<div>
+        < div className = "container mx-auto p-4 z-50" >
+            <div className="flex flex-col md:flex-row justify-center">
+                {/* Item 1 */}
+                <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
+                    <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                    <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
+                    <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                {/* Item 2 */}
+                <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
+                    <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                    <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
+                    <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                {/* Item 3 */}
+                <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
+                    <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                    <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
+                    <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
+                </div>
+            </div>
+          </div >
+                      <div className="grid grid-rows-1 md:grid-cols-1 gap-4">
+            <div className=" p-4 h-[390px] z-10" ref={trendingRef} > {/* Set a fixed height */}
+                              {/* Section 1 - Trending Property Heading */}
+                              <div className="bg-blue-800 text-white p-2 rounded-full text-center">
+                                  <h2 className="text-lg font-bold">Trending Property</h2>
+                              </div>
+
+                              {/* Section 2 - Image, Title, Price, Button */}
+                              <div className="relative overflow-hidden h-full bg-white rounded-xl shadow-md"> {/* Make it take up the full height */}
+                                  {/* Image */}
+                                  <img src={trendingimage} alt="Property" className="w-full h-auto" />
+
+                                  {/* Title */}
+                                  <p className="text-sm font-light mt-2 text-left p-4">1st Gabrial View</p>
+
+                                  {/* Price */}
+                                  <p className="text-xl text-black text-left p-4 font-bold">$500,000</p>
+
+                                  {/* Button */}
+
+                                  <div className="relative bottom-7 left-0 right-0 text-center">
+                                      <Link to="/contactus">
+                                      <button className="bg-[#A6CE39] text-white p-2 font-bold rounded-md w-5/6 mt-5">Inquire</button>
+                                  </Link>
+                                  
+                                  </div>
+                              </div>
+                          </div>
+                  </div>
+                  </div>
+              )}
+         
       
       {/* How does it work section */}
           <div className="container mx-auto p-8 text-center z-50 relative mt-20" ref={hdiwRef}>
