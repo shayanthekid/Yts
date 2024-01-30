@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from "@demark-pro/react-booking-calendar";
 
 const ContactUs = () => {
@@ -6,23 +6,76 @@ const ContactUs = () => {
         name: '',
         email: '',
         itemName: '',
+        itemType: '',
+        selectedItem: '',
     });
 
     const [selectedDates, setSelectedDates] = useState([]);
+    const [itemTypes, setItemTypes] = useState([
+        { value: '1', label: 'Cars' },
+        { value: '2', label: 'Properties' },
+        { value: '3', label: 'Holiday Homes' },
+    ]);
+
+    const [originalItems, setOriginalItems] = useState([]);
+    const [filteredItems, setFilteredItems] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getallitems/');
+                const result = await response.json();
+
+                if (result.body && typeof result.body === 'string') {
+                    const parsedResult = JSON.parse(result.body);
+                    setOriginalItems(parsedResult);
+                    setFilteredItems(parsedResult); // Initialize filtered items with the original data
+                 
+                } else {
+                    console.error('Invalid or missing data in response body');
+                }
+            } catch (error) {
+                console.error('Error fetching items:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleTypeChange = (e) => {
+        const typeValue = e.target.value;
+
+        // Filter items based on selected type
+        const filteredData = Array.isArray(originalItems)
+            ? originalItems.filter(item => item.type === parseInt(typeValue, 10)): [];       
+        
+        setFilteredItems(filteredData);
+        // Update form data with the selected type
+        setFormData({ ...formData, itemType: typeValue });
+        console.log("log from handletypechange", filteredData);
+        console.log("the original items", originalItems);
+        console.log("this is type value", typeValue);
+    };
+
+    const handleItemSelected = (e) => {
+        const selectedItemValue = e.target.value;
+        console.log(selectedItemValue);
+        setFormData({ ...formData, selectedItem: selectedItemValue });
+    };
 
     const handleChange = (dates) => {
         setSelectedDates(dates);
     };
 
+   
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // You can perform any actions you need with the form data and selected dates here.
         console.log('Form submitted:', formData, 'Selected Dates:', selectedDates);
     };
 
     return (
         <div>
-
             <div className="container mx-auto p-8 py-4 mt-10">
                 <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
                 <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
@@ -56,19 +109,47 @@ const ContactUs = () => {
                         />
                     </div>
 
+                  
+
                     <div className="mb-4">
-                        <label htmlFor="itemName" className="block text-sm font-medium text-gray-600 text-left">
-                            Item Name
+                        <label htmlFor="itemType" className="block text-sm font-medium text-gray-600 text-left">
+                            Item Type
                         </label>
-                        <input
-                            type="text"
-                            id="itemName"
-                            name="itemName"
-                            value={formData.itemName}
-                            onChange={(e) => setFormData({ ...formData, itemName: e.target.value })}
+                        <select
+                            id="itemType"
+                            name="itemType"
+                            value={formData.itemType}
+                            onChange={handleTypeChange}
                             className="mt-1 p-2 w-full border rounded-md"
                             required
-                        />
+                        >
+                            <option value="" disabled>Select Item Type</option>
+                            {itemTypes.map(type => (
+                                <option key={type.value} value={type.value}>{type.label}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="selectedItem" className="block text-sm font-medium text-gray-600 text-left">
+                            Select Item
+                        </label>
+                        {formData.itemType ? (
+                            <select
+                                id="selectedItem"
+                                name="selectedItem"
+                                value={formData.selectedItem}
+                                onChange={handleItemSelected}
+                                className="mt-1 p-2 w-full border rounded-md"
+                                required
+                            >
+                                {filteredItems.map(item => (
+                                    <option key={item.id} value={item.id.toString()}>{item.title}</option>
+                                ))}
+                            </select>
+                        ) : (
+                            <p className="text-gray-500">Please select a category first</p>
+                        )}
                     </div>
 
                     <div className="mb-4">
@@ -91,49 +172,7 @@ const ContactUs = () => {
                     </div>
                 </form>
             </div>
-
-{/* add here */}
-            <div className="md:flex md:justify-center md:space-x-4 mt-20">
-                {/* Office */}
-                <div className="mb-4 md:w-1/3 text-center">
-                    <h2 className="text-lg font-semibold text-gray-700 mb-2">Lorem Ipsum</h2>
-                    <p className="text-gray-600">
-                        Lorem Ipsum<br />
-                        Lorem Ipsum<br />
-                        Lorem Ipsum<br />
-                        Lorem Ipsum
-                    </p>
-                    <p className="text-gray-600 mt-2">
-                        Lorem Ipsum<br />
-                        Lorem Ipsum
-                    </p>
-                </div>
-
-                {/* Production */}
-                <div className="mb-4 md:w-1/3 text-center">
-                    <h2 className="text-lg font-semibold text-gray-700 mb-2">Lorem Ipsum</h2>
-                    <p className="text-gray-600">
-                        Lorem Ipsum<br />
-                        Lorem Ipsum
-                    </p>
-                </div>
-
-                {/* Warehouse */}
-                <div className="mb-4 md:w-1/3 text-center">
-                    <h2 className="text-lg font-semibold text-gray-700 mb-2">Lorem Ipsum</h2>
-                    <p className="text-gray-600">
-                        Lorem Ipsum<br />
-                        Lorem Ipsum
-                    </p>
-                </div>
-            </div>
-
-        
-
-
         </div>
-        
-      
     );
 };
 

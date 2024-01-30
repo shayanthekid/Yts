@@ -373,7 +373,7 @@ const Home = () => {
             <div className=" p-4 h-auto z-10" ref={trendingRef} > {/* Set a fixed height */}
                               {/* Section 1 - Trending Property Heading */}
                               <div className="bg-blue-800 text-white p-2 rounded-full text-center">
-                                  <h2 className="text-lg font-bold">Trending Property</h2>
+                                  <h2 className="text-lg font-bold">Trending Listing</h2>
                               </div>
 
                               {/* Section 2 - Image, Title, Price, Button */}
