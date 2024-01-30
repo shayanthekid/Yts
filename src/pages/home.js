@@ -370,7 +370,7 @@ const Home = () => {
             </div>
           </div >
                       <div className="grid grid-rows-1 md:grid-cols-1 gap-4">
-            <div className=" p-4 h-[390px] z-10" ref={trendingRef} > {/* Set a fixed height */}
+            <div className=" p-4 h-auto z-10" ref={trendingRef} > {/* Set a fixed height */}
                               {/* Section 1 - Trending Property Heading */}
                               <div className="bg-blue-800 text-white p-2 rounded-full text-center">
                                   <h2 className="text-lg font-bold">Trending Property</h2>
@@ -389,7 +389,7 @@ const Home = () => {
 
                                   {/* Button */}
 
-                                  <div className="relative bottom-7 left-0 right-0 text-center">
+                                  <div className="relative bottom-0 left-0 right-0 text-center">
                                       <Link to="/contactus">
                                       <button className="bg-[#A6CE39] text-white p-2 font-bold rounded-md w-5/6 mt-5">Inquire</button>
                                   </Link>
