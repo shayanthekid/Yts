@@ -65,6 +65,9 @@ const DesktopNav = () => {
                         <Link to="/admin/manageBookings" className={`text-gray-700 font-semibold mx-2 ${location.pathname === '/admin/manageBookings' ? 'text-black' : ''}`}>
                             Manage Bookings
                         </Link>
+                        <Link to="/admin/manageTrending" className={`text-gray-700 font-semibold mx-2 ${location.pathname === '/admin/manageBookings' ? 'text-black' : ''}`}>
+                            Manage Trending
+                        </Link>
                         <Link to="/login" className={`text-white font-semibold mx-2 bg-red-500 p-2 rounded-md ${location.pathname === '/' ? 'text-black' : ''}`}>
                             Log out
                         </Link>

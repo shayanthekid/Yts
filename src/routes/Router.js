@@ -11,6 +11,7 @@ import _listingprop from '../pages/listingprop';
 import _listingvacation from '../pages/listingvacation';
 import _itemdetails from '../pages/components/itemdetails';
 import _manageItems from '../pages/manageitems';
+import _manageTrending from '../pages/managetrending';
 import _login from '../pages/login';
 import _contactus from '../pages/contactus';
 import _about from '../pages/about';
@@ -53,6 +54,7 @@ const AppRouter = () => {
                 <Route path='/admin/manageItems' element={<_manageItems />} />
                 <Route path='/admin/createBooking' element={<_createBooking />} />
                 <Route path='/admin/manageBookings' element={<_manageBooking />} />
+                <Route path='/admin/manageTrending' element={<_manageTrending />} />
                 <Route path='/home' element={<_home />} />
                 <Route path='/listingcar' element={<_listingcar />} />
                 <Route path='/listingproperty' element={<_listingprop />} />

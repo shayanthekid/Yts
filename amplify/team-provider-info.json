@@ -78,6 +78,10 @@
         "updateitemsold": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/updateitemsold-6b583870467138335442-build.zip"
+        },
+        "viewtrending": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/viewtrending-62584872355962696f42-build.zip"
         }
       }
     }

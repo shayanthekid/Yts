@@ -74,6 +74,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "viewtrending": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {
@@ -321,6 +326,22 @@
         {
           "category": "function",
           "resourceName": "updateitemsold"
+        }
+      ]
+    },
+    "AMPLIFY_function_viewtrending_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "viewtrending"
+        }
+      ]
+    },
+    "AMPLIFY_function_viewtrending_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "viewtrending"
         }
       ]
     },
