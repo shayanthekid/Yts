@@ -26,7 +26,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
-
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {

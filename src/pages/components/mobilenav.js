@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import bookingimg from '../../assets/images/ytslogo.png';
 import carLogo from '../../assets/images/ytsrentacar.png'; // Replace with the path to your car logo
+import axios from 'axios';
 
 const MobileNavbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const location = useLocation();
+    const [logo, setLogo] = useState(bookingimg); // Initial state is the default logo
+    const { itemId } = useParams(); // Add this line to get the itemId from the route params
 
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
@@ -15,14 +18,40 @@ const MobileNavbar = () => {
         setIsDrawerOpen(false);
     };
 
-    const getLogo = () => {
-        // Check if the current route is /listingcar
-        if (location.pathname === '/listingcar') {
-            return carLogo;
-        }
-        // Default logo for other routes
-        return bookingimg;
-    };
+    useEffect(() => {
+        const getLogo = async () => {
+            if (location.pathname === '/listingcar') {
+                setLogo(carLogo);
+            } else if (location.pathname.startsWith('/item/')) {
+                const itemroute = location.pathname;
+                const itemId = itemroute.split('/item/')[1];
+
+                try {
+                    const response = await axios.get(`https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getitemapi/`, {
+                        params: {
+                            itemId: itemId,
+                        },
+                    });
+
+                    const item = response.data[0];
+
+                    if (item.type === 1) {
+                        setLogo(carLogo);
+                    } else {
+                        setLogo(bookingimg);
+                    }
+                } catch (error) {
+                    console.error('Error fetching item details:', error);
+                    // Set default logo in case of an error
+                    setLogo(bookingimg);
+                }
+            } else {
+                setLogo(bookingimg); // Default logo for other routes
+            }
+        };
+
+        getLogo();
+    }, [location.pathname, itemId]);
 
     return (
         <div className={`${location.pathname !== '/home' ? 'relative bg-[#CCE28D]' : 'absolute'} p-4 z-50`}>
@@ -45,7 +74,7 @@ const MobileNavbar = () => {
 
                 {/* Logo (Centered) */}
                 <Link to="/" className="flex-grow text-center" onClick={closeDrawer}>
-                    <img src={getLogo()} alt="Your Logo" className="h-auto w-24 mx-auto ml-24" />
+                    <img src={logo} alt="Your Logo" className="h-auto w-24 mx-auto ml-24" />
                 </Link>
             </div>
 
