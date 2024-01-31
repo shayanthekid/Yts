@@ -60,6 +60,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "updateTrending": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "updatebooking": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -278,6 +283,22 @@
         {
           "category": "function",
           "resourceName": "getitembooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateTrending_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateTrending"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateTrending_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateTrending"
         }
       ]
     },

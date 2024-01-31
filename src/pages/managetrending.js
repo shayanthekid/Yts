@@ -8,26 +8,27 @@ const ManageTrending = () => {
     const [filteredItems, setFilteredItems] = useState([]);
     const [selectedItemType, setSelectedItemType] = useState('');
     const [selectedItemName, setSelectedItemName] = useState('');
+    const [allItems, setAllItems] = useState([]);
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchAllItems = async () => {
             try {
                 const response = await fetch('https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getallitems/');
                 const result = await response.json();
 
                 if (result.body && typeof result.body === 'string') {
                     const parsedResult = JSON.parse(result.body);
-                    setOriginalItems(parsedResult);
-                    setFilteredItems(parsedResult); // Initialize filtered items with the original data
+                    setAllItems(parsedResult);
                 } else {
                     console.error('Invalid or missing data in response body');
                 }
             } catch (error) {
-                console.error('Error fetching items:', error);
+                console.error('Error fetching all items:', error);
             }
         };
 
-        fetchData();
+        fetchAllItems();
     }, []);
+   
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -78,20 +79,39 @@ const ManageTrending = () => {
     };
 
     const handleSaveClick = async (itemId) => {
+        if (!selectedItemName) {
+            // Handle the case when no item is selected
+            alert('No item selected');
+            return;
+        }
+
         // Get the trending item data for the updated item
         const updatedItem = trendingItems.find((item) => item.id === itemId);
+        const { id, description, percentage } = updatedItem;
+        const newitemID = selectedItemName;
 
-       
+        try {
+            // Make the Axios PUT request
+            const response = await axios.put('https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/updateTrending', {
+                id: id, // Add any other fields you want to update
+                description: description,
+                percentage: percentage,
+                itemid: newitemID,
+            });
 
-        console.log(updatedItem);
+            console.log('PUT request successful:', response.data);
 
             // Set the item ID to disable the "Edit" mode for that row
             setEditModeItemId(null);
-        
+        } catch (error) {
+            console.error('Error making PUT request:', error);
+            // Handle the error as needed
+        }
     };
 
-    // Function to make text fields editable
 
+
+    // Inside the makeEditable function:
     const makeEditable = (fieldName, itemId, value) => {
         // Implement your logic to make the field editable
         if (editModeItemId === itemId) {
@@ -106,6 +126,23 @@ const ManageTrending = () => {
                                 onChange={(e) => handleFieldChange(fieldName, itemId, e.target.value)}
                                 className="w-full border p-1"
                             />
+                        ) : fieldName === 'itemName' ? (
+                                <div>
+                                    <p>Select from all existing items</p>
+                                    <select
+                                        value={selectedItemName}
+                                        onChange={(e) => setSelectedItemName(e.target.value)}
+                                        className="w-full border p-1"
+                                    >
+                                        <option value="">Select an item</option> {/* Add this line for default/empty state */}
+                                        {allItems.map((item) => (
+                                            <option key={item.id} value={item.id}>
+                                                {item.title}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+
                         ) : (
                             <input
                                 type="text"
@@ -127,6 +164,7 @@ const ManageTrending = () => {
             );
         }
     };
+
 
 
     // Function to handle changes in the editable fields
