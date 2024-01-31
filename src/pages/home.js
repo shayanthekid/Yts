@@ -22,6 +22,7 @@ import mobcarousel3 from '../assets/images/mobilehome3.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Carousel } from 'react-responsive-carousel';
+import axios from 'axios';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,11 +43,26 @@ const Home = () => {
     };;
     const hdiwRef = useRef(null);
     const aboutRef = useRef(null);
+    const [trendingItems, setTrendingItems] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getTrending');
 
+                const parsedBody = JSON.parse(response.data.body);
+                setTrendingItems(parsedBody.items || []); // Change to parsedBody.items
+            } catch (error) {
+                console.error('Error fetching trending items:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
     const handleTabClick = (tabNumber) => {
         setActiveTab(tabNumber);
     };
 
+    console.log(trendingItems);
     useEffect(() => {
         // Your GSAP animations here
         const tl = gsap.timeline();
@@ -256,25 +272,32 @@ const Home = () => {
                       <div className="flex flex-row items-center justify-center z-10" >
                           {/* Blue Section */}
                           <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden">
-                              <h3 className="relative text-2xl font-bold mb-4 text-left overflow-ellipsis overflow-hidden">
-                                  23 renters have <br /> loved this property
-                              </h3>                            
+                              {trendingItems.length > 0 && (
+                                  <h3 className="relative text-2xl font-bold mb-4 text-left overflow-ellipsis overflow-hidden whitespace-normal w-72">
+                                      {trendingItems[0].description}
+                                  </h3>
+                              )}                           
                                 <p className="text-sm text-gray-300 mb-1 text-left">Up To</p>
-                              <p className="text-3xl font-bold mb-1 text-left" >80%</p>
+                              {trendingItems.length > 0 && (
+                              <p className="text-3xl font-bold mb-1 text-left" > {trendingItems[0].percentage}%</p>
+                              )}   
                               <p className="text-sm text-gray-300 mb-0 text-left">More Views and upturns</p>
                           </div>
 
                           {/* Card Section */}
-                          <div className="relative overflow-hidden w-3/2 h-3/2 bg-white rounded-xl shadow-md ml-56" ref={trendingRefDesk2}>
+                          <div className="relative overflow-hidden w-3/6 h-3/2 bg-white rounded-xl shadow-md ml-56" ref={trendingRefDesk2}>
                               {/* Image */}
-                              <img src={trendingimage} alt="Property" className="w-full h-auto" />
-
+                              {trendingItems.length > 0 && (
+                              <img src={`https://ytsbucketfiles.s3.ap-southeast-1.amazonaws.com/images/${trendingItems[0].image_urls}`} alt="Property" className="w-full h-auto" />
+                              )} 
                               {/* Title */}
-                              <p className="text-lg font-light mt-2 text-left p-4">1st Gabrial View</p>
-
+                              {trendingItems.length > 0 && (
+                              <p className="text-xl font-medium mt-2 text-left p-4">{trendingItems[0].itemName}</p>
+                              )}  
                               {/* Price */}
-                              <p className="text-5xl text-black text-left p-4 font-bold">$500,000</p>
-
+                              {trendingItems.length > 0 && (
+                                  <p className="text-3xl text-black text-left p-4 font-bold">{trendingItems[0].price} Rupees</p>
+                              )} 
                               {/* Button */}
                               <div className=" bottom-4 left-0 right-0 text-center p-2">
                                   <Link to="/contactus">
@@ -379,14 +402,18 @@ const Home = () => {
                               {/* Section 2 - Image, Title, Price, Button */}
                               <div className="relative overflow-hidden h-full bg-white rounded-xl shadow-md"> {/* Make it take up the full height */}
                                   {/* Image */}
-                                  <img src={trendingimage} alt="Property" className="w-full h-auto" />
-
+                                
+                                  {trendingItems.length > 0 && (
+                                      <img src={`https://ytsbucketfiles.s3.ap-southeast-1.amazonaws.com/images/${trendingItems[0].image_urls}`} alt="Property" className="w-full h-auto" />
+                                  )} 
                                   {/* Title */}
-                                  <p className="text-sm font-light mt-2 text-left p-4">1st Gabrial View</p>
-
+                                  {trendingItems.length > 0 && (
+                                      <p className="text-sm font-light mt-2 text-left p-4">{trendingItems[0].itemName}</p>
+                                  )} 
                                   {/* Price */}
-                                  <p className="text-xl text-black text-left p-4 font-bold">$500,000</p>
-
+                                  {trendingItems.length > 0 && (
+                                  <p className="text-xl text-black text-left p-4 font-bold">{trendingItems[0].price} Rupees</p>
+                                  )} 
                                   {/* Button */}
 
                                   <div className="relative bottom-0 left-0 right-0 text-center">

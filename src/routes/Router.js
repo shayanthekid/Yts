@@ -15,6 +15,7 @@ import _manageTrending from '../pages/managetrending';
 import _login from '../pages/login';
 import _contactus from '../pages/contactus';
 import _about from '../pages/about';
+import _whatsappbubble from '../pages/components/whatsappbubble';
 import MobileNavbar from '../pages/components/mobilenav';
 import DesktopNav from '../pages/components/desknav';
 import Footer from '../pages/components/footer';
@@ -67,6 +68,7 @@ const AppRouter = () => {
                 {/* Add more routes as needed */}
             </Routes>
 
+            <_whatsappbubble />
 
             <Footer />
 

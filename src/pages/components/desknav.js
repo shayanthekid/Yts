@@ -75,7 +75,7 @@ const DesktopNav = () => {
                 ) : (
                     // Content for non-admin route
                     <>
-                            <div className="fixed left-0 top-0 p-2 z-50 flex justify-center w-full">
+                            <div className="relative left-0 top-0 p-2 z-50 flex justify-center w-full">
                                 <img src={getLogo()} alt="YTS Logo" className="w-28 h-auto" />
                             </div>
 

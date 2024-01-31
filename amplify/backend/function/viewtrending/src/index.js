@@ -37,7 +37,18 @@ exports.handler = async (event) => {
 
     try {
         // Retrieve all items with their names from Trending table
-        const selectQuery = 'SELECT Trending.*, Items.title as itemName FROM Trending LEFT JOIN Items ON Trending.itemid = Items.id';
+        const selectQuery = `
+    SELECT
+        t.*,
+        i.title AS itemName,
+        i.price,
+        GROUP_CONCAT(ii.image_url) AS image_urls
+    FROM Trending t
+    LEFT JOIN Items i ON t.itemid = i.id
+    LEFT JOIN Item_images ii ON i.id = ii.item_id
+    GROUP BY t.id;
+`;
+
         const items = await executeQuery(selectQuery);
 
         console.log('Items retrieved successfully:', items);

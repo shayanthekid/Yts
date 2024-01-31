@@ -81,7 +81,7 @@
         },
         "viewtrending": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/viewtrending-62584872355962696f42-build.zip"
+          "s3Key": "amplify-builds/viewtrending-69364d48416c48717a56-build.zip"
         },
         "updateTrending": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
