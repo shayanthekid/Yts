@@ -362,7 +362,7 @@ const Home = () => {
           {/* First Row - Card */}
         
           {isDesktop ? (
-              < div className="container mx-auto p-4 z-50">
+              < div className="container mx-auto p-4 z-50 mt-6">
           <div className="flex flex-col md:flex-row justify-center">
         
               <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
