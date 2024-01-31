@@ -293,7 +293,7 @@ const Home = () => {
                           {/* Blue Section */}
                           <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden -mt-20">
                               {trendingItems.length > 0 && (
-                                  <h3 className="relative text-2xl font-bold mb-4 text-left overflow-ellipsis overflow-hidden whitespace-normal w-72">
+                                  <h3 className="relative text-2xl font-bold mb-4 text-left overflow-ellipsis overflow-hidden whitespace-normal w-52">
                                       {trendingItems[0].description}
                                   </h3>
                               )}                           
