@@ -96,7 +96,8 @@ const ListingCards = ({ type, data }) => {
         const searchInput = searchData[0];
         const dateRange = searchData[1];
         const priceRange = searchData[2];
-
+        console.log("search input", searchInput);
+        console.log("price range" , priceRange);
         // If there is no search input, return true (no filtering applied)
         if (!searchInput && !dateRange && !priceRange) {
             return true;
@@ -107,16 +108,19 @@ const ListingCards = ({ type, data }) => {
             !searchInput || item.title.toLowerCase().includes(searchInput.toLowerCase())
         );
 
-        // Check if the item's date falls within the specified date range
-        // ... (you can add date filtering logic here if needed)
+        // Convert priceRange to an array of one element (the object), or use an empty array if it's falsy
+        const priceRangeArray = priceRange ? [priceRange] : [];
 
-        // Check if the item's price falls within the specified price range
+        // Check if the item's price falls within any of the specified price ranges
         const priceMatch = (
-            !priceRange || (item.price >= priceRange.min && item.price <= priceRange.max)
+            priceRangeArray.length === 0 ||
+  
+            priceRangeArray.some(range => (item.price >= range.min && item.price <= range.max))
         );
 
+    console.log("price match", priceMatch);
         // Return true if any of the conditions match
-        return searchMatch || priceMatch;
+        return searchMatch && priceMatch;
     });
 
 

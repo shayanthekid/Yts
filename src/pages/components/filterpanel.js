@@ -14,7 +14,7 @@ const FilterPanel = ({ type, onFilterChange, filteredData }) => {
     const [activeTab, setActiveTab] = useState(1);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const [searchInput, setSearchInput] = useState('');
-    const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 }); // Adjust the initial range as needed
+    const [priceRange, setPriceRange] = useState({ min: 0, max: 50000000 }); // Adjust the initial range as needed
     
     useEffect(() => {
         const fetchData = async () => {
