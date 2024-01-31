@@ -19,6 +19,9 @@ import aboutUsdesk from '../assets/images/aboutusdesk.png';
 import mobcarousel1 from '../assets/images/mobilehome1.png';
 import mobcarousel2 from '../assets/images/mobilehome2.png';
 import mobcarousel3 from '../assets/images/mobilehome3.png';
+import deskcarousel1 from '../assets/images/desktophome1.png';
+import deskcarousel2 from '../assets/images/desktophome2.png';
+import deskcarousel3 from '../assets/images/desktophome3.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Carousel } from 'react-responsive-carousel';
@@ -217,9 +220,11 @@ const Home = () => {
     //imagearray
     // Replace the dynamic logic with the static images
     const staticImageUrlsArray = [mobcarousel1, mobcarousel2, mobcarousel3];
+    const staticImageUrlsArray2 = [deskcarousel1, deskcarousel2, deskcarousel3];
 
     // Use staticImageUrlsArray instead of item[0].image_urls
     const imageUrlsArray = staticImageUrlsArray;
+    const imageUrlsArray2 = staticImageUrlsArray2;
 
   return (
       <div className="min-h-screen bg-[#F7F7F7]">
@@ -248,14 +253,30 @@ const Home = () => {
 
           {isDesktop ? (
               // Content for Desktop
+              <div className='relative  top-0 -mt-10'>
+                   <Carousel 
+                   className=''
+                   showThumbs={false} showArrows={false} swipeable={true} interval={3000} autoPlay={true} showStatus={false} infiniteLoop={true} >
+                      {imageUrlsArray2.map((imageUrl, index) => (
+                          <div key={index}>
+                              <img
+                                  src={imageUrl}
+                                  alt={`Image ${index}`}
+                                  className='w-full h-auto relative bottom-0' // Adjust the height as needed
+                              />
+                          </div>
+                      ))}
+                  </Carousel>
+              
               <div className="container mx-auto p-4 z-50">
+               
                   <div className="grid grid-rows-1 md:grid-cols-2 gap-4">
                       {/* Card - Left Column */}
                       <div className="p-4 h-[350px] z-10 ml-12" ref={headingRefDesk}> {/* Set a fixed height */}
                           {/* Section 1 - Trending Property Heading */}
                           <h1
                               
-                          className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-20">
+                          className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-10">
                               Discover Rentals, Properties and Vehicles
                           </h1>
                           <div className="relative bottom-0 left-0 text-left mt-8" >
@@ -271,7 +292,7 @@ const Home = () => {
                       {/* Heading and Button - Right Column */}
                       <div className="flex flex-row items-center justify-center z-10" >
                           {/* Blue Section */}
-                          <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden">
+                          <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden -mt-20">
                               {trendingItems.length > 0 && (
                                   <h3 className="relative text-2xl font-bold mb-4 text-left overflow-ellipsis overflow-hidden whitespace-normal w-72">
                                       {trendingItems[0].description}
@@ -309,6 +330,7 @@ const Home = () => {
                       </div>
 
                   </div>
+              </div>
               </div>
           ) : (
               // Content for Mobile
