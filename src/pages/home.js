@@ -252,7 +252,7 @@ const Home = () => {
 
           {isDesktop ? (
               // Content for Desktop
-              <div className='relative  top-0 -mt-10'>
+              <div className='relative top-0 -mt-10'>
                    <Carousel 
                    className=''
                    showThumbs={false} showArrows={false} swipeable={true} interval={3000} autoPlay={true} showStatus={false} infiniteLoop={true} >
@@ -271,7 +271,7 @@ const Home = () => {
                
                   <div className="grid grid-rows-1 md:grid-cols-2 gap-4">
                       {/* Card - Left Column */}
-                      <div className="p-4 h-[350px] z-10 ml-12" ref={headingRefDesk}> {/* Set a fixed height */}
+                      <div className="p-4 h-[350px] z-10 ml-12 -mt-20" ref={headingRefDesk}> {/* Set a fixed height */}
                           {/* Section 1 - Trending Property Heading */}
                           <h1
                               
@@ -289,7 +289,7 @@ const Home = () => {
                       </div>
 
                       {/* Heading and Button - Right Column */}
-                      <div className="flex flex-row items-center justify-center z-10" >
+                      <div className="flex flex-row items-center justify-center z-10 -mt-28" >
                           {/* Blue Section */}
                           <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden -mt-20">
                               {trendingItems.length > 0 && (
