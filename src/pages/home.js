@@ -267,11 +267,11 @@ const Home = () => {
                       ))}
                   </Carousel>
               
-              <div className="container mx-auto p-4 z-50">
+              <div className="container mx-auto p-2 z-50">
                
                   <div className="grid grid-rows-1 md:grid-cols-2 gap-4">
                       {/* Card - Left Column */}
-                      <div className="p-4 h-[350px] z-10 mr-10 -mt-20" ref={headingRefDesk}> {/* Set a fixed height */}
+                      <div className="p-4 h-[350px] z-10 -ml-20 -mt-20" ref={headingRefDesk}> {/* Set a fixed height */}
                           {/* Section 1 - Trending Property Heading */}
                           <h1
                               
