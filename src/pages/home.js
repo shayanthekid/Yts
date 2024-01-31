@@ -271,13 +271,14 @@ const Home = () => {
                
                   <div className="grid grid-rows-1 md:grid-cols-2 gap-4">
                       {/* Card - Left Column */}
-                      <div className="p-4 h-[350px] z-10 ml-12 -mt-20" ref={headingRefDesk}> {/* Set a fixed height */}
+                      <div className="p-4 h-[350px] z-10 mr-10 -mt-20" ref={headingRefDesk}> {/* Set a fixed height */}
                           {/* Section 1 - Trending Property Heading */}
                           <h1
                               
-                          className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-10">
-                              Discover Rentals, Properties and Vehicles
-                          </h1>
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-left mt-10">
+                                  Discover Rentals, Properties <> and Vehicles</>
+                              </h1>
+
                           <div className="relative bottom-0 left-0 text-left mt-8" >
                               {/* mt-auto to push the button to the bottom */}
                               <Link to="/contactus">
@@ -289,7 +290,7 @@ const Home = () => {
                       </div>
 
                       {/* Heading and Button - Right Column */}
-                      <div className="flex flex-row items-center justify-center z-10 -mt-28" >
+                      <div className="flex flex-row items-center justify-center z-10 -mt-28 -mr-10" >
                           {/* Blue Section */}
                           <div ref={trendingRefDesk} className="absolute bg-blue-800 text-white py-6 px-4 rounded-md w-2/5 overflow-hidden -mt-20">
                               {trendingItems.length > 0 && (
