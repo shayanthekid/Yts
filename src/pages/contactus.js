@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from "@demark-pro/react-booking-calendar";
+import axios from 'axios';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -17,10 +18,12 @@ const ContactUs = () => {
         { value: '2', label: 'Properties' },
         { value: '3', label: 'Holiday Homes' },
     ]);
-
+    const [reserved, setReserved] = useState([]);
     const [originalItems, setOriginalItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
+    const [selectedItemId, setSelectedItemId] = useState(null);
 
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -42,26 +45,40 @@ const ContactUs = () => {
 
         fetchData();
     }, []);
-
     const handleTypeChange = (e) => {
         const typeValue = e.target.value;
 
         // Filter items based on selected type
         const filteredData = Array.isArray(originalItems)
-            ? originalItems.filter(item => item.type === parseInt(typeValue, 10)): [];       
-        
+            ? originalItems.filter(item => item.type === parseInt(typeValue, 10))
+            : [];
+
         setFilteredItems(filteredData);
         // Update form data with the selected type
         setFormData({ ...formData, itemType: typeValue });
-        console.log("log from handletypechange", filteredData);
-        console.log("the original items", originalItems);
-        console.log("this is type value", typeValue);
+            // Set the selected item to the first item id if available
+            if (filteredData.length > 0) {
+                const firstItemId = filteredData[0].id;
+                setSelectedItemId(firstItemId);
+            } else {
+                // If no items are available, reset the selectedItemId
+                setSelectedItemId(null);
+            }
+        // Call fetchData with the selectedItemId
+        if (selectedItemId) {
+            fetchBooking(selectedItemId);
+        }
     };
 
     const handleItemSelected = (e) => {
         const selectedItemValue = e.target.value;
-        console.log(selectedItemValue);
+        setSelectedItemId(selectedItemValue);
         setFormData({ ...formData, selectedItem: selectedItemValue });
+
+        // Call fetchData with the selectedItemId
+        if (selectedItemValue) {
+            fetchBooking(selectedItemValue);
+        }
     };
 
     const handleChange = (dates) => {
@@ -74,6 +91,41 @@ const ContactUs = () => {
         e.preventDefault();
         console.log('Form submitted:', formData, 'Selected Dates:', selectedDates);
     };
+
+    // Move the fetchData function outside of useEffect
+    const fetchBooking = async (itemId) => {
+        try {
+            const response = await axios.get(`https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getitembooking?itemId=${itemId}`);
+
+            // Log the response data
+            console.log(response.data);
+
+            const bookings = response.data.bookings;
+
+            if (bookings.length > 0) {
+                // Create the reserved array directly from API response
+                const newReserved = bookings.map(booking => ({
+                    startDate: new Date(booking.startdate),
+                    endDate: new Date(booking.enddate),
+                }));
+
+                // Update the state
+                setReserved(newReserved);
+                console.log(reserved);
+            } else {
+                // No bookings, set reserved to an empty array
+                setReserved([]);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+        }
+    };
+    useEffect(() => {
+        // Call the fetchData function with the initial selectedItemId
+        if (selectedItemId) {
+            fetchBooking(selectedItemId);
+        }
+    }, [selectedItemId]);
 
     return (
         <div>
@@ -159,7 +211,7 @@ const ContactUs = () => {
                                 required
                             >
                                 {filteredItems.map(item => (
-                                    <option key={item.id} value={item.id.toString()}>{item.title}</option>
+                                    <option key={item.id} value={item.id}>{item.title}</option>
                                 ))}
                             </select>
                         ) : (
@@ -176,6 +228,7 @@ const ContactUs = () => {
                             onChange={handleChange}
                             onOverbook={(e, err) => alert(err)}
                             range={true}
+                            reserved={reserved}
                             dateFnsOptions={{ weekStartsOn: 1 }}
                         />
                     </div>
