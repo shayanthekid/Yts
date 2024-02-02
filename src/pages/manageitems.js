@@ -7,11 +7,12 @@ const ManageItems = () => {
     const [items, setItems] = useState([]);
     const [editModeItemId, setEditModeItemId] = useState(null);
     const [selectedFiles, setSelectedFiles] = useState([]);
-    const [uploadProgress, setUploadProgress] = useState(0);
+    
     const [error, setError] = useState(null);
     const [totalSize, setTotalSize] = useState(0);
     const [itemSelectedFiles, setItemSelectedFiles] = useState({});
     const [isSold, setIsSold] = useState(false);
+    const [uploadProgress, setUploadProgress] = useState([]);
 
     const handleToggleClick = async (itemId) => {
         try {
@@ -181,6 +182,12 @@ const ManageItems = () => {
             return;
         }
 
+        // Initialize the progress for the current item
+        setUploadProgress((prevProgress) => [
+            ...prevProgress,
+            { itemId, progress: 0 },
+        ]);
+
         const uploadPromises = [];
         const totalFiles = files.length;
 
@@ -200,16 +207,20 @@ const ManageItems = () => {
                                 },
                                 onUploadProgress: (progressEvent) => {
                                     const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-                                    // You can update the progress if needed
+
+                                    // Update the progress for the current item
+                                    setUploadProgress((prevProgress) =>
+                                        prevProgress.map((item) =>
+                                            item.itemId === itemId ? { ...item, progress } : item
+                                        )
+                                    );
                                 },
                             }
                         );
-                            alert("Upload successful, please reload page")
-                        console.log(`Upload successful for file ${index + 1}/${totalFiles}`);
-                        console.log('Response from server:', response.data);
 
                         if (response.status === 200) {
-                            console.log('File uploaded successfully:', response.data);
+                            console.log(`Upload successful for file ${index + 1}/${totalFiles}`);
+                            console.log('Response from server:', response.data);
                             resolve(response.data); // Resolve with the server response
                         } else {
                             console.error('Error uploading file. Server response:', response.data);
@@ -230,10 +241,14 @@ const ManageItems = () => {
         // Wait for all image uploads to complete
         const uploadResponses = await Promise.all(uploadPromises);
 
+        // Remove the progress for the current item after uploading is complete
+        setUploadProgress((prevProgress) => prevProgress.filter((item) => item.itemId !== itemId));
+
         // Process the responses if needed
         console.log('All uploads successful');
         console.log('Upload responses:', uploadResponses);
     };
+
 
     // Function to delete an image
     const deleteImage = async (imageId, itemId) => {
@@ -347,34 +362,38 @@ const ManageItems = () => {
 
                                             </div>
 
-                                            {itemSelectedFiles.length > 0 && (
+
+                                            {itemSelectedFiles[item.id] && (
                                                 <div>
                                                     <p className="text-sm text-gray-500">Selected Files:</p>
                                                     <ul>
-                                                        {itemSelectedFiles.map((file, index) => (
+                                                        {itemSelectedFiles[item.id].map((file, index) => (
                                                             <li key={index}>{file.name}</li>
                                                         ))}
                                                     </ul>
                                                 </div>
                                             )}
 
-                                            {uploadProgress > 0 && (
-                                                <div className="mb-4">
-                                                    <p className="text-sm text-gray-500">Upload Progress: {uploadProgress}%</p>
-                                                    <div className="bg-blue-200 h-2 w-full rounded-md">
-                                                        <div
-                                                            className="bg-blue-500 h-2 rounded-md"
-                                                            style={{ width: `${uploadProgress}%` }}
-                                                        ></div>
-                                                    </div>
-                                                </div>
+
+                                            {uploadProgress.map(
+                                                (progressItem) =>
+                                                    progressItem.itemId === item.id && (
+                                                        <div key={progressItem.itemId} className="mb-4">
+                                                            <p className="text-sm text-gray-500">Upload Progress for Item {progressItem.itemId}: {progressItem.progress}%</p>
+                                                            <div className="bg-blue-200 h-2 w-full rounded-md">
+                                                                <div
+                                                                    className="bg-blue-500 h-2 rounded-md"
+                                                                    style={{ width: `${progressItem.progress}%` }}
+                                                                ></div>
+                                                            </div>
+                                                        </div>
+                                                    )
                                             )}
 
                                             <div className="flex space-x-4 ">
-                                               
                                                 <button
                                                     onClick={() => handleUploadClick(item.id)}
-                                                    className="bg-green-500  text-white p-2 rounded hover:bg-green-600"
+                                                    className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
                                                 >
                                                     Upload more images
                                                 </button>
@@ -391,8 +410,6 @@ const ManageItems = () => {
                                                     {item.is_sold ? 'Mark as Unsold' : 'Mark as Sold'}
                                                 </button>
                                             </div>
-
-                                    
                                         </div>
                                 )}
                             </td>

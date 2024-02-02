@@ -45,9 +45,9 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         {is_sold === null ? (
                             <p className="text-xl text-black text-right font-bold mb-4">
                                 {price}
-                                {type === 1 && " Rs Per Day"}
-                                {type === 2 && " Rs Per Month"}
-                                {type === 3 && " Rs Full Board - Per Person. Per Night"}
+                                {type === 1 && "/- Per Day"}
+                                {type === 2 && "/- Per Month"}
+                                {type === 3 && "/- Full Board - Per Person. Per Night"}
                             </p>
                         ) : (
                             <></>
