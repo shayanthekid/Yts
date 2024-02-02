@@ -42,23 +42,25 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                     {/* Details */}
                     <div className="flex-1 flex flex-col">
                         {/* Price */}
-                            {is_sold === null ? (
-                                <p className="text-xl text-black text-right font-bold mb-4">{price}</p>
-
-                            ): (
-                                <></>
-                            )}
+                        {is_sold === null ? (
+                            <p className="text-xl text-black text-right font-bold mb-4">
+                                {price}
+                                {type === 1 && " Rs Per Day"}
+                                {type === 2 && " Rs Per Month"}
+                                {type === 3 && " Rs Full Board - Per Person. Per Night"}
+                            </p>
+                        ) : (
+                            <></>
+                        )}
 
                         {/* Title */}
-                            {is_sold === null ? (
-                                <h3 className="text-lg font-bold text-left p-4">{title}</h3>
-
-                            ): (
-                                    <h3 className="text-lg font-bold text-left p-4">This item has been sold. Copy subject to change</h3>
-
-
-                            )}
-                        
+                        {is_sold === null ? (
+                            <h3 className="text-lg font-bold text-left p-4">{title}</h3>
+                        ) : (
+                            <h3 className="text-lg font-bold text-left p-4">
+                                This item has been sold. Copy subject to change
+                            </h3>
+                        )}
 
                         {/* Address */}
                         <p className="text-sm font-light text-left p-4">{address}</p>
