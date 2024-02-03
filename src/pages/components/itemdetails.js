@@ -47,6 +47,7 @@ const ItemDetails = () => {
 
                 // Assuming the API response contains the item details
                 setItem(response.data);
+                console.log("item data:", response.data );
             } catch (error) {
                 console.error('Error fetching item details:', error);
             }
@@ -289,7 +290,7 @@ const ItemDetails = () => {
                                     </>
                                 )}
 
-                                {item[0].type === 2 && (
+                                {(item[0].type === 2 || item[0].type === 3) && (
                                     <>
                                         {item[0].pet_friendly === 1 && (
                                             <div className="p-1 w-full ">
@@ -319,6 +320,7 @@ const ItemDetails = () => {
                                                 </div>
                                             </div>
                                         )}
+
                                         {item[0].room_no && (
                                             <div className="p-1 w-full ">
                                                 <div className="flex items-center">
@@ -331,11 +333,7 @@ const ItemDetails = () => {
                                     </>
                                 )}
 
-                                {item[0].type === 3 && (
-                                    <>
-                                        {/* Add features for type 3 if needed */}
-                                    </>
-                                )}
+                              
                             </div>
 
 
@@ -434,6 +432,7 @@ const ItemDetails = () => {
                                                 </div>
                                             </div>
                                         )}
+
                                         {item[0].room_no && (
                                             <div className="p-1 w-full ">
                                                 <div className="flex items-center">
@@ -448,7 +447,45 @@ const ItemDetails = () => {
 
                                 {item[0].type === 3 && (
                                     <>
-                                        {/* Add features for type 3 if needed */}
+                                        {item[0].pet_friendly === 1 && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={petfriendlyicon} alt="Pet Friendly Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Pet Friendly:</span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {item[0].parking && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={parkingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Parking:</span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {console.log("Swimming Pool Value:", item[0].swimming_pool)}
+                                        {item[0].swimming_pool && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={swimmingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Swimming Pool</span>
+                                                    <span className="ml-2">{item[0].swimming_pool}</span>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {item[0].room_no && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={bedicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">No. Of Bedrooms: </span>
+                                                    <span className="ml-2">{item[0].room_no}</span>
+                                                </div>
+                                            </div>
+                                        )}
                                     </>
                                 )}
                             </div>
