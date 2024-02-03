@@ -272,8 +272,7 @@ const Popup = ({ onClose, data }) => {
                                             </>
                                         )}
 
-                                        {data.type === 2 && (
-                                            <>
+                                            {(data.type === 2 || data.type === 3) && (                                            <>
                                                 {data.pet_friendly === 1 && (
                                                     <div className="p-1 w-full ">
                                                         <div className="flex items-center">
@@ -314,11 +313,7 @@ const Popup = ({ onClose, data }) => {
                                             </>
                                         )}
 
-                                        {data.type === 3 && (
-                                            <>
-                                                {/* Add features for type 3 if needed */}
-                                            </>
-                                        )}
+                                       
                                     </div>
 
 

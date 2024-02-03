@@ -92,15 +92,17 @@ exports.handler = async (event) => {
                     console.log('Features Property Insert Values:', featuresPropertyInsertValues);
                     break;
                 case 3: // vacation
-                    const featuresvacationInsertQuery = 'INSERT INTO features_property (parking, pet_friendly, modern_style, patio_space, swimming_pool, room_no) VALUES (?, ?, ?, ?, ?, ?)';
-                    const featuresvacationInsertValues = [featuresProperty.parking, featuresProperty.pet_friendly, featuresProperty.modernStyle, featuresProperty.patioSpace, featuresProperty.swimmingPool, featuresProperty.roomNo];
-                    const featuresvacationResult = await executeQuery(featuresvacationInsertQuery, featuresvacationInsertValues);
+                    const featuresPropertyInsertQueryVacation = 'INSERT INTO features_property (parking, pet_friendly, modern_style, patio_space, swimming_pool, room_no) VALUES (?, ?, ?, ?, ?, ?)';
+                    const featuresPropertyInsertValuesVacation = [featuresProperty.parking, featuresProperty.pet_friendly, featuresProperty.modernStyle, featuresProperty.patioSpace, featuresProperty.swimmingPool, featuresProperty.roomNo];
+                    const featuresPropertyResultVacation = await executeQuery(featuresPropertyInsertQueryVacation, featuresPropertyInsertValuesVacation);
 
-                    // Get the last inserted ID
-                    featuresId = featuresvacationResult.insertId;
+                    // Get the last inserted ID for features_property
+                    featuresId = featuresPropertyResultVacation.insertId;
 
-                    console.log('Features Property Insert Query:', featuresvacationInsertQuery);
-                    console.log('Features Property Insert Values:', featuresvacationInsertValues);
+                    console.log('Features Vacation Insert Query Vacation:', featuresPropertyInsertQueryVacation);
+                    console.log('Features Vacation Insert Values Vacation:', featuresPropertyInsertValuesVacation);
+                    console.log('Features Vacation Insert Result:', featuresPropertyResultVacation);
+                    console.log('test');
                     break;
                 // Add more cases for other types if needed
                 default:
@@ -109,7 +111,8 @@ exports.handler = async (event) => {
 
             // Insert into Item_features table
             const itemFeaturesInsertQuery = 'INSERT INTO Item_features (item_id, features_car, features_property) VALUES (?, ?, ?)';
-            const itemFeaturesInsertValues = [itemId, itemType === '1' ? featuresId : null, itemType === '2' ? featuresId : null, itemType === '3' ? featuresId : null];
+            const itemFeaturesInsertValues = [itemId, itemType === '1' ? featuresId : null, itemType === '2' || itemType === '3' ? featuresId : null];
+
 
             await executeQuery(itemFeaturesInsertQuery, itemFeaturesInsertValues);
 

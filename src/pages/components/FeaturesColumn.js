@@ -130,7 +130,7 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     </div>
                 </div>
             );
-        } else if (item.type === 2 || item.type === 3) {
+        } else if (item.type === 2) {
             return (
                 <div>
                     <label>Parking: </label>
@@ -144,7 +144,7 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     <label>Pet Friendly: </label>
                     <input
                         type="checkbox"
-                        name="petFriendly"
+                        name="pet_friendly"
                         checked={item.pet_friendly}
                         onChange={() => handleFieldChange('pet_friendly', item.id, !item.pet_friendly)}
                         disabled={editModeItemId !== item.id}
@@ -152,7 +152,7 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     <label>Modern Style: </label>
                     <input
                         type="checkbox"
-                        name="modernStyle"
+                        name="modern_style"
                         checked={item.modern_style}
                         onChange={() => handleFieldChange('modern_style', item.id, !item.modern_style)}
                         disabled={editModeItemId !== item.id}
@@ -160,7 +160,7 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     <label>Patio Space: </label>
                     <input
                         type="checkbox"
-                        name="patioSpace"
+                        name="patio_space"
                         checked={item.patio_space}
                         onChange={() => handleFieldChange('patio_Space', item.id, !item.patio_space)}
                         disabled={editModeItemId !== item.id}
@@ -168,7 +168,7 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     <label>Swimming Pool: </label>
                     <input
                         type="checkbox"
-                        name="swimmingPool"
+                        name="swimming_pool"
                         checked={item.swimming_pool}
                         onChange={() => handleFieldChange('swimming_pool', item.id, !item.swimming_pool)}
                         disabled={editModeItemId !== item.id}
@@ -176,7 +176,7 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     <label>Room Number: </label>
                     <input
                         type="number"
-                        name="roomNo"
+                        name="room_no"
                         value={item.room_no}
                         onChange={(e) => handleFieldChange('room_no', item.id, e.target.value)}
                         className="border rounded-md p-2 w-full"
@@ -184,7 +184,67 @@ const FeaturesColumn = ({ item, editModeItemId, handleFieldChange }) => {
                     />
                 </div>
             );
-        } else {
+        } 
+        else if (item.type === 3) {
+            return (
+                <div>
+                    <label>Parking: </label>
+                    {/* <p>{item.type}</p>
+                    <p>{JSON.stringify(item)}</p>
+
+                    <p>parking {item.parking}</p> */}
+                    <input
+                        type="checkbox"
+                        name="parking"
+                        checked={item.parking}
+                        onChange={() => handleFieldChange('parking', item.id, !item.parking)}
+                        disabled={editModeItemId !== item.id}
+                    />
+                    <label>Pet Friendly: </label>
+                    <input
+                        type="checkbox"
+                        name="pet_friendly"
+                        checked={item.pet_friendly}
+                        onChange={() => handleFieldChange('pet_friendly', item.id, !item.pet_friendly)}
+                        disabled={editModeItemId !== item.id}
+                    />
+                    <label>Modern Style: </label>
+                    <input
+                        type="checkbox"
+                        name="modern_style"
+                        checked={item.modern_style}
+                        onChange={() => handleFieldChange('modern_style', item.id, !item.modern_style)}
+                        disabled={editModeItemId !== item.id}
+                    />
+                    <label>Patio Space: </label>
+                    <input
+                        type="checkbox"
+                        name="patio_space"
+                        checked={item.patio_space}
+                        onChange={() => handleFieldChange('patio_Space', item.id, !item.patio_space)}
+                        disabled={editModeItemId !== item.id}
+                    />
+                    <label>Swimming Pool: </label>
+                    <input
+                        type="checkbox"
+                        name="swimming_pool"
+                        checked={item.swimming_pool}
+                        onChange={() => handleFieldChange('swimming_pool', item.id, !item.swimming_pool)}
+                        disabled={editModeItemId !== item.id}
+                    />
+                    <label>Room Number: </label>
+                    <input
+                        type="number"
+                        name="room_no"
+                        value={item.room_no}
+                        onChange={(e) => handleFieldChange('room_no', item.id, e.target.value)}
+                        className="border rounded-md p-2 w-full"
+                        disabled={editModeItemId !== item.id}
+                    />
+                </div>
+            );
+        }
+        else {
             return null;
         }
     };

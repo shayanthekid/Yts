@@ -160,7 +160,7 @@ const CreateItem = () => {
             );
 
             console.log('Response from createitem endpoint:', response.data);
-
+            console.log("item type", itemType);
             // Handle the response from the createitem endpoint as needed
         } catch (error) {
             console.error('Error creating item:', error.message);

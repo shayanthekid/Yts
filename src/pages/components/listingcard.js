@@ -44,10 +44,10 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                         {/* Price */}
                         {is_sold === null ? (
                             <p className="text-xl text-black text-right font-bold mb-4">
-                                {price}
+                                LKR {price.toLocaleString()}
                                 {type === 1 && "/- Per Day"}
                                 {type === 2 && "/- Per Month"}
-                                {type === 3 && "/- Full Board - Per Person. Per Night"}
+                                {type === 3 && "/- FB- Per Person/Per Night"}
                             </p>
                         ) : (
                             <></>
@@ -76,7 +76,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                                     </span>
                                     <span>{seat_no}</span>
                                 </div>
-                            ) : type === 2 ? (
+                            ) : (type === 2 || type === 3) ? (
                                 <div className="flex items-center mr-4 bg-[#B7B8E8] p-2 rounded-xl">
                                     <span className="mr-2">
                                         {/* Replace the following line with the icon for type 2 */}
@@ -95,7 +95,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                                     </span>
                                     <span>{transmission}</span>
                                 </div>
-                            ) : type === 2 ? (
+                            ) : (type === 2 || type === 3) ? (
                                 <div className="flex items-center mr-4 bg-[#B7B8E8] p-2 rounded-xl">
                                     <span className="mr-2">
                                         {/* Replace the following line with another icon for type 2 */}
@@ -168,7 +168,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                                     </span>
                                     <span>{seat_no}</span>
                                 </div>
-                            ) : type === 2 ? (
+                            ) : (type === 2 || type === 3) ? (
                                 <div className="flex items-center mr-4 bg-[#B7B8E8] p-2 rounded-xl">
                                     <span className="mr-2">
                                         {/* Replace the following line with the icon for type 2 */}
@@ -187,7 +187,7 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                                     </span>
                                     <span>{transmission}</span>
                                 </div>
-                            ) : type === 2 ? (
+                            ) : (type === 2 || type === 3) ? (
                                 <div className="flex items-center mr-4 bg-[#B7B8E8] p-2 rounded-xl">
                                     <span className="mr-2">
                                         {/* Replace the following line with another icon for type 2 */}

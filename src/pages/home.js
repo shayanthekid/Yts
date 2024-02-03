@@ -363,26 +363,26 @@ const Home = () => {
         
           {isDesktop ? (
               < div className="container mx-auto p-4 z-50 mt-6">
-          <div className="flex flex-col md:flex-row justify-center">
+          <div className="flex flex-col md:flex-row justify-between">
         
               <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
                   <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                   <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
-                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                          <p className="text-sm md:text-base">Spacious, modern home with scenic views and luxurious amenities</p>
               </div>
 
           
               <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
                   <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                   <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
-                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                          <p className="text-sm md:text-base">Explore, drive, and rent cars for unforgettable travel experiences.</p>
               </div>
 
             
               <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
                   <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                   <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
-                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
+                          <p className="text-sm md:text-base">Charming vacation homes offering comfort, style, and memorable getaways.</p>
               </div>
           </div>
       </div>
@@ -390,7 +390,7 @@ const Home = () => {
           ): (
             //mobile
 <div>
-        < div className = "container mx-auto p-4 z-50" >
+        < div className = "container mx-auto p-4 z-30" >
             <div className="flex flex-col md:flex-row justify-center">
                 {/* Item 1 */}
                 <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
@@ -517,12 +517,11 @@ const Home = () => {
                       <h2 className="text-3xl font-bold mb-4 text-right">About Us</h2>
 
                       {/* Paragraph */}
-                      <p className="text-sm text-gray-700 mb-8 text-right pl-11">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod Lorem Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure r
-                          <br /> 
-                           tempor incididunt ut labore 
-                          <br /> 
-                          et dolore magna aliqua.
+                      <p className="text-lg text-gray-700 mb-8 text-right pl-11">
+                          YTS Investments has expanded its portfolio to include real estate services, catering to individuals and businesses seeking properties for investment or personal use. The company's real estate division specializes in identifying lucrative opportunities, facilitating property transactions, and providing comprehensive assistance throughout the buying, selling, or leasing process.
+                          <div className="mb-4">
+                          Overall, YTS Investments stands out in the market due to its commitment to quality, customer satisfaction, and a diversified business approach. By seamlessly integrating car rentals, hospitality, car dealership, and real estate services, the company offers a unique and comprehensive solution for individuals and businesses alike. With a focus on innovation and adaptability, YTS Investments continues to thrive in the competitive business landscape.
+                            </div>
                       </p>
 
                       {/* Learn More Button */}
@@ -544,9 +543,12 @@ const Home = () => {
                       <h2 className="text-3xl font-bold mb-4">About Us</h2>
 
                       {/* Paragraph */}
-                      <p className="text-sm text-gray-700 mb-8">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      </p>
+                      <p className="text-md text-gray-700 mb-8">
+                          YTS Investments has expanded its portfolio to include real estate services, catering to individuals and businesses seeking properties for investment or personal use. The company's real estate division specializes in identifying lucrative opportunities, facilitating property transactions, and providing comprehensive assistance throughout the buying, selling, or leasing process.
+                          <div className="mb-4">
+                              Overall, YTS Investments stands out in the market due to its commitment to quality, customer satisfaction, and a diversified business approach. By seamlessly integrating car rentals, hospitality, car dealership, and real estate services, the company offers a unique and comprehensive solution for individuals and businesses alike. With a focus on innovation and adaptability, YTS Investments continues to thrive in the competitive business landscape.
+                          </div>                     
+                           </p>
 
                       {/* Learn More Button */}
                       <Link to="/about">

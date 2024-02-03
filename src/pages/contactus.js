@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from "@demark-pro/react-booking-calendar";
 import axios from 'axios';
+import location from '../assets/images/featureicons/bx-current-location.svg';
+import email from '../assets/images/featureicons/bx-envelope.svg';
+import phone from '../assets/images/featureicons/bx-phone.svg';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -239,6 +242,44 @@ const ContactUs = () => {
                         </button>
                     </div>
                 </form>
+                <div className="md:flex md:justify-center md:space-x-4 mt-20">
+                    {/* Office */}
+                    <div className="mb-4 md:w-1/3 text-center">
+                        <h2 className="text-lg font-semibold text-gray-700 mb-2">Address</h2>
+                        <img src={location} alt="" className="mx-auto" />
+                        <p className="text-gray-600">
+                            Adamaly Pl<br />
+                            Colombo<br />
+                            00400<br />
+                      
+                        </p>
+                     
+                    </div>
+
+                    {/* Production */}
+                    <div className="mb-4 md:w-1/3 text-center">
+                        <h2 className="text-lg font-semibold text-gray-700 mb-2">Email</h2>
+                        <img src={email} alt="" className="mx-auto" />
+
+                        <p className="text-gray-600">
+                            ytsenterpriseltd@gmail.com<br />
+                           
+                        </p>
+                    </div>
+
+                    {/* Warehouse */}
+                    <div className="mb-4 md:w-1/3 text-center">
+                        <h2 className="text-lg font-semibold text-gray-700 mb-2">Phone Number</h2>
+                        <img src={phone} alt="" className="mx-auto" />
+
+                        <p className="text-gray-600">
+                            +94 74 208 1318<br />
+                          Available on WhatsApp
+                        
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

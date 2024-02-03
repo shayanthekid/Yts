@@ -94,7 +94,7 @@ const ManageItems = () => {
     const handleSaveClick = async (itemId) => {
         // Get the item data for the updated item
         const updatedItem = items.find((item) => item.id === itemId);
-
+        console.log("the updated item:", updatedItem);
         try {
             // Send a PUT request to update the item
             const response = await axios.put(
@@ -105,6 +105,7 @@ const ManageItems = () => {
                 }
             );
 
+            console.log(response.data);
             alert('Item updated successfully! Please reload page');
 
          
