@@ -108,7 +108,7 @@ const ItemDetails = () => {
     return (
         <div className="max-w-screen-md mx-auto p-4">
             {/* Image Carousel */}
-            <Carousel showThumbs={false}>
+            <Carousel className='h-auto' showThumbs={false}>
                 {imageUrlsArray.map((imageUrl, index) => (
                     <div key={index}>
                         <img
