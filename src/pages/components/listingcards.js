@@ -135,7 +135,7 @@ const ListingCards = ({ type, data }) => {
             ) : (
                 <>
                     {isDesktop ? (
-                        <div className="grid grid-cols-1 gap-2 p-4" ref={cardRefdesk}>
+                            <div className="grid grid-cols-1 gap-2 p-4 overflow-y-auto" ref={cardRefdesk}>
                             {dynamicFilteredData.map((item) => (
                                 <div key={item.id} onClick={() => handleCardClick(item)}>
                                     <ListingCard {...item} />

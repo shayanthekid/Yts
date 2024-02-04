@@ -52,6 +52,12 @@ const MobileNavbar = () => {
 
         getLogo();
     }, [location.pathname, itemId]);
+    
+    // Conditionally render based on the route
+    if (location.pathname === '/') {
+        // Don't render MobileNavbar for the ConstructionRoute
+        return null;
+    }
 
     return (
         <div className={`${location.pathname !== '/home' ? 'relative bg-[#CCE28D]' : 'absolute'} p-4 z-50`}>

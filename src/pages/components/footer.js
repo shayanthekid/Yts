@@ -25,7 +25,10 @@ function Footer() {
         }
         return bookingimg;
     };
-
+    if (location.pathname === '/') {
+        // Don't render Footer for the ConstructionRoute
+        return null;
+    }
     return (
 
 <>
