@@ -32,7 +32,9 @@ const Listingcar = () => {
     const newData = [searchInput, selectedDates, priceRange]; // Implement your filtering logic here
     setFilteredData(newData);
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   
   return (
     <div >

@@ -33,7 +33,9 @@ const Listingvacation = () => {
         setFilteredData(newData);
     };
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     return (
         <div >
 

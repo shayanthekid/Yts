@@ -57,7 +57,7 @@ const DesktopNav = () => {
             <div className="mt-8 z-50">
                 {isAdminRoute ? (
                     // Content for admin route
-                    <div className="bg-gray-300 p-4 absolute top-0 w-full">
+                    <div className="bg-gray-300 p-4 z-50 absolute top-0 w-full">
                         <Link to="/admin/createItem" className={`text-gray-700 font-semibold mx-2 ${location.pathname === '/admin/createItem' ? 'text-black' : ''}`}>
                             Create Item
                         </Link>

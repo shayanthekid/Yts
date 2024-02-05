@@ -30,6 +30,9 @@ const About = () => {
     }, []);
 
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <section className="relative pt-16 bg-blueGray-50">

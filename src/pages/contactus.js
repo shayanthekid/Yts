@@ -130,6 +130,11 @@ const ContactUs = () => {
         }
     }, [selectedItemId]);
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <div>
             <div className="container mx-auto p-8 py-4 mt-10">

@@ -52,7 +52,15 @@ const Home = () => {
                 const response = await axios.get('https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/getTrending');
 
                 const parsedBody = JSON.parse(response.data.body);
-                setTrendingItems(parsedBody.items || []); // Change to parsedBody.items
+                const trendingItemsArray = parsedBody.items || [];
+
+                // Process each item to extract the first image URL
+                const processedTrendingItems = trendingItemsArray.map((item) => {
+                    const firstImageUrl = item.image_urls.split(',')[0]; // Get the first URL
+                    return { ...item, image_urls: firstImageUrl };
+                });
+
+                setTrendingItems(processedTrendingItems);
             } catch (error) {
                 console.error('Error fetching trending items:', error);
             }
@@ -64,7 +72,7 @@ const Home = () => {
         setActiveTab(tabNumber);
     };
 
-    console.log(trendingItems);
+    console.log("the trending item:",trendingItems);
     useEffect(() => {
         // Your GSAP animations here
         const tl = gsap.timeline();
@@ -214,7 +222,9 @@ const Home = () => {
         };
     }, []);
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     //imagearray
     // Replace the dynamic logic with the static images
@@ -452,7 +462,7 @@ const Home = () => {
          
       
       {/* How does it work section */}
-          <div className="container mx-auto p-8 text-center z-50 relative mt-20" ref={hdiwRef}>
+          <div className="container mx-auto p-8 text-center  relative mt-20" ref={hdiwRef}>
               <h2 className="text-3xl font-bold mb-8 z-10">How does it work?</h2>
 
               <div className="flex justify-center items-center">

@@ -147,7 +147,13 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
 
                         {/* Price */}
                             {is_sold === null ? (
-                                <p className="text-xl text-black text-left p-4 font-bold">{price}</p>
+                                <p className="text-xl text-black text-left p-4 font-bold">
+                                    
+                                LKR {price.toLocaleString()}
+                                {type === 1 && "/- Per Day"}
+                                {type === 2 && "/- Per Month"}
+                                {type === 3 && "/- FB- Per Person/Per Night"}
+                                    </p>
 
                             ): (
                                 <></>
