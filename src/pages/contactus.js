@@ -172,7 +172,7 @@ const ContactUs = () => {
 
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-600 text-left">
-                            Contact Number
+                            Whatsapp Number
                         </label>
                         <input
                             type="number"
@@ -279,7 +279,10 @@ const ContactUs = () => {
 
                         <p className="text-gray-600">
                             +94 74 208 1318<br />
-                          Available on WhatsApp
+                            <a className='text-blue-400' aria-label="Chat on WhatsApp" href="https://wa.me/94742081318" target="_blank" rel="noopener noreferrer">
+                                Available on WhatsApp
+                            </a>
+                          
                         
                         </p>
                     </div>
