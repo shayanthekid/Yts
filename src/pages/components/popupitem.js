@@ -15,6 +15,7 @@ import transmissionicon from '../../assets/images/featureicons/bx-transfer.png';
 import swimmingicon from '../../assets/images/featureicons/swimming.png';
 import bedicon from '../../assets/images/featureicons/bed.png';
 import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
+import EnlargedImage from './enlargedimage';
 
 
 const Popup = ({ onClose, data }) => {
@@ -22,6 +23,9 @@ const Popup = ({ onClose, data }) => {
 
     const [activeTab, setActiveTab] = useState('overview');
     const [reserved, setReserved] = useState([]);
+    const [enlargedImageUrl, setEnlargedImageUrl] = useState(null); // State for the enlarged image URL
+    const [isEnlargedImageOpen, setIsEnlargedImageOpen] = useState(false); // State for controlling the modal
+
     const popupStyle = {
         top: `${window.innerHeight / 3600 + window.scrollY}px`, // Set the top position based on the middle of the viewport
         // ... other styles
@@ -75,26 +79,43 @@ const Popup = ({ onClose, data }) => {
     //         });
     //     }, 50);
     // }, []); 
+
+    // Function to handle opening the modal and setting the enlarged image URL
+    const openEnlargedImageModal = (imageUrl) => {
+        setEnlargedImageUrl(imageUrl);
+        setIsEnlargedImageOpen(true);
+    };
+
+    // Function to handle closing the modal
+    const closeEnlargedImageModal = () => {
+        setIsEnlargedImageOpen(false);
+    };
+
     const imageUrlsArray = data.image_urls ? data.image_urls.split(',') : [];
 
     return (
             <>
+            {/* Check if the EnlargedImage modal should be open */}
+            {isEnlargedImageOpen && (
+                <EnlargedImage imageUrl={enlargedImageUrl} onClose={closeEnlargedImageModal} />
+            )}
         <div className="fixed top-0 left-0 w-full h-full bg-black opacity-70 z-50" onClick={onClose}></div>
-            <button onClick={onClose} className="absolute top-0 -mt-52 right-80 text-white text-6xl z-50" style={popupStyle}>&times;</button>
+            <button onClick={onClose} className="absolute top-0 -mt-52 right-32 text-white text-6xl z-50" style={popupStyle}>&times;</button>
 
             <div className="popup z-50 absolute top-0 -mt-40 left-1/2 transform -translate-x-1/2" style={popupStyle}>
              
 
-                <div className="popup-content max-w-screen-lg mx-auto p-4 bg-white rounded-md shadow-md overflow-y-auto h-[500px] grid grid-cols-2 gap-4">
+                <div className="popup-content w-[1300px] mx-auto p-4 bg-white rounded-md shadow-md overflow-y-auto h-auto grid grid-cols-2 gap-4">
                 {/* Left Column */}
-                    <div style={{ overflowY: 'auto', whiteSpace: 'nowrap', maxHeight: '500px' }}>
+                    <div style={{ overflowY: 'auto', whiteSpace: 'nowrap', maxHeight: '700px' }}>
                         {imageUrlsArray.map((imageUrl, index) => (
                             <img
                                 key={index}
                                 src={`https://ytsbucketfiles.s3.ap-southeast-1.amazonaws.com/images/${imageUrl}`}
                                 alt={`Image ${index}`}
-                                className='w-full h-auto' // Adjust the height as needed
+                                className='w-full h-auto cursor-pointer' // Adjust the height as needed
                                 style={{ marginBottom: '8px' }} // Add some space between images
+                                onClick={() => openEnlargedImageModal(`https://ytsbucketfiles.s3.ap-southeast-1.amazonaws.com/images/${imageUrl}`)} // Open the modal when clicked
                             />
                         ))}
                     </div>
