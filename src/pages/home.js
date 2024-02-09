@@ -286,7 +286,8 @@ const Home = () => {
                           <h1
                               
                         className="text-3xl md:text-5xl lg:text-3xl font-bold text-left mt-16">
-                                  Discover Rentals, Properties <> and Vehicles</>
+                                  
+                                  Discover Vehicles, Rentals <> & Vehicles</>
                               </h1>
 
                           <div className="relative bottom-0 left-0 text-left mt-8" >
@@ -353,7 +354,7 @@ const Home = () => {
                               <h1 
                             ref={headingRef}  
                               className="text-3xl md:text-4xl lg:text-5xl font-black text-white text-center mt-20">
-                                  Discover Rentals, Properties and Vehicles
+                                  Discover Vehicles, Rentals <> & Vehicles</>
                               </h1>
                               
                           </div>
@@ -375,11 +376,7 @@ const Home = () => {
               < div className="container mx-auto p-4 z-50 mt-6">
           <div className="flex flex-col md:flex-row justify-between">
         
-              <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
-                  <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
-                  <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
-                          <p className="text-sm md:text-base">Spacious, modern home with scenic views and luxurious amenities</p>
-              </div>
+           
 
           
               <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
@@ -394,6 +391,12 @@ const Home = () => {
                   <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                           <p className="text-sm md:text-base">Charming vacation homes offering comfort, style, and memorable getaways.</p>
               </div>
+
+                      <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
+                          <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                          <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
+                          <p className="text-sm md:text-base">Spacious, modern home with scenic views and luxurious amenities</p>
+                      </div>
           </div>
       </div>
 
@@ -403,11 +406,7 @@ const Home = () => {
         < div className = "container mx-auto p-4 z-30" >
             <div className="flex flex-col md:flex-row justify-center">
                 {/* Item 1 */}
-                <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
-                    <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
-                    <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
-                    <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
+              
 
                 {/* Item 2 */}
                 <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
@@ -422,6 +421,12 @@ const Home = () => {
                     <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                     <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit test.</p>
                 </div>
+
+                     <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
+                                  <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                                  <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
+                                  <p className="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              </div>
             </div>
           </div >
                       <div className="grid grid-rows-1 md:grid-cols-1 gap-4 mt-6">
@@ -482,7 +487,7 @@ const Home = () => {
                               }`}
                           onClick={() => handleTabClick(2)}
                       >
-                          <img src={icon2} alt="Icon 2" className="w-8 h-8 z-10" />
+                          <img src={icon3} alt="Icon 2" className="w-8 h-8 z-10" />
                       </button>
 
                       {/* Tab 3 */}
@@ -491,7 +496,7 @@ const Home = () => {
                               }`}
                           onClick={() => handleTabClick(3)}
                       >
-                          <img src={icon3} alt="Icon 3" className="w-8 h-8 z-10" />
+                          <img src={icon2} alt="Icon 3" className="w-8 h-8 z-10" />
                       </button>
                   </div>
               </div>

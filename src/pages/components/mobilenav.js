@@ -94,11 +94,12 @@ const MobileNavbar = () => {
                 <Link to="/listingcar" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Cars
                 </Link>
-                <Link to="/listingproperty" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
-                    Property
-                </Link>
+               
                 <Link to="/listingvacation" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     Vacation Rentals
+                </Link>
+                <Link to="/listingproperty" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
+                    Property
                 </Link>
                 <Link to="/about" className="block text-black py-2 text-left mt-6" onClick={closeDrawer}>
                     About Us

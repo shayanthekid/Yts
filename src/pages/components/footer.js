@@ -47,12 +47,13 @@ function Footer() {
                             <Link to="/listingcar" className="text-black py-2 px-4 font-light">
                                 Cars
                             </Link>
-                            <Link to="/listingproperty" className="text-black py-2 px-4 font-light">
-                                Property
-                            </Link>
+                            
                             <Link to="/listingvacation" className="text-black py-2 px-4 font-light">
                                 Vacation Rentals
                             </Link>
+                        <Link to="/listingproperty" className="text-black py-2 px-4 font-light">
+                            Property
+                        </Link>
                         <Link to="/contactus" className="text-black py-2 px-4 font-light">
                            Contact Us
                         </Link>
@@ -76,12 +77,13 @@ function Footer() {
                 <Link to="/listingcar" className="text-black py-2 px-4 font-light">
                     Cars
                 </Link>
-                <Link to="/listingproperty" className="text-black py-2 px-4 font-light">
-                    Property
-                </Link>
+               
                 <Link to="/listingvacation" className="text-black py-2 px-4 font-light">
                     Vacation Rentals
                 </Link>
+                 <Link to="/listingproperty" className="text-black py-2 px-4 font-light">
+                                Property
+                            </Link>
                 <Link to="/contactus" className="text-black py-2 px-4 font-light">
                     Contact Us
                 </Link>

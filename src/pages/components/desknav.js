@@ -96,15 +96,16 @@ const DesktopNav = () => {
                                     <img src={getIcon(2)} alt="Icon 2" className="w-8 h-8 z-10" />
                                 </Link>
 
-                                {/* Tab 3 */}
-                                <Link to="/listingproperty" className={`rounded-full p-2 my-2 z-10 ${activeTab === 3 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(3)}>
-                                    <img src={getIcon(3)} alt="Icon 3" className="w-8 h-8 z-10" />
-                                </Link>
+                        
 
                                 {/* Tab 4 */}
                                 <Link to="/listingvacation" className={`rounded-full p-2 my-2 z-10 ${activeTab === 4 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(4)}>
                                     <img src={getIcon(4)} alt="Icon 4" className="w-8 h-8 z-10" />
                                 </Link>
+
+                                    <Link to="/listingproperty" className={`rounded-full p-2 my-2 z-10 ${activeTab === 3 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(3)}>
+                                        <img src={getIcon(3)} alt="Icon 3" className="w-8 h-8 z-10" />
+                                    </Link>
                                  {/* Tab 5 */}
                                 <Link to="/about" className={`rounded-full p-2 my-2 z-10 ${activeTab === 5 ? 'bg-[#CCE28D] text-white' : 'bg-gray-200 text-gray-800'}`} onClick={() => handleTabClick(5)}>
                                         <img src={getIcon(5)} alt="Icon 5" className="w-8 h-8 z-10" />

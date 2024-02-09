@@ -47,7 +47,7 @@ const About = () => {
                             />
                             <blockquote className="relative p-8 mb-4">
                                 <h4 className="text-xl text-center font-bold text-black">
-                                    About CEO
+                                    About Founder
                                 </h4>
                                 <div className="text-md text-left font-normal mt-2 text-black text-lg">
                                     <div className="mb-4">
