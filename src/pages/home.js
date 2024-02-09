@@ -287,7 +287,7 @@ const Home = () => {
                               
                         className="text-3xl md:text-5xl lg:text-3xl font-bold text-left mt-16">
                                   
-                                  Discover Vehicles, Rentals <> & Vehicles</>
+                                  Discover Vehicles, Rentals <> & Properties</>
                               </h1>
 
                           <div className="relative bottom-0 left-0 text-left mt-8" >
@@ -354,7 +354,7 @@ const Home = () => {
                               <h1 
                             ref={headingRef}  
                               className="text-3xl md:text-4xl lg:text-5xl font-black text-white text-center mt-20">
-                                  Discover Vehicles, Rentals <> & Vehicles</>
+                                  Discover Vehicles, Rentals <> & Properties</>
                               </h1>
                               
                           </div>
