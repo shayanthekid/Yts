@@ -10,7 +10,7 @@ const dbConfig = {
 exports.handler = async (event) => {
     try {
         // Extract necessary data from the event (assuming it's coming from your form)
-        const { itemType, title, description, price, imageIds, featuresCar, featuresProperty } = event;
+        const { itemType, title, description, price, imageIds, featuresCar, featuresProperty, additionalFeatures } = event;
         const data = {
             itemType,
             title,
@@ -20,6 +20,7 @@ exports.handler = async (event) => {
             features: {
                 featuresCar,
                 featuresProperty,
+                additionalFeatures
             },
         };
         console.log('Extracted data:', data);
@@ -69,8 +70,23 @@ exports.handler = async (event) => {
             let featuresId;
             switch (parseInt(itemType)) {
                 case 1: // Car
-                    const featuresCarInsertQuery = 'INSERT INTO features_car (sporty, economic, auto_transmission, seat_no, brand, transmission, color, fuel, make) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
-                    const featuresCarInsertValues = [featuresCar.sporty, featuresCar.economic, featuresCar.autoTransmission, featuresCar.seatNo, featuresCar.brand, featuresCar.transmission, featuresCar.color, featuresCar.fuel, featuresCar.make];
+                    const featuresCarInsertQuery = 'INSERT INTO features_car (sporty, economic, auto_transmission, seat_no, brand, transmission, color, fuel, make, Car_Insurance, CC, Minimum_Days, Kms_Day, extraFeatures) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                    const featuresCarInsertValues = [
+                        featuresCar.sporty,
+                        featuresCar.economic,
+                        featuresCar.autoTransmission,
+                        featuresCar.seatNo,
+                        featuresCar.brand,
+                        featuresCar.transmission,
+                        featuresCar.color,
+                        featuresCar.fuel,
+                        featuresCar.make,
+                        featuresCar.Car_Insurance,
+                        featuresCar.CC,
+                        featuresCar.Minimum_Days,
+                        featuresCar.Kms_Day,
+                        JSON.stringify(additionalFeatures) // Assuming additionalFeatures is already an object
+                    ];
                     const featuresCarResult = await executeQuery(featuresCarInsertQuery, featuresCarInsertValues);
 
                     // Get the last inserted ID
@@ -81,8 +97,26 @@ exports.handler = async (event) => {
                     console.log('Features CarID:', featuresId);
                     break;
                 case 2: // Property
-                    const featuresPropertyInsertQuery = 'INSERT INTO features_property (parking, pet_friendly, modern_style, patio_space, swimming_pool, room_no) VALUES (?, ?, ?, ?, ?, ?)';
-                    const featuresPropertyInsertValues = [featuresProperty.parking, featuresProperty.pet_friendly, featuresProperty.modernStyle, featuresProperty.patioSpace, featuresProperty.swimmingPool, featuresProperty.roomNo];
+                    const featuresPropertyInsertQuery = 'INSERT INTO features_property (parking, pet_friendly, modern_style, patio_space, swimming_pool, room_no, bathrooms, kitchen, in_house_chef, dinning_room, garden, living_room, washer_dryer, bbq_grill, carrom_board, badminton_net, extraFeatures) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                    const featuresPropertyInsertValues = [
+                        featuresProperty.parking,
+                        featuresProperty.pet_friendly,
+                        featuresProperty.modernStyle,
+                        featuresProperty.patioSpace,
+                        featuresProperty.swimmingPool,
+                        featuresProperty.roomNo,
+                        featuresProperty.bathrooms,
+                        featuresProperty.kitchen,
+                        featuresProperty.inHouseChef,
+                        featuresProperty.dinningRoom,
+                        featuresProperty.garden,
+                        featuresProperty.livingRoom,
+                        featuresProperty.washerDryer,
+                        featuresProperty.bbqGrill,
+                        featuresProperty.carromBoard,
+                        featuresProperty.badmintonNet,
+                        JSON.stringify(additionalFeatures) // Assuming additionalFeatures is already an object
+                    ];
                     const featuresPropertyResult = await executeQuery(featuresPropertyInsertQuery, featuresPropertyInsertValues);
 
                     // Get the last inserted ID
@@ -92,8 +126,27 @@ exports.handler = async (event) => {
                     console.log('Features Property Insert Values:', featuresPropertyInsertValues);
                     break;
                 case 3: // vacation
-                    const featuresPropertyInsertQueryVacation = 'INSERT INTO features_property (parking, pet_friendly, modern_style, patio_space, swimming_pool, room_no) VALUES (?, ?, ?, ?, ?, ?)';
-                    const featuresPropertyInsertValuesVacation = [featuresProperty.parking, featuresProperty.pet_friendly, featuresProperty.modernStyle, featuresProperty.patioSpace, featuresProperty.swimmingPool, featuresProperty.roomNo];
+                    const featuresPropertyInsertQueryVacation = 'INSERT INTO features_property (parking, pet_friendly, modern_style, patio_space, swimming_pool, room_no, bathrooms, kitchen, in_house_chef, dinning_room, garden, living_room, washer_dryer, bbq_grill, carrom_board, badminton_net, extraFeatures) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                    const featuresPropertyInsertValuesVacation = 
+                        [
+                            featuresProperty.parking,
+                            featuresProperty.pet_friendly,
+                            featuresProperty.modernStyle,
+                            featuresProperty.patioSpace,
+                            featuresProperty.swimmingPool,
+                            featuresProperty.roomNo,
+                            featuresProperty.bathrooms,
+                            featuresProperty.kitchen,
+                            featuresProperty.inHouseChef,
+                            featuresProperty.dinningRoom,
+                            featuresProperty.garden,
+                            featuresProperty.livingRoom,
+                            featuresProperty.washerDryer,
+                            featuresProperty.bbqGrill,
+                            featuresProperty.carromBoard,
+                            featuresProperty.badmintonNet,
+                            JSON.stringify(additionalFeatures) // Assuming additionalFeatures is already an object
+                        ];
                     const featuresPropertyResultVacation = await executeQuery(featuresPropertyInsertQueryVacation, featuresPropertyInsertValuesVacation);
 
                     // Get the last inserted ID for features_property

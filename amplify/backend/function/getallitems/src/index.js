@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     return new Promise((resolve, reject) => {
         // Query to retrieve all items with their details, features, and images
         const query = `
-           SELECT
+    SELECT
     i.*,
     GROUP_CONCAT(ii.image_url) AS image_urls,
     CASE
@@ -62,6 +62,22 @@ exports.handler = async (event) => {
         ELSE NULL
     END AS make,
     CASE
+        WHEN i.type = 1 THEN fc.Car_Insurance
+        ELSE NULL
+    END AS Car_Insurance,
+    CASE
+        WHEN i.type = 1 THEN fc.CC
+        ELSE NULL
+    END AS CC,
+    CASE
+        WHEN i.type = 1 THEN fc.Minimum_Days
+        ELSE NULL
+    END AS Minimum_Days,
+    CASE
+        WHEN i.type = 1 THEN fc.Kms_Day
+        ELSE NULL
+    END AS Kms_Day,
+    CASE
         WHEN i.type IN (2, 3) THEN fp.parking
         ELSE NULL
     END AS parking,
@@ -84,14 +100,58 @@ exports.handler = async (event) => {
     CASE
         WHEN i.type IN (2, 3) THEN fp.room_no
         ELSE NULL
-    END AS room_no
+    END AS room_no,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.bathrooms
+        ELSE NULL
+    END AS bathrooms,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.kitchen
+        ELSE NULL
+    END AS kitchen,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.in_house_chef
+        ELSE NULL
+    END AS in_house_chef,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.dinning_room
+        ELSE NULL
+    END AS dinning_room,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.garden
+        ELSE NULL
+    END AS garden,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.living_room
+        ELSE NULL
+    END AS living_room,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.washer_dryer
+        ELSE NULL
+    END AS washer_dryer,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.bbq_grill
+        ELSE NULL
+    END AS bbq_grill,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.carrom_board
+        ELSE NULL
+    END AS carrom_board,
+    CASE
+        WHEN i.type IN (2, 3) THEN fp.badminton_net
+        ELSE NULL
+    END AS badminton_net,
+    CASE
+        WHEN i.type = 1 THEN fc.extraFeatures
+        WHEN i.type IN (2, 3) THEN fp.extraFeatures
+        ELSE NULL
+    END AS extraFeatures
 FROM Items i
 LEFT JOIN Item_images ii ON i.id = ii.item_id
 LEFT JOIN Item_features ift ON i.id = ift.item_id
 LEFT JOIN features_car fc ON ift.features_car = fc.id AND i.type = 1
 LEFT JOIN features_property fp ON ift.features_property = fp.id AND i.type IN (2, 3)
 GROUP BY i.id;
-
         `;
 
         connection.query(query, (error, results) => {

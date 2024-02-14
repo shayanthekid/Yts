@@ -33,11 +33,11 @@
         },
         "createitem": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/createitem-4a502b324a3353506f36-build.zip"
+          "s3Key": "amplify-builds/createitem-6c7079554b4d79684c70-build.zip"
         },
         "getallitems": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/getallitems-317a55396d4c63694236-build.zip"
+          "s3Key": "amplify-builds/getallitems-6a2f2f6c793541554444-build.zip"
         },
         "deleteimage": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",

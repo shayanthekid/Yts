@@ -209,6 +209,7 @@ const CreateItem = () => {
                     featuresCar,
                     featuresProperty,
                     imageIds: filteredImageIds,
+                    additionalFeatures
                 }
             );
             console.log("features car: ", featuresCar);
