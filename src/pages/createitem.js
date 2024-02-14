@@ -7,7 +7,9 @@ const CreateItem = () => {
     const [error, setError] = useState(null);
     const [totalSize, setTotalSize] = useState(0);
     const [imageIds, setImageIds] = useState([]);
-
+    const [newFeatureName, setNewFeatureName] = useState('');
+    const [newFeatureValue, setNewFeatureValue] = useState('');
+    const [additionalFeatures, setAdditionalFeatures] = useState([]);
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
 
@@ -45,6 +47,12 @@ const CreateItem = () => {
         color: '',           // Added color property
         fuel: '',            // Added fuel property
         make: '',            // Added make property
+        Car_Insurance:'',
+        CC:0,
+        Minimum_Days:0,
+        Kms_Day: 0
+
+        
     });
 
     const [featuresProperty, setFeaturesProperty] = useState({
@@ -53,7 +61,17 @@ const CreateItem = () => {
         modernStyle: false,
         patioSpace: false,
         swimmingPool: false,
-        roomNo: 0,
+        roomNo: 0, // added new features
+        bathrooms: 0,
+        kitchen: false,
+        inHouseChef: false,
+        dinningRoom: false,
+        garden: false,
+        livingRoom: false,
+        washerDryer: false,
+        bbqGrill: false,
+        carromBoard: false,
+        badmintonNet: false,
     });
 
     const handleItemTypeChange = (e) => {
@@ -76,6 +94,41 @@ const CreateItem = () => {
             ...prevFeaturesProperty,
             [name]: type === 'checkbox' ? checked : value,
         }));
+    };
+
+    const handleAdditionalFeatureNameChange = (e, index) => {
+        const updatedFeatures = [...additionalFeatures];
+        updatedFeatures[index].name = e.target.value;
+        setAdditionalFeatures(updatedFeatures);
+    };
+
+    const handleAdditionalFeatureValueChange = (e, index) => {
+        const updatedFeatures = [...additionalFeatures];
+        updatedFeatures[index].value = e.target.value;
+        setAdditionalFeatures(updatedFeatures);
+    };
+
+    const handleRemoveFeature = (index) => {
+        const updatedFeatures = [...additionalFeatures];
+        updatedFeatures.splice(index, 1);
+        setAdditionalFeatures(updatedFeatures);
+    };
+
+    const handleFeatureNameChange = (e) => {
+        setNewFeatureName(e.target.value);
+    };
+
+    const handleFeatureValueChange = (e) => {
+        setNewFeatureValue(e.target.value);
+    };
+
+    const handleAddFeature = () => {
+        if (newFeatureName && newFeatureValue) {
+            setAdditionalFeatures([...additionalFeatures, { name: newFeatureName, value: newFeatureValue }]);
+            setNewFeatureName('');
+            setNewFeatureValue('');
+        }
+        console.log("New features", additionalFeatures);
     };
 
     const handleSubmit = async (e) => {
@@ -158,7 +211,8 @@ const CreateItem = () => {
                     imageIds: filteredImageIds,
                 }
             );
-
+            console.log("features car: ", featuresCar);
+            console.log("features car: ", featuresProperty);
             console.log('Response from createitem endpoint:', response.data);
             console.log("item type", itemType);
             // Handle the response from the createitem endpoint as needed
@@ -354,6 +408,46 @@ const CreateItem = () => {
                                     className="border rounded-md p-2 w-full"
                                 />
                             </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="Car_Insurance"
+                                    checked={featuresCar.Car_Insurance}
+                                    onChange={handleFeaturesCarChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Car Insurance</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <span>CC</span>
+                                <input
+                                    type="number"
+                                    name="CC"
+                                    value={featuresCar.CC}
+                                    onChange={handleFeaturesCarChange}
+                                    className="border rounded-md p-2 w-full"
+                                />
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <span>Minimum Number of days</span>
+                                <input
+                                    type="number"
+                                    name="Minimum_Days"
+                                    value={featuresCar.Minimum_Days}
+                                    onChange={handleFeaturesCarChange}
+                                    className="border rounded-md p-2 w-full"
+                                />
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <span>Kms a day</span>
+                                <input
+                                    type="number"
+                                    name="Kms_Day"
+                                    value={featuresCar.Kms_Day}
+                                    onChange={handleFeaturesCarChange}
+                                    className="border rounded-md p-2 w-full"
+                                />
+                            </label>
                         </div>
                     </div>
                 )}
@@ -430,11 +524,162 @@ const CreateItem = () => {
                                     className="border rounded-md p-2 w-full"
                                 />
                             </label>
+                            <label className="flex items-center space-x-2">
+                                <span>Bathrooms</span>
+                                <input
+                                    type="number"
+                                    name="bathrooms"
+                                    value={featuresProperty.bathrooms}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="border rounded-md p-2 w-full"
+                                />
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="kitchen"
+                                    checked={featuresProperty.kitchen}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Kitchen</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="inHouseChef"
+                                    checked={featuresProperty.inHouseChef}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>In-House Chef</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="dinningRoom"
+                                    checked={featuresProperty.dinningRoom}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Dining Room</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="garden"
+                                    checked={featuresProperty.garden}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Garden</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="livingRoom"
+                                    checked={featuresProperty.livingRoom}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Living Room</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="washerDryer"
+                                    checked={featuresProperty.washerDryer}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Washer&Dryer</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="bbqGrill"
+                                    checked={featuresProperty.bbqGrill}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>BBQ&Grill</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="carromBoard"
+                                    checked={featuresProperty.carromBoard}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Carrom Board</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="badmintonNet"
+                                    checked={featuresProperty.badmintonNet}
+                                    onChange={handleFeaturesPropertyChange}
+                                    className="form-checkbox"
+                                />
+                                <span>Badminton Net</span>
+                            </label>
                         </div>
                     </div>
                 )}
 
                
+                <div className="mb-4">
+                    <h3 className="text-xl font-semibold mb-2">Add more features</h3>
+                    {additionalFeatures.map((feature, index) => (
+                        <div key={index} className="flex space-x-2 mb-2">
+                            <input
+                                type="text"
+                                placeholder="Feature Name"
+                                value={feature.name}
+                                onChange={(e) => handleAdditionalFeatureNameChange(e, index)}
+                                className="border rounded-md p-2 w-full"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Feature Value"
+                                value={feature.value}
+                                onChange={(e) => handleAdditionalFeatureValueChange(e, index)}
+                                className="border rounded-md p-2 w-full"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => handleRemoveFeature(index)}
+                                className="bg-red-500 text-white p-2 rounded-md hover:bg-red-600"
+                            >
+                                -
+                            </button>
+                        </div>
+                    ))}
+                    <div className="flex space-x-2">
+                        <input
+                            type="text"
+                            placeholder="Feature Name"
+                            value={newFeatureName}
+                            onChange={handleFeatureNameChange}
+                            className="border rounded-md p-2 w-full"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Feature Value"
+                            value={newFeatureValue}
+                            onChange={handleFeatureValueChange}
+                            className="border rounded-md p-2 w-full"
+                        />
+                        <button
+                            type="button"
+                            onClick={handleAddFeature}
+                            className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
 
               
 
