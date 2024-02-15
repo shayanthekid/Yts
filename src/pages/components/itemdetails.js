@@ -25,7 +25,19 @@ import bbq from '../../assets/images/featureicons/bbq.svg';
 import carrom from '../../assets/images/featureicons/carrom.svg';
 import badminton from '../../assets/images/featureicons/badminton.svg';
 
+
+/****************Extra car icons************** */
+import insurance from '../../assets/images/featureicons/insurance.png';
+import CCIcon from '../../assets/images/featureicons/engine.png';
+import calendaricon from '../../assets/images/featureicons/calander.png';
+import kms from '../../assets/images/featureicons/kms.png';
+
+
+
 /********************************************* */
+
+
+
 
 import bedicon from '../../assets/images/featureicons/bed.png';
 import Calendar from "@demark-pro/react-booking-calendar";
@@ -176,7 +188,7 @@ const ItemDetails = () => {
                     className={`flex-1 p-3 text-center ${activeTab === 'Terms&Conditions' ? 'border-b-2 border-[#2E3192]' : ''}`}
                     onClick={() => setActiveTab('Terms&Conditions')}
                 >
-                    Terms & Conditions
+                    T & C
                 </button>
             </div>
 
@@ -246,6 +258,42 @@ const ItemDetails = () => {
                                                     <img src={transmissionicon} alt="Transmission Icon" className="w-6 h-6 mr-2" />
                                                     <span className="text-sm font-bold text-gray-800">Transmission:</span>
                                                     <span className="ml-2">{item[0].transmission}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].Car_Insurance && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={insurance} alt="Transmission Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Car Insurance</span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].CC && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={CCIcon} alt="Transmission Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">CC</span>
+                                                    <span className="ml-2">{item[0].CC}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].Minimum_Days && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={calendaricon} alt="Transmission Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Minimum Number of Days: </span>
+                                                    <span className="ml-2">{item[0].Minimum_Days}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].Kms_Day && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={kms} alt="Transmission Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Kms per day: </span>
+                                                    <span className="ml-2">{item[0].Kms_Day}</span>
                                                 </div>
                                             </div>
                                         )}

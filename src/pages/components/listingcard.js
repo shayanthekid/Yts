@@ -42,15 +42,11 @@ const ListingCard = ({ id, image_urls, title, address, price, type, room_no, swi
                     {/* Details */}
                     <div className="flex-1 flex flex-col">
                         {/* Price */}
-                        {is_sold === null ? (
+                        {is_sold === null && price !== null && type === 1 && (
                             <p className="text-xl text-black text-right font-bold mb-4">
                                 LKR {price.toLocaleString()}
                                 {type === 1 && "/- UPWARDS"}
-                                {type === 2 && "/- Per Month"}
-                                {type === 3 && "/- FB- Per Person/Per Night"}
                             </p>
-                        ) : (
-                            <></>
                         )}
 
                         {/* Title */}
