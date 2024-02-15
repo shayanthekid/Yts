@@ -123,9 +123,9 @@ const CreateItem = () => {
     };
 
     const handleAddFeature = () => {
-        if (newFeatureName && newFeatureValue) {
-            setAdditionalFeatures([...additionalFeatures, { name: newFeatureName, value: newFeatureValue }]);
-            setNewFeatureName('');
+        if (newFeatureValue) {
+            const featureName = additionalFeatures.length > 0 ? `Feature ${additionalFeatures.length + 1}` : 'Feature 1';
+            setAdditionalFeatures([...additionalFeatures, { name: featureName, value: newFeatureValue }]);
             setNewFeatureValue('');
         }
         console.log("New features", additionalFeatures);
@@ -275,7 +275,7 @@ const CreateItem = () => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         className="mt-1 p-2 w-full border rounded-md"
-                        required
+                        
                     />
                 </div>
 
@@ -290,7 +290,7 @@ const CreateItem = () => {
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         className="mt-1 p-2 w-full border rounded-md"
-                        required
+                        
                     />
                 </div>
 
@@ -634,13 +634,8 @@ const CreateItem = () => {
                     <h3 className="text-xl font-semibold mb-2">Add more features</h3>
                     {additionalFeatures.map((feature, index) => (
                         <div key={index} className="flex space-x-2 mb-2">
-                            <input
-                                type="text"
-                                placeholder="Feature Name"
-                                value={feature.name}
-                                onChange={(e) => handleAdditionalFeatureNameChange(e, index)}
-                                className="border rounded-md p-2 w-full"
-                            />
+                            <span className="border rounded-md p-2 w-full">{`Feature ${index + 1}`}</span>
+
                             <input
                                 type="text"
                                 placeholder="Feature Value"
@@ -658,13 +653,8 @@ const CreateItem = () => {
                         </div>
                     ))}
                     <div className="flex space-x-2">
-                        <input
-                            type="text"
-                            placeholder="Feature Name"
-                            value={newFeatureName}
-                            onChange={handleFeatureNameChange}
-                            className="border rounded-md p-2 w-full"
-                        />
+                        <span className="border rounded-md p-2 w-full">{`Feature ${additionalFeatures.length + 1}`}</span>
+
                         <input
                             type="text"
                             placeholder="Feature Value"

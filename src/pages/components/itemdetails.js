@@ -12,6 +12,21 @@ import gasicon from '../../assets/images/featureicons/bxs-gas-pump.png';
 import parkingicon from '../../assets/images/featureicons/bxs-parking.png';
 import transmissionicon from '../../assets/images/featureicons/bx-transfer.png';
 import swimmingicon from '../../assets/images/featureicons/swimming.png';
+
+/****************Extra property icons************** */
+import bathroom from '../../assets/images/featureicons/bathroom.svg';
+import kitchen from '../../assets/images/featureicons/kitchen.svg';
+import chef from '../../assets/images/featureicons/chef.svg';
+import dining from '../../assets/images/featureicons/dining.svg';
+import garden from '../../assets/images/featureicons/garden.svg';
+import living from '../../assets/images/featureicons/livingroom.svg';
+import washer from '../../assets/images/featureicons/washingmachine.svg';
+import bbq from '../../assets/images/featureicons/bbq.svg';
+import carrom from '../../assets/images/featureicons/carrom.svg';
+import badminton from '../../assets/images/featureicons/badminton.svg';
+
+/********************************************* */
+
 import bedicon from '../../assets/images/featureicons/bed.png';
 import Calendar from "@demark-pro/react-booking-calendar";
 import lottieloadinganimation from '../../assets/images/featureicons/lottie.gif'
@@ -157,6 +172,12 @@ const ItemDetails = () => {
                 >
                     Availability
                 </button>
+                <button
+                    className={`flex-1 p-3 text-center ${activeTab === 'Terms&Conditions' ? 'border-b-2 border-[#2E3192]' : ''}`}
+                    onClick={() => setActiveTab('Terms&Conditions')}
+                >
+                    Terms & Conditions
+                </button>
             </div>
 
             {/* Display content based on active tab */}
@@ -171,66 +192,7 @@ const ItemDetails = () => {
                         </h3>
                         <p className='text-left'>{item[0].description}</p>
 
-                        {/* Colored Boxes Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-                            {item[0].type === 1 && (
-                                <>
-                                    {item[0].economic === 1 && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">Economic</p>
-                                        </div>
-                                    )}
-                                    
-
-                                    {item[0].sporty === 1 && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">Sporty</p>
-                                        </div>
-                                    )}
-
-                                    {item[0].brand && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">{item[0].brand}</p>
-                                        </div>
-                                    )}
-
-                                    {item[0].transmission && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">{item[0].transmission}</p>
-                                        </div>
-                                    )}
-                                    
-                                </>
-                            )}
-
-                            {(item[0].type === 2 || item[0].type === 3) && (
-                                <>
-                                    {item[0].swimming_pool === 1 && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">Swimming Pool</p>
-                                        </div>
-                                    )}
-
-                                    {item[0].modern_style === 1 && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">Modern Style</p>
-                                        </div>
-                                    )}
-
-                                    {item[0].patio_space === 1 && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">Patio Space</p>
-                                        </div>
-                                    )}
-
-                                    {item[0].pet_friendly === 1 && (
-                                        <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
-                                            <p className="text-sm font-bold text-gray-800">Pet Friendly</p>
-                                        </div>
-                                    )}
-                                </>
-                            )}
-                        </div>
+                      
 
                         <div className="mt-8">
                             <h3 className="text-lg font-bold text-left">
@@ -330,6 +292,96 @@ const ItemDetails = () => {
                                                 </div>
                                             </div>
                                         )}
+                                        {item[0].bathrooms && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={bathroom} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">No. Of Bathrooms: </span>
+                                                    <span className="ml-2">{item[0].bathrooms}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].kitchen && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={kitchen} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">No. Of Kitchens: </span>
+                                                    <span className="ml-2">{item[0].kitchen}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].in_house_chef && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={chef} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">In-House Chef </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].dinning_room && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={dining} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Dining Room </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].garden && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={garden} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Garden </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].living_room && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={living} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Living Room </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].washer_dryer && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={washer} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Washer & Dryer </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].bbq_grill && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={bbq} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">BBQ & Grill </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].carrom_board && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={carrom} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Carrom Board </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {item[0].badminton_net && (
+                                            <div className="p-1 w-full ">
+                                                <div className="flex items-center">
+                                                    <img src={badminton} alt="Parking Icon" className="w-6 h-6 mr-2" />
+                                                    <span className="text-sm font-bold text-gray-800">Badminton Net </span>
+                                                    <span className="ml-2">Yes</span>
+                                                </div>
+                                            </div>
+                                        )}
                                     </>
                                 )}
 
@@ -350,146 +402,76 @@ const ItemDetails = () => {
                             <h3 className="text-lg font-bold text-left">
                                 Features
                             </h3>
+                           
+                            {/* Colored Boxes Grid */}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                                 {item[0].type === 1 && (
                                     <>
                                         {item[0].economic === 1 && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={makeicon} alt="Make Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Make:</span>
-                                                    <span className="ml-2">{item[0].make}</span>
-                                                </div>
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">Economic</p>
                                             </div>
                                         )}
-                                        {item[0].fuel === 1 && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={gasicon} alt="Make Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Fuel:</span>
-                                                    <span className="ml-2">{item[0].fuel}</span>
-                                                </div>
-                                            </div>
-                                        )}
-                                        {item[0].color === 1 && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={coloricon} alt="Make Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Color:</span>
-                                                    <span className="ml-2">{item[0].color}</span>
-                                                </div>
-                                            </div>
-                                        )}
+
+
                                         {item[0].sporty === 1 && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={brandicon} alt="Brand Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Brand:</span>
-                                                    <span className="ml-2">{item[0].brand}</span>
-                                                </div>
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">Sporty</p>
                                             </div>
                                         )}
 
                                         {item[0].brand && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={transmissionicon} alt="Transmission Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Transmission:</span>
-                                                    <span className="ml-2">{item[0].transmission}</span>
-                                                </div>
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">{item[0].brand}</p>
                                             </div>
                                         )}
+
+                                        {item[0].transmission && (
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">{item[0].transmission}</p>
+                                            </div>
+                                        )}
+                                        {item[0].extraFeatures && JSON.parse(item[0].extraFeatures).map((feature, index) => (
+                                            <div key={index} className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">{feature.value}</p>
+                                            </div>
+                                        ))}
                                     </>
                                 )}
 
-                                {item[0].type === 2 && (
+                                {(item[0].type === 2 || item[0].type === 3) && (
                                     <>
+                                        {item[0].swimming_pool === 1 && (
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">Swimming Pool</p>
+                                            </div>
+                                        )}
+
+                                        {item[0].modern_style === 1 && (
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">Modern Style</p>
+                                            </div>
+                                        )}
+
+                                        {item[0].patio_space === 1 && (
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">Patio Space</p>
+                                            </div>
+                                        )}
+
                                         {item[0].pet_friendly === 1 && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={petfriendlyicon} alt="Pet Friendly Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Pet Friendly:</span>
-                                                    <span className="ml-2">Yes</span>
-                                                </div>
+                                            <div className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">Pet Friendly</p>
                                             </div>
                                         )}
-
-                                        {item[0].parking && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={parkingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Parking:</span>
-                                                    <span className="ml-2">Yes</span>
-                                                </div>
+                                        {item[0].extraFeatures && JSON.parse(item[0].extraFeatures).map((feature, index) => (
+                                            <div key={index} className="p-1 w-1/2 bg-[#B8B9E0] rounded-md">
+                                                <p className="text-sm font-bold text-gray-800">{feature.value}</p>
                                             </div>
-                                        )}
-                                        {item[0].swimming_pool && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={swimmingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Swimming Pool</span>
-                                                    <span className="ml-2">{item[0].swimming_pool}</span>
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {item[0].room_no && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={bedicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">No. Of Bedrooms: </span>
-                                                    <span className="ml-2">{item[0].room_no}</span>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </>
-                                )}
-
-                                {item[0].type === 3 && (
-                                    <>
-                                        {item[0].pet_friendly === 1 && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={petfriendlyicon} alt="Pet Friendly Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Pet Friendly:</span>
-                                                    <span className="ml-2">Yes</span>
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {item[0].parking && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={parkingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Parking:</span>
-                                                    <span className="ml-2">Yes</span>
-                                                </div>
-                                            </div>
-                                        )}
-                                        {console.log("Swimming Pool Value:", item[0].swimming_pool)}
-                                        {item[0].swimming_pool && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={swimmingicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">Swimming Pool</span>
-                                                    <span className="ml-2">{item[0].swimming_pool}</span>
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {item[0].room_no && (
-                                            <div className="p-1 w-full ">
-                                                <div className="flex items-center">
-                                                    <img src={bedicon} alt="Parking Icon" className="w-6 h-6 mr-2" />
-                                                    <span className="text-sm font-bold text-gray-800">No. Of Bedrooms: </span>
-                                                    <span className="ml-2">{item[0].room_no}</span>
-                                                </div>
-                                            </div>
-                                        )}
+                                        ))}
                                     </>
                                 )}
                             </div>
-
 
 
                         </div>
@@ -508,6 +490,11 @@ const ItemDetails = () => {
                                 dateFnsOptions={{ weekStartsOn: 1 }}
                             />
                         </div>
+                    </div>
+                )}
+                {activeTab === 'Terms&Conditions' && (
+                    <div>
+                        <p>lorem upsum</p>
                     </div>
                 )}
             </div>

@@ -21,7 +21,7 @@
       "function": {
         "getitem": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
-          "s3Key": "amplify-builds/getitem-546a624e516d69757552-build.zip"
+          "s3Key": "amplify-builds/getitem-6b497561614752646a58-build.zip"
         },
         "createbooking": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
