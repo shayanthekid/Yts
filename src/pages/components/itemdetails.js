@@ -540,7 +540,127 @@ const ItemDetails = () => {
                 )}
                 {activeTab === 'Terms&Conditions' && (
                     <div>
-                        <p>lorem upsum</p>
+                        {activeTab === 'Terms&Conditions' && (
+                            <div>
+                                {item[0].type === 1 && <>
+
+                                    <div className="max-w-screen-lg mx-auto px-4 py-8">
+                                        <h2 className="text-2xl font-bold mb-4">Terms and Conditions:</h2>
+                                        <ol className="list-decimal list-inside">
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Renter agrees to place a REFUNDABLE security deposit a sum agreed between the owner
+                                                        and Renter.</strong>
+                                                </div>
+                                                <li className="mb-4">
+                                                    <div className="mb-2">
+                                                        The renter shall place with the owner the security deposit at the time of signing this
+                                                        Agreement and both parties agree that the deposit is refundable within 5 days after the vehicle
+                                                        has been returned to the Owner.
+                                                    </div>
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Renter shall pay the agreed monthly rental value to the owner upfront on the day of signing
+                                                        this agreement.</strong>
+                                                </div>
+                                                <li>
+                                                    The Renter shall bear responsibility of the said vehicle in case of any theft or unforeseen
+                                                    incident occurred during the rental period. Strictly no insurance can be claimed by the renter.
+                                                    The Renter must inform the owner of the incident immediately.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Parties agree that the maximum distance the vehicle shall be used per day is 80 Kms (Eighty
+                                                        Kilometers) and the Renter shall pay Rs.80 (Eighty Rupees) to the Owner for every additional
+                                                        kilometer used by the Renter exceeding the maximum number of distance (Eighty Kilometers)
+                                                        allocated per day.</strong>
+                                                </div>
+                                                <li>
+                                                    In the event if the vehicle is returned after the expiry or cessation of the Agreement, the Renter
+                                                    agrees to keep the Owner informed of such delay and pay a daily charge to the Owner till the
+                                                    Vehicle is returned to the Owner.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The parties agree that the quantity of fuel in the fuel tank at the time of this Agreement is
+                                                        signed is gauged/ascertained at 50% and the Renter agrees to return the vehicle with 50% of
+                                                        fuel tank to the Owner.</strong>
+                                                </div>
+                                                <li>
+                                                    The Renter shall hold the fullest responsibility of the vehicle described in the Schedule hereto
+                                                    during the subsistence of the Agreement and to maintain the vehicle in good condition at all
+                                                    material times.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Renter further agrees to pay the Owner an agreed amount in the event of an accident,
+                                                        theft, riot, or any unforeseen incident which may cause damages to the vehicle as compensation
+                                                        and the Renter further agrees to indemnify the Owner pertaining to all cost of repairs and/or
+                                                        bear all expenses pertaining to such repairs which may be incurred when attending such repairs
+                                                        at a reputed repair center nominated by the Owner.</strong>
+                                                </div>
+                                                <li>
+                                                    The Renter agrees to pay the market value of the vehicle to the owner in the event the vehicle is
+                                                    stolen or gone missing during the subsistence of this Agreement.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Owner agrees to provide a full insurance cover for the vehicle more fully described in the
+                                                        Schedule hereto and the Renter shall have no right to claim any compensation from the
+                                                        Insurance Company for events described in Clauses 7 and 8.</strong>
+                                                </div>
+                                                <li>
+                                                    It is agreed between the parties that the annual premium pertaining to the vehicle described in
+                                                    the Schedule hereto shall be paid by the owner to the Insurance Company during the
+                                                    subsistence of this Agreement when such amount becomes due.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Renter shall not employ a person who is under the age of 18 years of age to drive the
+                                                        vehicle or employ any person who does not possess a valid driving license or employ any person
+                                                        who is under the influence of alcohol or use the vehicle for any illegal or unlawful activities.</strong>
+                                                </div>
+                                                <li>
+                                                    The Renter shall take good care of the vehicle more fully described in the Schedule hereto and
+                                                    maintain it periodically by effecting periodic services and other incidental repairs/mechanical
+                                                    repairs which may occur at the expense of the Renter.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Renter agrees that in the event if the vehicle described in the Schedule is subjected to any
+                                                        legal prosecution or court proceedings the Renter shall take the fullest responsibility and liability
+                                                        of the same and defend and absolve the Owner from any legal prosecution/legal proceedings/
+                                                        liabilities and pay the Owner an amount fixed at Rs. 30,000 per day till the Owner is discharged
+                                                        from any legal proceedings and/or till the vehicle described in the Schedule hereto is discharged
+                                                        from the Court in the event if the Vehicle is subjected as a court production.</strong>
+                                                </div>
+                                                <li>
+                                                    The Renter is prohibited from further hiring or giving the rented vehicle to another party on
+                                                    rent. Such act will be considered an offence and a fine will be charged decided by the owner.
+                                                </li>
+                                            </li>
+                                            <li className="mb-4">
+                                                <div className="mb-2">
+                                                    <strong>The Renter agrees to pay a monthly rental on a fixed date every month as per the period of
+                                                        contract. The owner reserves the right to claim and collect the said vehicle within 7 days if the
+                                                        payment has been defaulted by the Renter.</strong>
+                                                </div>
+                                                {/* You can add more terms here if needed */}
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </>}
+
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
