@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import lefticon from '../../assets/images/featureicons/arrowleft.svg';
+import righticon from '../../assets/images/featureicons/arrowright.svg';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const EnlargedImage = ({ imageUrl, onClose, imageUrlsArray }) => {
     const popupStyle = {
         top: `${window.innerHeight / 3600 + window.scrollY}px`, // Set the top position based on the middle of the viewport
         // ... other styles
     };
+    
     const nonEmptyImageUrls = imageUrlsArray.filter((item) => !!item && item.trim() !== '');
     console.log("array:", nonEmptyImageUrls);
         return (
@@ -20,7 +24,34 @@ const EnlargedImage = ({ imageUrl, onClose, imageUrlsArray }) => {
 
                     {/* Carousel */}
                    
-                    <Carousel className='h-auto' showThumbs={false} autoPlay={true} showArrows={true}>
+                    <Carousel
+                        axis="horizontal"
+                        showStatus={false}
+                        className="relative"
+                        renderArrowPrev={(clickHandler, hasPrev) => {
+                            return (
+                                <div
+                                    className={`${hasPrev ? "absolute" : "hidden"
+                                        } top-0 bottom-96 mb-64 left-0 flex justify-center items-center p-3 opacity-80 hover:opacity-100 cursor-pointer z-20`}
+                                    onClick={clickHandler}
+                                >
+                                    <img src={lefticon} alt="Make Icon" className="w-24 h-24 mr-2" /> 
+
+                                </div>
+                            );
+                        }}
+                        renderArrowNext={(clickHandler, hasNext) => {
+                            return (
+                                <div
+                                    className={`${hasNext ? "absolute" : "hidden"
+                                        } top-0 bottom-96 right-0 mb-64 flex justify-center items-center p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
+                                    onClick={clickHandler}
+                                >
+                                    <img src={righticon} alt="Make Icon" className="w-24 h-24 mr-2" /> next
+                                </div>
+                            );
+                        }}
+                    >
                         {nonEmptyImageUrls.map((imageUrl, index) => (
                             <div key={index}>
                                 <img

@@ -380,8 +380,9 @@ const Home = () => {
 
           
               <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
-                  <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                           <Link to="/listingcar" >
+                  <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                          
 
                   <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
                   </Link>
@@ -390,16 +391,18 @@ const Home = () => {
 
             
               <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
-                  <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                           <Link to="/listingvacation" >
+                  <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                     
                   <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                   </Link>
                           <p className="text-sm md:text-base">Charming vacation homes offering comfort, style, and memorable getaways.</p>
               </div>
 
                       <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
-                          <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                           <Link to="/listingproperty" >
+                          <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                      
                           <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
                           </Link>
                           <p className="text-sm md:text-base">Spacious, modern home with scenic views and luxurious amenities</p>
@@ -417,8 +420,9 @@ const Home = () => {
 
                 {/* Item 2 */}
                 <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.car}>
-                    <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                                   <Link to="/listingcar" >
+                    <img src={car} alt="Car Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                              
 
                     <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
                     </Link>
@@ -427,8 +431,9 @@ const Home = () => {
 
                 {/* Item 3 */}
                 <div className="flex flex-col items-center z-10" ref={logosRefs.vacation}>
-                    <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                                   <Link to="/listingvacation" >
+                    <img src={vacation} alt="Home Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                                 
 
                     <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                     </Link>
@@ -436,8 +441,9 @@ const Home = () => {
                 </div>
 
                      <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
-                                  <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
                                   <Link to="/listingproperty" >
+                                  <img src={property} alt="Property Icon" className="mb-2 w-12 h-12 mx-auto md:w-16 md:h-16" />
+                                 
 
                                   <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
                                  </Link>
