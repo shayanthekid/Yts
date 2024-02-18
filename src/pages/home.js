@@ -13,7 +13,9 @@ import vacation from '../assets/images/home.png';
 import icon1 from '../assets/images/car.svg'; // Replace with your actual image paths
 import icon2 from '../assets/images/building.svg';
 import icon3 from '../assets/images/vacation.svg';
-import hwicar from '../assets/images/hiwcar.png';
+import hwicar from '../assets/images/hiwcar.svg';
+import hiwrental from '../assets/images/hiwrental.svg';
+import hiwprop from '../assets/images/hiwprop.svg';
 import aboutUsImage from '../assets/images/aboutusmobile.png';
 import aboutUsdesk from '../assets/images/aboutusdesk.png';
 import mobcarousel1 from '../assets/images/mobilehome1.png';
@@ -526,8 +528,8 @@ const Home = () => {
               {/* Display content based on active tab */}
               <div className="mt-8 z-50">
                   {activeTab === 1 && <img src={hwicar} alt="Content 1" className="mx-auto z-10" />}
-                  {activeTab === 2 && <img src={hwicar} alt="Content 2" className="mx-auto z-10" />}
-                  {activeTab === 3 && <img src={hwicar} alt="Content 3" className="mx-auto z-10" />}
+                  {activeTab === 2 && <img src={hiwrental} alt="Content 2" className="mx-auto z-10" />}
+                  {activeTab === 3 && <img src={hiwprop} alt="Content 3" className="mx-auto z-10" />}
               </div>
 
 
