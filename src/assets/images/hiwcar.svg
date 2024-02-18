@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="358" height="938" viewBox="0 0 358 938">
-  <g id="Group_103" data-name="Group 103" transform="translate(-30 -2290)">
+<svg xmlns="http://www.w3.org/2000/svg" width="415" height="925" viewBox="0 0 415 925">
+  <g id="Group_104" data-name="Group 104" transform="translate(-2 -2290)">
     <circle id="Ellipse_6" data-name="Ellipse 6" cx="33" cy="33" r="33" transform="translate(176 2290)" fill="#cce28d"/>
-    <text id="Step_1:_Choose_Your_car" data-name="Step 1: Choose Your  car" transform="translate(37 2386)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="22.255" y="29" xml:space="preserve">Step 1: Choose Your  </tspan><tspan x="147.88" y="59">car</tspan></text>
+    <text id="Step_1:_Choose_Your_car" data-name="Step 1: Choose Your  car" transform="translate(15 2386)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="12.355" y="29" xml:space="preserve">Step 1: Choose Your  car</tspan></text>
     <line id="Line_29" data-name="Line 29" y2="159" transform="translate(209 2459)" fill="none" stroke="#000" stroke-width="1" opacity="0.64"/>
     <circle id="Ellipse_9" data-name="Ellipse 9" cx="14.5" cy="14.5" r="14.5" transform="translate(195 2524)" fill="#2e3192"/>
     <g id="Group_47" data-name="Group 47" transform="translate(-399.083 397)">
@@ -14,7 +14,7 @@
       <path id="Path_35" data-name="Path 35" d="M11.418,15.683a2.592,2.592,0,1,0,3.588,3.588l6.7-10.214a.058.058,0,0,0,0-.059.056.056,0,0,0-.076-.017l-10.214,6.7Z" transform="translate(5.704 3.439)" fill="#fff"/>
     </g>
     <text id="Step_2_:_Check_Availability_" data-name="Step 2 : Check Availability 
-" transform="translate(30 2730)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="70.34" y="29">Step 2 : Check </tspan><tspan x="94.7" y="59">Availability </tspan><tspan x="179" y="89"></tspan></text>
+" transform="translate(2 2730)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="10.4" y="29">Step 2 : Check Availability </tspan><tspan x="207.5" y="59"></tspan></text>
     <line id="Line_33" data-name="Line 33" y2="159" transform="translate(209 2818)" fill="none" stroke="#000" stroke-width="1" opacity="0.64"/>
     <circle id="Ellipse_11" data-name="Ellipse 11" cx="14.5" cy="14.5" r="14.5" transform="translate(195 2883)" fill="#2e3192"/>
     <g id="Group_49" data-name="Group 49" transform="translate(-399.083 756)">
@@ -24,7 +24,7 @@
     <circle id="Ellipse_8" data-name="Ellipse 8" cx="33" cy="33" r="33" transform="translate(176 3003)" fill="#cce28d"/>
     <path id="bx-dollar" d="M27.212,15.789h4.243c0-6.018-5.844-8.763-10.607-9.4V2H16.606V6.393C11.843,7.025,6,9.77,6,15.789c0,5.74,5.655,8.725,10.607,9.4V35.729c-3.072-.532-6.364-2.172-6.364-5.091H6c0,5.492,5.144,8.738,10.607,9.41v4.378h4.243V40.036c4.762-.632,10.607-3.379,10.607-9.4s-5.844-8.763-10.607-9.4V10.7C23.67,11.2,27.212,12.694,27.212,15.789Zm-16.971,0c0-3.1,3.543-4.584,6.364-5.091v10.18C13.7,20.341,10.242,18.752,10.242,15.789ZM27.212,30.638c0,3.1-3.543,4.584-6.364,5.091V25.547C23.67,26.054,27.212,27.543,27.212,30.638Z" transform="translate(190.273 3012.787)" fill="#fff"/>
     <text id="Step_3_:_Book_Your_Car_" data-name="Step 3 : Book Your Car 
-" transform="translate(74 3111)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="35.24" y="29">Step 3 : Book </tspan><tspan x="69.92" y="59">Your Car </tspan><tspan x="135.5" y="89"></tspan></text>
+" transform="translate(38 3098)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="1.52" y="29">Step 3 : Book Your Car </tspan><tspan x="171.5" y="59"></tspan></text>
     <g id="noun-cars-5022156" transform="translate(191.512 2310.312)">
       <path id="Path_41" data-name="Path 41" d="M14.333,32.2H11.005a1.25,1.25,0,0,0-1.249,1.249V34.79a1.25,1.25,0,0,0,1.249,1.249h3.327a1.25,1.25,0,0,0,1.249-1.249V33.449A1.25,1.25,0,0,0,14.333,32.2Zm0,2.59H11.005s0-1.343,0-1.341h3.327Z" transform="translate(-6.161 -19.387)" fill="#fff"/>
       <path id="Path_42" data-name="Path 42" d="M14.877,40.449H10.7a.625.625,0,1,0,0,1.249h4.174a.625.625,0,1,0,0-1.249Z" transform="translate(-6.282 -22.484)" fill="#fff"/>
