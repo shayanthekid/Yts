@@ -1,34 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="455" height="938" viewBox="0 0 455 938">
-  <g id="Group_107" data-name="Group 107" transform="translate(17 -2290)">
-    <circle id="Ellipse_6" data-name="Ellipse 6" cx="33" cy="33" r="33" transform="translate(176 2290)" fill="#cce28d"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="445" height="918" viewBox="0 0 445 918">
+  <g id="Group_107" data-name="Group 107" transform="translate(16.676 -2289.745)">
+    <circle id="Ellipse_6" data-name="Ellipse 6" cx="32.5" cy="32.5" r="32.5" transform="translate(171.324 2289.745)" fill="#cce28d"/>
     <text id="Step_1_:_Explore_the_Villa_" data-name="Step 1 : Explore the Villa 
-" transform="translate(15 2385)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="11.63" y="29">Step 1 : Explore the Villa </tspan><tspan x="194" y="59"></tspan></text>
-    <line id="Line_29" data-name="Line 29" y2="159" transform="translate(209 2459)" fill="none" stroke="#000" stroke-width="1" opacity="0.64"/>
-    <circle id="Ellipse_9" data-name="Ellipse 9" cx="14.5" cy="14.5" r="14.5" transform="translate(195 2524)" fill="#2e3192"/>
-    <g id="Group_47" data-name="Group 47" transform="translate(-399.083 397)">
-      <line id="Line_31" data-name="Line 31" x2="7.968" y2="7.968" transform="translate(601.5 2138.5)" fill="none" stroke="#fff" stroke-width="3"/>
-      <line id="Line_32" data-name="Line 32" x1="7.968" y2="7.968" transform="translate(607.697 2138.5)" fill="none" stroke="#fff" stroke-width="3"/>
+" transform="translate(14.324 2382.745)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="7.13" y="29">Step 1 : Explore the Villa </tspan><tspan x="189.5" y="59"></tspan></text>
+    <line id="Line_29" data-name="Line 29" y2="156" transform="translate(203.324 2455.745)" fill="none" stroke="#000" stroke-width="1" opacity="0.64"/>
+    <ellipse id="Ellipse_9" data-name="Ellipse 9" cx="14.5" cy="14" rx="14.5" ry="14" transform="translate(190.324 2519.745)" fill="#2e3192"/>
+    <g id="Group_47" data-name="Group 47" transform="translate(197.699 2530.228)">
+      <line id="Line_31" data-name="Line 31" x2="7.797" y2="7.797" transform="translate(0)" fill="none" stroke="#fff" stroke-width="3"/>
+      <line id="Line_32" data-name="Line 32" x1="7.797" y2="7.797" transform="translate(6.064)" fill="none" stroke="#fff" stroke-width="3"/>
     </g>
-    <circle id="Ellipse_7" data-name="Ellipse 7" cx="33" cy="33" r="33" transform="translate(176 2629)" fill="#cde391"/>
-    <g id="bx-tachometer" transform="translate(190.083 2645.312)">
-      <path id="Path_34" data-name="Path 34" d="M18.917,4A16.936,16.936,0,0,0,2,20.917a16.731,16.731,0,0,0,1.778,7.52,1.694,1.694,0,0,0,1.514.939H32.54a1.7,1.7,0,0,0,1.516-.939,16.731,16.731,0,0,0,1.778-7.52A16.936,16.936,0,0,0,18.917,4ZM31.452,25.992H6.382a13.322,13.322,0,0,1-1-5.075,13.534,13.534,0,1,1,27.067,0,13.322,13.322,0,0,1-1,5.075Z" fill="#fff"/>
-      <path id="Path_35" data-name="Path 35" d="M11.418,15.683a2.592,2.592,0,1,0,3.588,3.588l6.7-10.214a.058.058,0,0,0,0-.059.056.056,0,0,0-.076-.017l-10.214,6.7Z" transform="translate(5.704 3.439)" fill="#fff"/>
+    <ellipse id="Ellipse_7" data-name="Ellipse 7" cx="32.5" cy="32" rx="32.5" ry="32" transform="translate(171.324 2621.745)" fill="#cde391"/>
+    <g id="bx-tachometer" transform="translate(187.587 2641.594)">
+      <path id="Path_34" data-name="Path 34" d="M18.553,4A16.572,16.572,0,0,0,2,20.553a16.371,16.371,0,0,0,1.74,7.358,1.657,1.657,0,0,0,1.482.919H31.884a1.66,1.66,0,0,0,1.483-.919,16.371,16.371,0,0,0,1.74-7.358A16.572,16.572,0,0,0,18.553,4ZM30.82,25.52H6.287a13.036,13.036,0,0,1-.977-4.966,13.243,13.243,0,1,1,26.486,0,13.036,13.036,0,0,1-.977,4.966Z" transform="translate(-2 -4)" fill="#fff"/>
+      <path id="Path_35" data-name="Path 35" d="M11.393,15.539A2.536,2.536,0,1,0,14.9,19.05l6.558-9.995a.056.056,0,0,0,0-.058.055.055,0,0,0-.074-.017l-9.995,6.558Z" transform="translate(3.404 -0.742)" fill="#fff"/>
     </g>
     <text id="Step_2_:_Check_Availability_" data-name="Step 2 : Check Availability 
-" transform="translate(-1 2730)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="13.9" y="29">Step 2 : Check Availability </tspan><tspan x="211" y="59"></tspan></text>
-    <line id="Line_33" data-name="Line 33" y2="159" transform="translate(209 2818)" fill="none" stroke="#000" stroke-width="1" opacity="0.64"/>
-    <circle id="Ellipse_11" data-name="Ellipse 11" cx="14.5" cy="14.5" r="14.5" transform="translate(195 2883)" fill="#2e3192"/>
-    <g id="Group_49" data-name="Group 49" transform="translate(-399.083 756)">
-      <line id="Line_31-2" data-name="Line 31" x2="7.968" y2="7.968" transform="translate(601.5 2138.5)" fill="none" stroke="#fff" stroke-width="3"/>
-      <line id="Line_32-2" data-name="Line 32" x1="7.968" y2="7.968" transform="translate(607.697 2138.5)" fill="none" stroke="#fff" stroke-width="3"/>
+" transform="translate(-1.676 2720.745)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="9.4" y="29">Step 2 : Check Availability </tspan><tspan x="206.5" y="59"></tspan></text>
+    <line id="Line_33" data-name="Line 33" y2="155" transform="translate(203.324 2806.745)" fill="none" stroke="#000" stroke-width="1" opacity="0.64"/>
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="14.5" cy="14.5" r="14.5" transform="translate(190.324 2869.745)" fill="#2e3192"/>
+    <g id="Group_49" data-name="Group 49" transform="translate(197.699 2881.514)">
+      <line id="Line_31-2" data-name="Line 31" x2="7.797" y2="7.797" transform="translate(0)" fill="none" stroke="#fff" stroke-width="3"/>
+      <line id="Line_32-2" data-name="Line 32" x1="7.797" y2="7.797" transform="translate(6.064)" fill="none" stroke="#fff" stroke-width="3"/>
     </g>
-    <circle id="Ellipse_8" data-name="Ellipse 8" cx="33" cy="33" r="33" transform="translate(176 3003)" fill="#cce28d"/>
-    <path id="bx-dollar" d="M27.212,15.789h4.243c0-6.018-5.844-8.763-10.607-9.4V2H16.606V6.393C11.843,7.025,6,9.77,6,15.789c0,5.74,5.655,8.725,10.607,9.4V35.729c-3.072-.532-6.364-2.172-6.364-5.091H6c0,5.492,5.144,8.738,10.607,9.41v4.378h4.243V40.036c4.762-.632,10.607-3.379,10.607-9.4s-5.844-8.763-10.607-9.4V10.7C23.67,11.2,27.212,12.694,27.212,15.789Zm-16.971,0c0-3.1,3.543-4.584,6.364-5.091v10.18C13.7,20.341,10.242,18.752,10.242,15.789ZM27.212,30.638c0,3.1-3.543,4.584-6.364,5.091V25.547C23.67,26.054,27.212,27.543,27.212,30.638Z" transform="translate(190.273 3012.787)" fill="#fff"/>
+    <ellipse id="Ellipse_8" data-name="Ellipse 8" cx="32.5" cy="32" rx="32.5" ry="32" transform="translate(171.324 2987.745)" fill="#cce28d"/>
+    <path id="bx-dollar" d="M26.757,15.492h4.152c0-5.889-5.719-8.575-10.379-9.194V2H16.378V6.3C11.718,6.917,6,9.6,6,15.492c0,5.617,5.534,8.538,10.379,9.2V35c-3.006-.521-6.227-2.126-6.227-4.982H6c0,5.374,5.034,8.55,10.379,9.208v4.284h4.152v-4.3c4.66-.619,10.379-3.307,10.379-9.2s-5.719-8.575-10.379-9.194V10.511C23.29,11.007,26.757,12.464,26.757,15.492Zm-16.606,0c0-3.029,3.467-4.486,6.227-4.982v9.962C13.532,19.947,10.151,18.392,10.151,15.492Zm16.606,14.53c0,3.029-3.467,4.486-6.227,4.982V25.041C23.29,25.537,26.757,26.994,26.757,30.023Z" transform="translate(185.687 2997.216)" fill="#fff"/>
     <text id="Step_3_:_Make_a_Reservation_" data-name="Step 3 : Make a Reservation 
-" transform="translate(-17 3111)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="16.15" y="29">Step 3 : Make a Reservation </tspan><tspan x="227.5" y="59"></tspan></text>
-    <g id="noun-vacation-2527534" transform="translate(193.4 2306.548)">
+" transform="translate(-16.676 3093.745)" font-size="30" font-family="Montserrat" font-weight="600"><tspan x="11.15" y="29">Step 3 : Make a Reservation </tspan><tspan x="222.5" y="59"></tspan></text>
+    <g id="noun-vacation-2527534" transform="translate(188.876 2306.196)">
       <g id="Group_62" data-name="Group 62" transform="translate(0)">
-        <path id="Path_48" data-name="Path 48" d="M26.339,7.5A14.522,14.522,0,0,0,11.82,21.979a.592.592,0,1,0,1.184,0,2.88,2.88,0,0,1,5.76,0,.592.592,0,1,0,1.184,0,2.084,2.084,0,0,1,.039-.513h0a2.884,2.884,0,0,1,5.721.513V35.354H22a3.334,3.334,0,0,0,.631-2.446,2.434,2.434,0,0,0-1.3-1.7.585.585,0,0,0-.276-.039l-7.338.237L11.82,28.134a1.184,1.184,0,0,0-2.052,1.184l4.5,7.772a1.177,1.177,0,0,0,1.026.592h2.959l-1.7,1.736a.572.572,0,0,0,0,.829.565.565,0,0,0,.395.158.634.634,0,0,0,.434-.2l2.486-2.564H33.283l2.486,2.564a.634.634,0,0,0,.434.2.457.457,0,0,0,.395-.158.572.572,0,0,0,0-.829l-1.7-1.736h2.88a1.184,1.184,0,0,0,0-2.367H26.931V21.979a2.884,2.884,0,0,1,5.721-.513h0a2.249,2.249,0,0,1,.039.513.592.592,0,1,0,1.184,0,2.88,2.88,0,0,1,5.76,0,.592.592,0,1,0,1.184,0A14.463,14.463,0,0,0,26.339,7.5ZM14.424,32.631l6.549-.237a1.273,1.273,0,0,1,.552.789,3.039,3.039,0,0,1-.947,2.209H16.042Zm1.46-14.716a3.885,3.885,0,0,0-2.486.868A13.322,13.322,0,0,1,24.6,8.8c-4.379,2.209-5.444,7.457-5.681,10.455A4.049,4.049,0,0,0,15.884,17.916Zm6.983,0a4.088,4.088,0,0,0-2.762,1.065c.276-2.92,1.381-7.772,5.642-9.429v9.587A4.093,4.093,0,0,0,22.867,17.916Zm6.944,0a4.023,4.023,0,0,0-2.88,1.223V9.552c4.261,1.7,5.366,6.51,5.642,9.469A4.048,4.048,0,0,0,29.811,17.916Zm6.983,0a4.027,4.027,0,0,0-3,1.341c-.237-3-1.3-8.246-5.681-10.455a13.37,13.37,0,0,1,11.2,9.982A4.25,4.25,0,0,0,36.794,17.916Z" transform="translate(-9.618 -7.5)" fill="#fff"/>
+        <path id="Path_48" data-name="Path 48" d="M25.98,7.5A14.21,14.21,0,0,0,11.773,21.668a.579.579,0,1,0,1.158,0,2.818,2.818,0,0,1,5.636,0,.579.579,0,1,0,1.158,0,2.039,2.039,0,0,1,.039-.5h0a2.822,2.822,0,0,1,5.6.5V34.755H21.733a3.262,3.262,0,0,0,.618-2.394,2.382,2.382,0,0,0-1.274-1.66.572.572,0,0,0-.27-.039l-7.181.232-1.853-3.2a1.159,1.159,0,1,0-2.007,1.158l4.4,7.605a1.152,1.152,0,0,0,1,.579h2.9l-1.66,1.7a.56.56,0,0,0,0,.811.553.553,0,0,0,.386.154.62.62,0,0,0,.425-.193l2.432-2.509H32.774L35.206,39.5a.62.62,0,0,0,.425.193.448.448,0,0,0,.386-.154.56.56,0,0,0,0-.811l-1.66-1.7h2.818a1.158,1.158,0,1,0,0-2.316H26.559V21.668a2.822,2.822,0,0,1,5.6-.5h0a2.2,2.2,0,0,1,.039.5.579.579,0,1,0,1.158,0,2.818,2.818,0,0,1,5.636,0,.579.579,0,1,0,1.158,0A14.153,14.153,0,0,0,25.98,7.5ZM14.321,32.091l6.408-.232a1.245,1.245,0,0,1,.54.772,2.974,2.974,0,0,1-.927,2.162H15.9Zm1.428-14.4a3.8,3.8,0,0,0-2.432.849A13.036,13.036,0,0,1,24.281,8.774C20,10.936,18.954,16.07,18.722,19A3.962,3.962,0,0,0,15.749,17.692Zm6.833,0a4,4,0,0,0-2.7,1.042c.27-2.857,1.351-7.605,5.521-9.227v9.381A4.005,4.005,0,0,0,22.582,17.692Zm6.794,0a3.937,3.937,0,0,0-2.818,1.2V9.507c4.169,1.66,5.25,6.37,5.521,9.265A3.961,3.961,0,0,0,29.377,17.692Zm6.833,0A3.941,3.941,0,0,0,33.276,19C33.044,16.07,32,10.936,27.717,8.774a13.082,13.082,0,0,1,10.964,9.767A4.158,4.158,0,0,0,36.21,17.692Z" transform="translate(-9.618 -7.5)" fill="#fff"/>
       </g>
     </g>
   </g>
