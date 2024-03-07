@@ -49,13 +49,14 @@ const AppRouter = () => {
 
             
             <Routes>
-                <Route path='/' element={<ConstructionRoute />} />
+             
                 <Route path='/login' element={<_login />} />
                 <Route path='/admin/createItem' element={<_createItem />} />
                 <Route path='/admin/manageItems' element={<_manageItems />} />
                 <Route path='/admin/createBooking' element={<_createBooking />} />
                 <Route path='/admin/manageBookings' element={<_manageBooking />} />
                 <Route path='/admin/manageTrending' element={<_manageTrending />} />
+                <Route path='/' element={<_home />} />
                 <Route path='/home' element={<_home />} />
                 <Route path='/listingcar' element={<_listingcar />} />
                 <Route path='/listingproperty' element={<_listingprop />} />

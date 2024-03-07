@@ -45,12 +45,7 @@ const DesktopNav = () => {
     };
 
     const isAdminRoute = location.pathname.includes('/admin');
-    const isConstructionRoute = location.pathname === '/';
-
-    if (isConstructionRoute) {
-        // Don't render DesktopNav for the ConstructionRoute
-        return null;
-    }
+ 
     return (
         <>
             {/* Display content based on active tab or admin route */}
