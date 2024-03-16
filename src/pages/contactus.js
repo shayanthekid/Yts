@@ -138,10 +138,10 @@ const ContactUs = () => {
     return (
         <div>
             <div className="container mx-auto p-8 py-4 mt-10">
-                <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
+                <h2 className="text-3xl font-bold mb-8">Reservation Request</h2>
                 <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
                     <div className="mb-4">
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-600 text-left">
+                        <label htmlFor="name" className="block text-sm font-black text-gray-600 text-left">
                             Name
                         </label>
                         <input
@@ -156,7 +156,7 @@ const ContactUs = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-600 text-left">
+                        <label htmlFor="email" className="block text-sm font-black text-gray-600 text-left">
                             Email
                         </label>
                         <input
@@ -171,7 +171,7 @@ const ContactUs = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-600 text-left">
+                        <label htmlFor="email" className="block text-sm font-black text-gray-600 text-left">
                             Whatsapp Number
                         </label>
                         <input
@@ -187,7 +187,7 @@ const ContactUs = () => {
                   
 
                     <div className="mb-4">
-                        <label htmlFor="itemType" className="block text-sm font-medium text-gray-600 text-left">
+                        <label htmlFor="itemType" className="block text-sm font-black text-gray-600 text-left">
                             Item Type
                         </label>
                         <select
@@ -198,15 +198,16 @@ const ContactUs = () => {
                             className="mt-1 p-2 w-full border rounded-md"
                             required
                         >
-                            <option value="" disabled>Select Item Type</option>
+                            <option value="" disabled >Select Item Type</option>
                             {itemTypes.map(type => (
                                 <option key={type.value} value={type.value}>{type.label}</option>
                             ))}
                         </select>
                     </div>
 
+
                     <div className="mb-4">
-                        <label htmlFor="selectedItem" className="block text-sm font-medium text-gray-600 text-left">
+                        <label htmlFor="selectedItem" className="block text-sm font-black text-gray-600 text-left">
                             Select Item
                         </label>
                         {formData.itemType ? (
@@ -223,12 +224,12 @@ const ContactUs = () => {
                                 ))}
                             </select>
                         ) : (
-                            <p className="text-gray-500">Please select a category first</p>
+                            <p className="font-normal">Please select a category first</p>
                         )}
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="bookingDate" className="block text-sm font-medium text-gray-600 text-left">
+                        <label htmlFor="bookingDate" className="block text-sm font-black text-gray-600 text-left">
                             Booking Date
                         </label>
                         <Calendar

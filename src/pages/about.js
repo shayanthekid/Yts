@@ -6,6 +6,7 @@ import icon1 from '../assets/images/featureicons/noun-investment-6508502.svg'; /
 import icon2 from '../assets/images/featureicons/noun-hospitality-4863958.svg'; // Replace with your actual image paths
 import icon3 from '../assets/images/featureicons/noun-car-6511431.svg'
 import icon4 from '../assets/images/featureicons/noun-real-estate-5767677.svg'
+import founder from '../assets/images/founder.jpg';
 
 const About = () => {
     const headingRef = useRef(null);
@@ -42,8 +43,8 @@ const About = () => {
                         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-[#CCE28D]">
                             <img
                                 alt="..."
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                className="w-full align-middle rounded-t-lg"
+                                src={founder}
+                                className="w-full h-1/2 align-middle rounded-t-lg"
                             />
                             <blockquote className="relative p-8 mb-4">
                                 <h4 className="text-xl text-center font-bold text-black">
