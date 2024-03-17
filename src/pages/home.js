@@ -388,7 +388,7 @@ const Home = () => {
 
                   <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
                   </Link>
-                          <p className="text-sm md:text-base">Explore drive and rent cars for unforgettable travel experiences.</p>
+                          <p className="text-sm md:text-base">Explore, drive and rent cars for unforgettable travel experiences.</p>
               </div>
 
             
@@ -398,7 +398,7 @@ const Home = () => {
                      
                   <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                   </Link>
-                          <p className="text-sm md:text-base">Charming vacation homes offering comfort style and memorable getaways.</p>
+                          <p className="text-sm md:text-base">Charming vacation homes offering comfort, style and memorable getaways.</p>
               </div>
 
                       <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
@@ -407,7 +407,7 @@ const Home = () => {
                       
                           <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
                           </Link>
-                          <p className="text-sm md:text-base">Spacious modern home with scenic views and luxurious amenities.</p>
+                          <p className="text-sm md:text-base">Spacious, modern home with scenic views and luxurious amenities.</p>
                       </div>
           </div>
       </div>
@@ -428,7 +428,7 @@ const Home = () => {
 
                     <h2 className="text-lg md:text-xl font-bold mb-2">Car Rentals</h2>
                     </Link>
-                                  <p className="text-sm md:text-base">Explore drive and rent cars for unforgettable travel experiences.</p>
+                                  <p className="text-sm md:text-base">Explore, drive and rent cars for unforgettable travel experiences.</p>
                 </div>
 
                 {/* Item 3 */}
@@ -439,7 +439,7 @@ const Home = () => {
 
                     <h2 className="text-lg md:text-xl font-bold mb-2">Holiday Homes</h2>
                     </Link>
-                                  <p className="text-sm md:text-base">Charming vacation homes offering comfort style and memorable getaways.</p>
+                                  <p className="text-sm md:text-base">Charming vacation homes offering comfort, style and memorable getaways.</p>
                 </div>
 
                      <div className="flex flex-col items-center mb-4 md:mr-4 z-10" ref={logosRefs.property}>
@@ -449,7 +449,7 @@ const Home = () => {
 
                                   <h2 className="text-lg md:text-xl font-bold mb-2">Properties</h2>
                                  </Link>
-                                  <p className="text-sm md:text-base">Spacious modern home with scenic views and luxurious amenities.</p>
+                                  <p className="text-sm md:text-base">Spacious, modern home with scenic views and luxurious amenities.</p>
                               </div>
             </div>
           </div >
