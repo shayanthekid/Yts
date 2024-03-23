@@ -60,6 +60,11 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "sendEmail": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "updateTrending": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -283,6 +288,22 @@
         {
           "category": "function",
           "resourceName": "getitembooking"
+        }
+      ]
+    },
+    "AMPLIFY_function_sendEmail_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sendEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_sendEmail_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sendEmail"
         }
       ]
     },

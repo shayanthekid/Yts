@@ -90,10 +90,37 @@ const ContactUs = () => {
 
    
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData, 'Selected Dates:', selectedDates);
+
+        // Prepare form data object
+        const formData = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            contact: e.target.contact.value,
+            itemType: e.target.itemType.value,
+            selectedItem: e.target.selectedItem.value,
+            selectedDates: selectedDates,
+        };
+
+        try {
+            const response = await axios.post('https://b9jdhxks0d.execute-api.ap-southeast-1.amazonaws.com/apidev/sendEmail', formData);
+            console.log("Error:", formData);
+            if (response.status === 200) {
+                const result = response.data;
+                alert(result.body); // Display success message
+                // Reset form (optional)
+            } else {
+                console.log("Error:", response.statusText);
+                console.log("Error:", formData);
+                alert('Error submitting request. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Error sending form data:', error);
+            alert('Error submitting request. Please try again later.');
+        }
     };
+
 
     // Move the fetchData function outside of useEffect
     const fetchBooking = async (itemId) => {

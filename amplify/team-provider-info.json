@@ -86,6 +86,10 @@
         "updateTrending": {
           "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
           "s3Key": "amplify-builds/updateTrending-4b74495079505572736e-build.zip"
+        },
+        "sendEmail": {
+          "deploymentBucketName": "amplify-ytsdev4-ytsg-121017-deployment",
+          "s3Key": "amplify-builds/sendEmail-667748562b547251726c-build.zip"
         }
       }
     }
